@@ -13,7 +13,7 @@ public class Test {
 
 		UserApi userApi = new UserApi();
 		userApi.setEnable("启用");
-		userApi.setId(5); 
+		userApi.setId(5);
 		userApi.setMail("jy02360032@hotmail.com");
 		userApi.setStarttime(new Date());
 		UserWapper userWapper = new UserWapper();
