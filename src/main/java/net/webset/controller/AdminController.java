@@ -76,11 +76,13 @@ public class AdminController {
 	public ModelAndView index(ModelAndView mav) {
 		User user = (User) session.getAttribute("user");
 		if(user == null) {
-			mav.setViewName("error/.html");
+			mav.addObject("msg","登录信息失效，请重新登录");
+			mav.setViewName("error/500.html");
+		}else {
+			mav.setViewName("index/main.html");
+			Msg msg = new Msg("测试标题","测试内容","额外信息,只对管理员显示");
+			mav.addObject("msg",msg);
 		}
-		mav.setViewName("index/main.html");
-		Msg msg = new Msg("测试标题","测试内容","额外信息,只对管理员显示");
-		mav.addObject("msg",msg);
 		return mav;
 	}
 	

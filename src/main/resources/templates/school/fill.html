@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>学校填报信息</title>
+<link rel="stylesheet" th:href="@{/js/plugin/bootstrap/dist/css/bootstrap.min.css}" />
+<link rel="stylesheet" th:href="@{/js/plugin/bootstrapvalidator/dist/css/bootstrapValidator.css}" />
+<link rel="stylesheet" th:href="@{/js/plugin/bootstrapdatepicker/css/bootstrap-datepicker.css}" />
+</head>
+<body>
+<div class="container">
+    <div class="navbar navbar-fixed-top">
+        <div class="span6 collapse navbar-collapse">
+            <ul class="nav nav-tabs">
+                <li class="active"><a href="#">学校基础信息</a></li>
+                <li><a href="#">Tutorials</a></li>
+                <li><a href="#">Practice Editor </a></li>
+                <li><a href="#">Gallery</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </div>
+    </div>
+
+</div> 
+<div id="template" th:replace="plugn/schoolCompent::info"></div>
+
+
+</body>
+<script th:src="@{/js/plugin/jquery.js}"></script>
+<script th:src="@{/js/plugin/bootstrap/dist/js/bootstrap.js}"></script>
+<script th:src="@{/js/plugin/bootstrapvalidator/dist/js/bootstrapValidator.js}"></script>
+<script th:src="@{/js/plugin/bootstrapvalidator/dist/js/language/zh_CN.js}"></script>
+<script th:src="@{/js/plugin/bootstrapdatepicker/js/bootstrap-datepicker.js}"></script>
+<script th:src="@{/js/plugin/bootstrapdatepicker/locales/bootstrap-datepicker.zh-CN.min.js}"></script>
+<script th:src="@{/js/native/native.js}"></script>
+<script th:src="@{/js/native/school/fill.js}"></script>
+</html>

@@ -20,7 +20,7 @@
 
 		<div class="row pad-top text-center">
 			<div class="col-md-6 col-md-offset-3 text-center">
-				<h1>该功能出现错误</h1>
+				<h1>该功能出现错误：[[${msg}]]</h1>
 				<h5>请联系管理员</h5>
 				<span id="error-link"></span>
 				<h2>! 错误代码 !</h2>
@@ -33,7 +33,7 @@
 				<h3>
 					<i class="fa fa-lightbulb-o fa-5x"></i>
 				</h3>
-				<a href="#" class="btn btn-primary">返回登录页</a>
+				<a th:href="@{/admin/login.html}" class="btn btn-primary">返回登录页</a>
 			</div>
 		</div>
 
