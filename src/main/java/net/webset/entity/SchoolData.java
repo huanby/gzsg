@@ -3,6 +3,8 @@ package net.webset.entity;
 import java.util.Date;
 
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Null;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.format.annotation.DateTimeFormat;
@@ -11,6 +13,7 @@ import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
+import com.baomidou.mybatisplus.core.conditions.update.Update;
 
 import net.webset.util.options.Add;
 
@@ -23,6 +26,8 @@ import net.webset.util.options.Add;
 public class SchoolData {
 	@Id
 	@TableId(value = ID,type=IdType.AUTO)
+	@Null(message = "该数据已存在",groups = {Add.class})
+	@NotNull(message = "数据不存在",groups = {Update.class})
 	private Integer id;
 	
 	@TableField(SCHOOLNAME)
@@ -34,7 +39,7 @@ public class SchoolData {
 	private String address;
 	
 	@TableField(BUILDDAY)
-	@NotBlank(message="建校日不能为空",groups= {Add.class})
+	@NotNull(message="建校日不能为空",groups= {Add.class})
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private Date buildDay;
 	
@@ -85,8 +90,8 @@ public class SchoolData {
 	
 	@TableField(CONPOST)
 	private String conPost;
-	@NotBlank(message="联系人办公电话不能为空",groups= {Add.class})
 	
+	@NotBlank(message="联系人办公电话不能为空",groups= {Add.class})
 	@TableField(CONOFFICEPHONE)
 	private String conOfficePhone;
 	
@@ -229,6 +234,13 @@ public class SchoolData {
 		this.conEmail = conEmail;
 	}
 	
+	public Integer getCreateId() {
+		return createId;
+	}
+	public void setCreateId(Integer createId) {
+		this.createId = createId;
+	}
+
 	public static final String ID = "id";
 	public static final String SCHOOLNAME = "school_name";
 	public static final String ADDRESS = "address";

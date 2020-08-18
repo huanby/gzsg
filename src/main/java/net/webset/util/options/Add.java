@@ -1,5 +1,7 @@
 package net.webset.util.options;
 
-public interface Add {
+import javax.validation.groups.Default;
+
+public interface Add extends Default {
 
 }

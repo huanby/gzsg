@@ -7,35 +7,47 @@
 		<form class="form-horizontal"  method="post" id="schoolEditForm" name="schoolEditForm" style="width: 90%" >
 		<fieldset>
 		<legend>基础信息</legend>
+		<input type="hidden" name="id" id="id" th:value="${d.id}">
 		<div class="form-group">
+			<div class="rowGroup">
 	    	<label for="schoolName" class="col-sm-2 control-label">学校名称：</label>
 	    	<div class="col-sm-4">
 	      		<input type="text" class="form-control" id="schoolName" name="schoolName" 
-	      			placeholder="请输入学校名称" value="" />
+	      			placeholder="请输入学校名称" th:value="${d.schoolName}" />
 	    	</div>
+	    	</div>
+	    	<div class="rowGroup">
 	    	<label for="address" class="col-sm-2 control-label">学校地址：</label>
 	    	<div class="col-sm-4">
 	      		<input type="text" class="form-control" id="address" name="address" 
-	      			placeholder="请输入学校地址" value="" />
+	      			placeholder="填写省事两级地理位置" th:value="${d.address}" />
+	    	</div>
 	    	</div>
 	  	</div>
 	  	
 	  	<div class="form-group">
+	  		<div class="rowGroup">
 	    	<label for="buildDay" class="col-sm-2 control-label">建校日期：</label>
 	    	<div class="col-sm-4">
 	      		<input type="text" class="form-control" id="buildDay" name="buildDay" 
-	      		value=""  placeholder="请填写建校日期"/>
+	      			th:value="${#dates.format(d.buildDay, 'yyyy-MM-dd')}"  placeholder="请填写建校日期"/>
 	    	</div>
+	    	</div>
+	    	<div class="rowGroup">
 	    	<label for="nature" class="col-sm-2 control-label">学校性质：</label>
+	    	<input type="hidden" id="nat" th:value="${d.nature}">
 	    	<div class="col-sm-4">
 	      		<select class="form-control" id="nature" name="nature" >
 	      			<option value="公办">公办</option>
 	      			<option value="私立">私立</option>
 	      		</select>
 	    	</div>
+	    	</div>
 	  	</div>
 	  	
 	  	<div class="form-group">
+	  		<div class="rowGroup">
+	  		<input type="hidden" id="typ" th:value="${d.type}">
 	    	<label for="type" class="col-sm-2 control-label">举办单位：</label>
 	    	<div class="col-sm-4">
 	      		<select class="form-control" id="type" name="type" >
@@ -46,10 +58,148 @@
 	      			<option value="其他">其他</option>
 	      		</select>
 	    	</div>
+	    	</div>
+	    	<div class="rowGroup">
+	    	<label for="website" class="col-sm-2 control-label">学校网址：</label>
+	    	<div class="col-sm-4">
+	      		<input type="text" class="form-control" id="website" name="website" 
+	      			th:value="${d.website}"  placeholder="请填写学校网址"/>
+	    	</div>
+	    	</div>
+	  	</div>
+	  	
+	  	<div class="form-group">
+	  		<div class="rowGroup">
+	  		<label for="postalAddress" class="col-sm-2 control-label">通讯地址：</label>
+	    	<div class="col-sm-4">
+	      		<input type="text" class="form-control" id="postalAddress" name="postalAddress" 
+	      			th:value="${d.postalAddress}"  placeholder="请填写学校通讯地址"/>
+	    	</div>
+	    	</div>
+	    	<div class="rowGroup">
+	    	<label for="postcode" class="col-sm-2 control-label">邮编：</label>
+	    	<div class="col-sm-4">
+	      		<input type="text" class="form-control" id="postcode" name="postcode" 
+	      			th:value="${d.postcode}"  placeholder="请填写学校邮编"/>
+	    	</div>
+	    	</div>
 	  	</div>
 		  	
 		</fieldset>
-		<input type="submit" value="提交">
+		
+		<fieldset>
+		<legend>法人信息</legend>
+		<div class="form-group">
+			<div class="rowGroup">
+	  		<label for="leName" class="col-sm-2 control-label">法人姓名：</label>
+	    	<div class="col-sm-4">
+	      		<input type="text" class="form-control" id="leName" name="leName" 
+	      			th:value="${d.leName}"  placeholder="请填写学校法人姓名"/>
+	    	</div>
+	    	</div>
+	    	<div class="rowGroup">
+	    	<label for="lePost" class="col-sm-2 control-label">法人职务：</label>
+	    	<div class="col-sm-4">
+	      		<input type="text" class="form-control" id="lePost" name="lePost" 
+	      			th:value="${d.lePost}"  placeholder="请填写法人职务"/>
+	    	</div>
+	    	</div>
+	  	</div>
+	  	
+	  	<div class="form-group">
+	  		<div class="rowGroup">
+	  		<label for="leOfficePhone" class="col-sm-2 control-label">法人办公电话：</label>
+	    	<div class="col-sm-4">
+	      		<input type="text" class="form-control" id="leOfficePhone" name="leOfficePhone" 
+	      			th:value="${d.leOfficePhone}"  placeholder="请填写学校法人办公电话"/>
+	    	</div>
+	    	</div>
+	    	<div class="rowGroup">
+	    	<label for="lePhone" class="col-sm-2 control-label">法人联系方式：</label>
+	    	<div class="col-sm-4">
+	      		<input type="text" class="form-control" id="lePhone" name="lePhone" 
+	      			th:value="${d.lePhone}"  placeholder="请填写法人联系方式"/>
+	    	</div>
+	    	</div>
+	  	</div>
+	  	
+	  	<div class="form-group">
+	  		<div class="rowGroup">
+	  		<label for="leFax" class="col-sm-2 control-label">法人传真：</label>
+	    	<div class="col-sm-4">
+	      		<input type="text" class="form-control" id="leFax" name="leFax" 
+	      			th:value="${d.leFax}"  placeholder="请填写学校法人传真"/>
+	    	</div>
+	    	</div>
+	    	<div class="rowGroup">
+	    	<label for="leEmail" class="col-sm-2 control-label">法人EMAIL：</label>
+	    	<div class="col-sm-4">
+	      		<input type="text" class="form-control" id="leEmail" name="leEmail" 
+					th:value="${d.leEmail}" placeholder="请填写法人email"/>
+	    	</div>
+	    	</div>
+	  	</div>
+		</fieldset>
+		
+		<fieldset>
+		<legend>联系人信息</legend>
+		<div class="form-group">
+			<div class="rowGroup">
+	  		<label for="conName" class="col-sm-2 control-label">联系人姓名：</label>
+	    	<div class="col-sm-4">
+	      		<input type="text" class="form-control" id="conName" name="conName" 
+	      			th:value="${d.conName}"  placeholder="请填写学校联系人姓名"/>
+	    	</div>
+	    	</div>
+	    	<div class="rowGroup">
+	    	<label for="conPost" class="col-sm-2 control-label">联系人职务：</label>
+	    	<div class="col-sm-4">
+	      		<input type="text" class="form-control" id="conPost" name="conPost" 
+	      			th:value="${d.conPost}"  placeholder="请填写联系人职务"/>
+	    	</div>
+	    	</div>
+	  	</div>
+	  	
+	  	<div class="form-group">
+	  		<div class="rowGroup">
+	  		<label for="conOfficePhone" class="col-sm-2 control-label">联系人办公电话：</label>
+	    	<div class="col-sm-4">
+	      		<input type="text" class="form-control" id="conOfficePhone" name="conOfficePhone" 
+	      			th:value="${d.conOfficePhone}"  placeholder="请填写学校联系人办公电话"/>
+	    	</div>
+	    	</div>
+	    	<div class="rowGroup">
+	    	<label for="conPhone" class="col-sm-2 control-label">联系人联系方式：</label>
+	    	<div class="col-sm-4">
+	      		<input type="text" class="form-control" id="conPhone" name="conPhone" 
+	      			th:value="${d.conPhone}"  placeholder="请填写联系人联系方式"/>
+	    	</div>
+	    	</div>
+	  	</div>
+	  	
+	  	<div class="form-group">
+	  		<div class="rowGroup">
+	  		<label for="conFax" class="col-sm-2 control-label">联系人传真：</label>
+	    	<div class="col-sm-4">
+	      		<input type="text" class="form-control" id="conFax" name="conFax" 
+	      			th:value="${d.conFax}"  placeholder="请填写学校联系人传真"/>
+	    	</div>
+	    	</div>
+	    	<div class="rowGroup">
+	    	<label for="conEmail" class="col-sm-2 control-label">联系人EMAIL：</label>
+	    	<div class="col-sm-4">
+	      		<input type="text" class="form-control" id="conEmail" name="conEmail" 
+	      			th:value="${d.conEmail}"  placeholder="请填写联系人EMAIL"/>
+	    	</div>
+	    	</div>
+	  	</div>
+		</fieldset>
+		<div class="form-group text-center">
+			<input type="button" id="save" class="btn btn-primary" value="保存" />
+			<input type="submit" id="update" class="btn btn-primary" value="修改" style="display: none"/>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			
+		</div>
 		</form>
 		</div>
 		<div id='2' class="col-md-12 jumbotron">2222</div>

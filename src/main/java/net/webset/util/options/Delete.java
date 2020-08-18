@@ -1,5 +1,7 @@
 package net.webset.util.options;
 
-public interface Delete {
+import javax.validation.groups.Default;
+
+public interface Delete extends Default {
 
 }

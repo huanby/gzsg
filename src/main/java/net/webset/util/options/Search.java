@@ -1,5 +1,7 @@
 package net.webset.util.options;
 
-public interface Search {
+import javax.validation.groups.Default;
+
+public interface Search extends Default {
 
 }

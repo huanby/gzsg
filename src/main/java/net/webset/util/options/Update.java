@@ -1,5 +1,7 @@
 package net.webset.util.options;
 
-public interface Update {
+import javax.validation.groups.Default;
+
+public interface Update extends Default {
 
 }
