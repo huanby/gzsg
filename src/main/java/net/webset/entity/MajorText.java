@@ -5,10 +5,13 @@ import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import net.webset.util.options.Add;
+import net.webset.util.options.Delete;
+import net.webset.util.options.Update;
 import org.springframework.data.annotation.Id;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import java.util.Date;
 
 /**
@@ -23,6 +26,7 @@ public class MajorText {
     @TableId(value = ID,type= IdType.AUTO)
     private Integer id;
 
+    @NotNull(message = "您没有选择数据", groups= {Delete.class})
     @TableField(MAJORID)
     private Integer majorid;
 

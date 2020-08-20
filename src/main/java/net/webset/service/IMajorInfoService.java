@@ -18,4 +18,7 @@ public interface IMajorInfoService{
 
     //保存基础信息
     ResultInfo<List<String>> majorFillbasicInfoSave(MajorNumber mn, MajorText mt, BindingResult result);
+
+    //通过majorId删除专业数据文档
+    Boolean majorDel(Integer majorId);
 }

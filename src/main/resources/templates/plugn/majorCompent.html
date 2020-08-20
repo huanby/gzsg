@@ -15,32 +15,32 @@
 					<div class="rowGroup">
 						<label for="t1" class="col-sm-2 control-label">专业（群）名称：</label>
 						<div class="col-sm-4">
-							<input type="text" class="form-control" id="t1" name="t1" placeholder="请输入专业（群）名称" value="" />
+							<input type="text" class="form-control" id="t1" name="t1" placeholder="请输入专业（群）名称" th:value="${mt?.t1}" />
 						</div>
 					</div>
 					<div class="rowGroup">
 						<label for="t2" class="col-sm-2 control-label">专业所属大类：</label>
 						<div class="col-sm-4">
 							<select class="form-control" id="t2" name="t2" >
-								<option value="农林牧渔大类">农林牧渔大类</option>
-								<option value="资源环境与安全大类">资源环境与安全大类</option>
-								<option value="能源动力与材料大类">能源动力与材料大类</option>
-								<option value="土木建筑大类">土木建筑大类</option>
-								<option value="水利大类">水利大类</option>
-								<option value="装备制造大类">装备制造大类</option>
-								<option value="生物与化工大类">生物与化工大类</option>
-								<option value="轻工纺织大类">轻工纺织大类</option>
-								<option value="食品药品与粮食大类">食品药品与粮食大类</option>
-								<option value="交通运输大类">交通运输大类</option>
-								<option value="电子信息大类">电子信息大类</option>
-								<option value="医药卫生大类">医药卫生大类</option>
-								<option value="财经商贸大类">财经商贸大类</option>
-								<option value="旅游大类">旅游大类</option>
-								<option value="文化艺术大类">文化艺术大类</option>
-								<option value="新闻传播大类">新闻传播大类</option>
-								<option value="教育与体育大类">教育与体育大类</option>
-								<option value="公安与司法大类">公安与司法大类</option>
-								<option value="公共管理与服务大类">公共管理与服务大类</option>
+								<option value="农林牧渔大类" th:field="${mt.t2}">农林牧渔大类</option>
+								<option value="资源环境与安全大类" th:field="${mt.t2}">资源环境与安全大类</option>
+								<option value="能源动力与材料大类" th:field="${mt.t2}">能源动力与材料大类</option>
+								<option value="土木建筑大类" th:field="${mt.t2}">土木建筑大类</option>
+								<option value="水利大类" th:field="${mt.t2}">水利大类</option>
+								<option value="装备制造大类" th:field="${mt.t2}">装备制造大类</option>
+								<option value="生物与化工大类" th:field="${mt.t2}">生物与化工大类</option>
+								<option value="轻工纺织大类" th:field="${mt.t2}">轻工纺织大类</option>
+								<option value="食品药品与粮食大类" th:field="${mt.t2}">食品药品与粮食大类</option>
+								<option value="交通运输大类" th:field="${mt.t2}">交通运输大类</option>
+								<option value="电子信息大类" th:field="${mt.t2}">电子信息大类</option>
+								<option value="医药卫生大类" th:field="${mt.t2}">医药卫生大类</option>
+								<option value="财经商贸大类" th:field="${mt.t2}">财经商贸大类</option>
+								<option value="旅游大类" th:field="${mt.t2}">旅游大类</option>
+								<option value="文化艺术大类" th:field="${mt.t2}">文化艺术大类</option>
+								<option value="新闻传播大类" th:field="${mt.t2}">新闻传播大类</option>
+								<option value="教育与体育大类" th:field="${mt.t2}">教育与体育大类</option>
+								<option value="公安与司法大类" th:field="${mt.t2}">公安与司法大类</option>
+								<option value="公共管理与服务大类" th:field="${mt.t2}">公共管理与服务大类</option>
 							</select>
 						</div>
 					</div>
@@ -50,13 +50,13 @@
 						<label for="t3" class="col-sm-2 control-label">龙头专业代码：</label>
 						<div class="col-sm-4">
 							<input type="text" class="form-control" id="t3" name="t3"
-								   placeholder="请输入龙头专业代码" value=""/>
+								   placeholder="请输入龙头专业代码" th:value="${mt.t3}"/>
 						</div>
 					</div>
 					<div class="rowGroup">
 					<label for="t4" class="col-sm-2 control-label">所在院（系）：</label>
 					<div class="col-sm-4">
-						<input type="text" class="form-control" id="t4" name="t4" placeholder="请输入所在院（系）" value="" />
+						<input type="text" class="form-control" id="t4" name="t4" placeholder="请输入所在院（系）" th:value="${mt.t4}" />
 					</div>
 					</div>
 				</div>
@@ -65,14 +65,14 @@
 					<div class="rowGroup">
 						<label for="t5" class="col-sm-2 control-label">专业批准设置时间：</label>
 						<div class="col-sm-4">
-							<input type="text" class="form-control" id="t5" name="t5" value=""
+							<input type="text" class="form-control" id="t5" name="t5" th:value="${#dates.format(mt.t5,'yyyy-MM-dd')}"
 								   placeholder="请填写专业批准设置时间"/>
 						</div>
 					</div>
 					<div class="rowGroup">
 						<label for="t6" class="col-sm-2 control-label">国示或省重专业及批准时间：</label>
 						<div class="col-sm-4">
-							<input type="text" class="form-control" id="t6" name="t6" value=""
+							<input type="text" class="form-control" id="t6" name="t6" th:value="${#dates.format(mt.t6,'yyyy-MM-dd')}"
 								   placeholder="请填写是否国示或省重专业及批准时间"/>
 						</div>
 					</div>
@@ -83,13 +83,13 @@
 						<label for="t7" class="col-sm-2 control-label">首届学生毕业时间：</label>
 						<div class="col-sm-4">
 							<input type="text" class="form-control" id="t7" name="t7"
-								   value="" placeholder="请填写建校日期"/>
+								   th:value="${#dates.format(mt.t7,'yyyy-MM-dd')}" placeholder="请填写建校日期"/>
 						</div>
 					</div>
 					<div class="rowGroup">
 						<label for="n1" class="col-sm-2 control-label">专业在校生数（含顶岗实习学生人数） ：</label>
 						<div class="col-sm-4">
-							<input type="text" class="form-control" id="n1" name="n1" value=""
+							<input type="text" class="form-control" id="n1" name="n1" th:value="${mn.n1}"
 								   placeholder="请填写专业在校生数（含顶岗实习学生人数"/>
 						</div>
 					</div>
@@ -111,14 +111,14 @@
 							<label for="n2" class="col-sm-2 control-label">2017年专业招生人数/专业在校生人数（人）：</label>
 							<div class="col-sm-4">
 								<input type="text" class="form-control" id="n2" name="n2"
-									   placeholder="请输入2017年专业招生人数/专业在校生人数（人）" value=""/>
+									   placeholder="请输入2017年专业招生人数/专业在校生人数（人）" th:value="${mn.n2}" />
 							</div>
 						</div>
 						<div class="rowGroup">
 							<label for="n3" class="col-sm-2 control-label">2018年专业招生人数/专业在校生人数（人）：</label>
 							<div class="col-sm-4">
 								<input type="text" class="form-control" id="n3" name="n3"
-									   placeholder="请输入2018年专业招生人数/专业在校生人数（人）" value=""/>
+									   placeholder="请输入2018年专业招生人数/专业在校生人数（人）" th:value="${mn.n3}"/>
 							</div>
 						</div>
 					</div>
@@ -128,14 +128,14 @@
 							<label for="n4" class="col-sm-2 control-label">2019年专业招生人数/专业在校生人数（人）：</label>
 							<div class="col-sm-4">
 								<input type="text" class="form-control" id="n4" name="n4"
-									   placeholder="请输入2019年专业招生人数/专业在校生人数（人）" value=""/>
+									   placeholder="请输入2019年专业招生人数/专业在校生人数（人）" th:value="${mn.n4}"/>
 							</div>
 						</div>
 						<div class="rowGroup">
 							<label for="n5" class="col-sm-2 control-label">2017年毕业生数：</label>
 							<div class="col-sm-4">
 								<input type="text" class="form-control" id="n5" name="n5"
-									   placeholder="请输入2017年毕业生数" value=""/>
+									   placeholder="请输入2017年毕业生数" th:value="${mn.n5}"/>
 							</div>
 						</div>
 					</div>
@@ -145,14 +145,14 @@
 							<label for="n6" class="col-sm-2 control-label">2018年毕业生数：</label>
 							<div class="col-sm-4">
 								<input type="text" class="form-control" id="n6" name="n6" placeholder="请输入2018年毕业生数"
-									   value=""/>
+									   th:value="${mn.n6}"/>
 							</div>
 						</div>
 						<div class="rowGroup">
 							<label for="n7" class="col-sm-2 control-label">2019年毕业生数：</label>
 							<div class="col-sm-4">
 								<input type="text" class="form-control" id="n7" name="n7"
-									   placeholder="请输入2019年毕业生数" value=""/>
+									   placeholder="请输入2019年毕业生数" th:value="${mn.n7}"/>
 							</div>
 						</div>
 					</div>
@@ -161,14 +161,14 @@
 						<div class="rowGroup">
 						<label for="n8" class="col-sm-2 control-label">2018届毕业生年底就业率（%）：</label>
 						<div class="col-sm-4">
-							<input type="text" class="form-control" id="n8" name="n8" placeholder="请输入2018届毕业生年底就业率（%）" value="" />
+							<input type="text" class="form-control" id="n8" name="n8" placeholder="请输入2018届毕业生年底就业率（%）" th:value="${mn.n8}" />
 						</div>
 						</div>
 						<div class="rowGroup">
 						<label for="n9" class="col-sm-2 control-label">2018届毕业生用人单位满意或基本满意比例（%）：</label>
 						<div class="col-sm-4">
 							<input type="text" class="form-control" id="n9" name="n9"
-								   placeholder="请输入2018届毕业生用人单位满意或基本满意比例（%）" value="" />
+								   placeholder="请输入2018届毕业生用人单位满意或基本满意比例（%）" th:value="${mn.n9}" />
 						</div>
 						</div>
 					</div>
@@ -177,14 +177,14 @@
 							<label for="n10" class="col-sm-2 control-label">校内专任教师数（人）：</label>
 							<div class="col-sm-4">
 								<input type="text" class="form-control" id="n10" name="n10" placeholder="请输入校内专任教师数（人）"
-									   value=""/>
+									   th:value="${mn.n10}"/>
 							</div>
 						</div>
 						<div class="rowGroup">
 							<label for="n11" class="col-sm-2 control-label">专任教师双师素质比例（%）：</label>
 							<div class="col-sm-4">
 								<input type="text" class="form-control" id="n11" name="n11"
-									   placeholder="请输入专任教师双师素质比例（%）" value=""/>
+									   placeholder="请输入专任教师双师素质比例（%）" th:value="${mn.n11}"/>
 							</div>
 						</div>
 					</div>
@@ -193,14 +193,14 @@
 							<label for="n12" class="col-sm-2 control-label">校内专任教师高级职称人数（人）：</label>
 							<div class="col-sm-4">
 								<input type="text" class="form-control" id="n12" name="n12"
-									   placeholder="请输入校内专任教师高级职称人数（人）" value=""/>
+									   placeholder="请输入校内专任教师高级职称人数（人）" th:value="${mn.n12}"/>
 							</div>
 						</div>
 						<div class="rowGroup">
 							<label for="n13" class="col-sm-2 control-label">专任教师研究生以上学历人数比例（%）：</label>
 							<div class="col-sm-4">
 								<input type="text" class="form-control" id="n13" name="n13"
-									   placeholder="请输入专任教师研究生以上学历人数比例（%）" value=""/>
+									   placeholder="请输入专任教师研究生以上学历人数比例（%）" th:value="${mn.n13}"/>
 							</div>
 						</div>
 					</div>
@@ -209,14 +209,14 @@
 							<label for="n14" class="col-sm-2 control-label">2018-20198学年兼职教师总数（人）：</label>
 							<div class="col-sm-4">
 								<input type="text" class="form-control" id="n14" name="n14"
-									   placeholder="请输入2018-20198学年兼职教师总数（人）" value=""/>
+									   placeholder="请输入2018-20198学年兼职教师总数（人）" th:value="${mn.n14}"/>
 							</div>
 						</div>
 						<div class="rowGroup">
 							<label for="n15" class="col-sm-2 control-label">兼职教师人数占专业课教师总数的比例（%）：</label>
 							<div class="col-sm-4">
 								<input type="text" class="form-control" id="n15" name="n15"
-									   placeholder="请输入兼职教师人数占专业课教师总数的比例（%）" value=""/>
+									   placeholder="请输入兼职教师人数占专业课教师总数的比例（%）" th:value="${mn.n15}"/>
 							</div>
 						</div>
 					</div>
@@ -225,14 +225,14 @@
 							<label for="n16" class="col-sm-2 control-label">校内实训基地数（个）：</label>
 							<div class="col-sm-4">
 								<input type="text" class="form-control" id="n16" name="n16" placeholder="请输入校内实训基地数（个）"
-									   value=""/>
+									   th:value="${mn.n16}"/>
 							</div>
 						</div>
 						<div class="rowGroup">
 							<label for="n17" class="col-sm-2 control-label">校内实训基地工位数（个）：</label>
 							<div class="col-sm-4">
 								<input type="text" class="form-control" id="n17" name="n17"
-									   placeholder="请输入校内实训基地工位数（个）" value=""/>
+									   placeholder="请输入校内实训基地工位数（个）" th:value="${mn.n17}"/>
 							</div>
 						</div>
 					</div>
@@ -240,14 +240,14 @@
 						<div class="rowGroup">
 						<label for="n18" class="col-sm-2 control-label">校内实训基地生均设备值（万元/生）：</label>
 						<div class="col-sm-4">
-							<input type="text" class="form-control" id="n18" name="n18" placeholder="请输入校内实训基地生均设备值（万元/生）" value="" />
+							<input type="text" class="form-control" id="n18" name="n18" placeholder="请输入校内实训基地生均设备值（万元/生）" th:value="${mn.n18}" />
 						</div>
 						</div>
 						<div class="rowGroup">
 						<label for="n19" class="col-sm-2 control-label">2018-2019学年校内实训基地使用频率（人时）：</label>
 						<div class="col-sm-4">
 							<input type="text" class="form-control" id="n19" name="n19"
-								   placeholder="请输入2018-2019学年校内实训基地使用频率（人时）" value="" />
+								   placeholder="请输入2018-2019学年校内实训基地使用频率（人时）" th:value="${mn.n19}" />
 						</div>
 						</div>
 					</div>
@@ -255,14 +255,14 @@
 						<div class="rowGroup">
 						<label for="n20" class="col-sm-2 control-label">校外实习实训基地数（个）：</label>
 						<div class="col-sm-4">
-							<input type="text" class="form-control" id="n20" name="n20" placeholder="请输入校外实习实训基地数（个）" value="" />
+							<input type="text" class="form-control" id="n20" name="n20" placeholder="请输入校外实习实训基地数（个）" th:value="${mn.n20}" />
 						</div>
 						</div>
 						<div class="rowGroup">
 						<label for="n21" class="col-sm-2 control-label">2018-2019学年校外实习实训基地接受半年顶岗实习学生数（人）：</label>
 						<div class="col-sm-4">
 							<input type="text" class="form-control" id="n21" name="n21"
-								   placeholder="请输入2018-2019学年校外实习实训基地接受半年顶岗实习学生数（人）" value="" />
+								   placeholder="请输入2018-2019学年校外实习实训基地接受半年顶岗实习学生数（人）" th:value="${mn.n21}" />
 						</div>
 						</div>
 					</div>
@@ -270,14 +270,14 @@
 						<div class="rowGroup">
 						<label for="n22" class="col-sm-2 control-label">校外实习实训基地接收2019届毕业生就业数（人）：</label>
 						<div class="col-sm-4">
-							<input type="text" class="form-control" id="n22" name="n22" placeholder="请输入校外实习实训基地接收2019届毕业生就业数（人）" value="" />
+							<input type="text" class="form-control" id="n22" name="n22" placeholder="请输入校外实习实训基地接收2019届毕业生就业数（人）" th:value="${mn.n22}" />
 						</div>
 						</div>
 						<div class="rowGroup">
 						<label for="n23" class="col-sm-2 control-label">本专业合作企业总数（个）：</label>
 						<div class="col-sm-4">
 							<input type="text" class="form-control" id="n23" name="n23"
-								   placeholder="请输入本专业合作企业总数（个）" value="" />
+								   placeholder="请输入本专业合作企业总数（个）" th:value="${mn.n23}" />
 						</div>
 						</div>
 					</div>
@@ -285,14 +285,14 @@
 						<div class="rowGroup">
 						<label for="n24" class="col-sm-2 control-label">本专业合作企业订单培养总数（人）：</label>
 						<div class="col-sm-4">
-							<input type="text" class="form-control" id="n24" name="n24" placeholder="请输入本专业合作企业订单培养总数（人）" value="" />
+							<input type="text" class="form-control" id="n24" name="n24" placeholder="请输入本专业合作企业订单培养总数（人）" th:value="${mn.n24}" />
 						</div>
 						</div>
 						<div class="rowGroup">
 						<label for="n25" class="col-sm-2 control-label">本专业合作企业共同开发课程总数（门）：</label>
 						<div class="col-sm-4">
 							<input type="text" class="form-control" id="n25" name="n25"
-								   placeholder="请输入本专业合作企业共同开发课程总数（门）" value="" />
+								   placeholder="请输入本专业合作企业共同开发课程总数（门）" th:value="${mn.n25}" />
 						</div>
 						</div>
 					</div>
@@ -300,14 +300,14 @@
 						<div class="rowGroup">
 						<label for="n26" class="col-sm-2 control-label">本专业合作企业支持学校兼职教师总数（人）：</label>
 						<div class="col-sm-4">
-							<input type="text" class="form-control" id="n26" name="n26" placeholder="请输入本专业合作企业支持学校兼职教师总数（人）" value="" />
+							<input type="text" class="form-control" id="n26" name="n26" placeholder="请输入本专业合作企业支持学校兼职教师总数（人）" th:value="${mn.n26}" />
 						</div>
 						</div>
 						<div class="rowGroup">
 						<label for="n27" class="col-sm-2 control-label">合作企业对本专业准捐赠设备总值（万元）：</label>
 						<div class="col-sm-4">
 							<input type="text" class="form-control" id="n27" name="n27"
-								   placeholder="请输入合作企业对本专业准捐赠设备总值（万元）" value="" />
+								   placeholder="请输入合作企业对本专业准捐赠设备总值（万元）" th:value="${mn.n27}" />
 						</div>
 						</div>
 					</div>
@@ -315,14 +315,14 @@
 						<div class="rowGroup">
 						<label for="n28" class="col-sm-2 control-label">合作企业对本专业捐赠设备总值（万元）：</label>
 						<div class="col-sm-4">
-							<input type="text" class="form-control" id="n28" name="n28" placeholder="请输入合作企业对本专业捐赠设备总值（万元）" value="" />
+							<input type="text" class="form-control" id="n28" name="n28" placeholder="请输入合作企业对本专业捐赠设备总值（万元）" th:value="${mn.n28}" />
 						</div>
 						</div>
 						<div class="rowGroup">
 						<label for="n29" class="col-sm-2 control-label">本专业为企业培训员工总数（人天）：</label>
 						<div class="col-sm-4">
 							<input type="text" class="form-control" id="n29" name="n29"
-								   placeholder="请输入本专业为企业培训员工总数（人天）" value="" />
+								   placeholder="请输入本专业为企业培训员工总数（人天）" th:value="${mn.n29}" />
 						</div>
 						</div>
 					</div>
@@ -341,18 +341,26 @@
 						<div class="rowGroup">
 							<label for="t8" class="col-sm-2 control-label">姓名：</label>
 							<div class="col-sm-4">
-								<input type="text" class="form-control" id="t8" name="t8" placeholder="请输入姓名" value=""/>
+								<input type="text" class="form-control" id="t8" name="t8" placeholder="请输入姓名" th:value="${mt.t8}" />
 							</div>
 						</div>
 						<div class="rowGroup">
 							<label class="col-sm-2 control-label">性别：</label>
 							<div class="col-sm-4">
-								<div class="radio-list">
+								<div class="radio-list" th:if="${mt.t9} eq null">
 									<label>
 										<input type="radio" id="sex1" name="t9" value="男" data-title="男" checked/> 男
 									</label>
 									<label>
 										<input type="radio" id="sex2" name="t9" value="女" data-title="女"/> 女
+									</label>
+								</div>
+								<div class="radio-list" th:if="${mt.t9} ne null">
+									<label>
+										<input type="radio" id="sex1" name="t9" value="男" th:field="${mt.t9}"  data-title="男" /> 男
+									</label>
+									<label>
+										<input type="radio" id="sex2" name="t9" value="女" th:field="${mt.t9}" data-title="女"/> 女
 									</label>
 								</div>
 							</div>
@@ -362,14 +370,14 @@
 						<div class="rowGroup">
 						<label for="t10" class="col-sm-2 control-label">出生年月：</label>
 						<div class="col-sm-4">
-							<input type="text" class="form-control" id="t10" name="t10" placeholder="请输入出生年月" value="" />
+							<input type="text" class="form-control" id="t10" name="t10" placeholder="请输入出生年月" th:value="${#dates.format(mt.t10,'yyyy-MM-dd')}" />
 						</div>
 						</div>
 						<div class="rowGroup">
 						<label for="t11" class="col-sm-2 control-label">参加工作时学历及所学专业：</label>
 						<div class="col-sm-4">
 							<input type="text" class="form-control" id="t11" name="t11"
-								   placeholder="请输入参加工作时学历及所学专业" value="" />
+								   placeholder="请输入参加工作时学历及所学专业" th:value="${mt.t11}" />
 						</div>
 						</div>
 					</div>
@@ -377,14 +385,14 @@
 						<div class="rowGroup">
 						<label for="t12" class="col-sm-2 control-label">最后学历及所学专业：</label>
 						<div class="col-sm-4">
-							<input type="text" class="form-control" id="t12" name="t12" placeholder="请输入最后学历及所学专业" value="" />
+							<input type="text" class="form-control" id="t12" name="t12" placeholder="请输入最后学历及所学专业" th:value="${mt.t12}" />
 						</div>
 						</div>
 						<div class="rowGroup">
 						<label for="t13" class="col-sm-2 control-label">专业技术职称：</label>
 						<div class="col-sm-4">
 							<input type="text" class="form-control" id="t13" name="t13"
-								   placeholder="请输入专业技术职称" value="" />
+								   placeholder="请输入专业技术职称" th:value="${mt.t13}" />
 						</div>
 						</div>
 					</div>
@@ -392,14 +400,14 @@
 						<div class="rowGroup">
 						<label for="t14" class="col-sm-2 control-label">证书擅长专业领域：</label>
 						<div class="col-sm-4">
-							<input type="text" class="form-control" id="t14" name="t14" placeholder="请输入证书擅长专业领域" value="" />
+							<input type="text" class="form-control" id="t14" name="t14" placeholder="请输入证书擅长专业领域" th:value="${mt.t14}" />
 						</div>
 						</div>
 						<div class="rowGroup">
 						<label for="t15" class="col-sm-2 control-label">职务：</label>
 						<div class="col-sm-4">
 							<input type="text" class="form-control" id="t15" name="t15"
-								   placeholder="请输入职务" value="" />
+								   placeholder="请输入职务" th:value="${mt.t15}" />
 						</div>
 						</div>
 					</div>
@@ -407,14 +415,14 @@
 						<div class="rowGroup">
 						<label for="t16" class="col-sm-2 control-label">职业资格（含行业企业认证）：</label>
 						<div class="col-sm-4">
-							<input type="text" class="form-control" id="t16" name="t16" placeholder="请输入职业资格（含行业企业认证）" value="" />
+							<input type="text" class="form-control" id="t16" name="t16" placeholder="请输入职业资格（含行业企业认证）" th:value="${mt.t16}" />
 						</div>
 						</div>
 						<div class="rowGroup">
 						<label for="t17" class="col-sm-2 control-label">主要社会兼职：</label>
 						<div class="col-sm-4">
 							<input type="text" class="form-control" id="t17" name="t17"
-								   placeholder="请输入主要社会兼职" value="" />
+								   placeholder="请输入主要社会兼职" th:value="${mt.t17}" />
 						</div>
 						</div>
 					</div>
@@ -422,7 +430,7 @@
 						<div class="rowGroup">
 						<label for="t18" class="col-sm-2 control-label">主要业绩（含企业实践）及相关荣誉：</label>
 						<div class="col-sm-4">
-							<input type="text" class="form-control" id="t18" name="t18" placeholder="请输入主要业绩（含企业实践）及相关荣誉" value="" />
+							<input type="text" class="form-control" id="t18" name="t18" placeholder="请输入主要业绩（含企业实践）及相关荣誉" th:value="${mt.t18}" />
 						</div>
 						</div>
 					</div>
@@ -441,8 +449,18 @@
 						<div class="rowGroup">
 							<label class="col-sm-2 control-label">是否入选“吉林省普通高等学校高水平专业（群）建设计划：</label>
 							<div class="col-sm-4">
-								<div class="">
-<!--									<label class="checkbox-inline">-->
+								<div class="" th:if="${mt.t19} ne null">
+									<label class="control-label">
+										<input type="checkbox" th:checked="${#strings.contains(mt.t19,'1')}" name="t19" value="1">A类</label>
+									</label>
+									<label class="control-label">
+									<input type="checkbox" th:checked="${#strings.contains(mt.t19,'2')}" name="t19" value="2">b类</label>
+									</label>
+									<label class="control-label">
+									<input type="checkbox" th:checked="${#strings.contains(mt.t19,'0')}" name="t19" value="0">否</label>
+									</label>
+								</div>
+								<div class="" th:if="${mt.t19} eq null">
 									<label class="control-label">
 										<input type="checkbox" name="t19" value="1">A类</label>
 									</label>
@@ -458,27 +476,59 @@
 						<div class="rowGroup">
 						<label class="col-sm-2 control-label">是否选入国家、省级重点专业：</label>
 						<div class="col-sm-4">
+							<div th:if="${mt.t20} ne null">
 							<label class="control-label">
-							<input type="checkbox" class="" id="t20-1" name="t20" value="1">国示范</label>
+								<input type="checkbox" class="" id="t20-1" name="t20" value="1"
+									   th:checked="${#strings.contains(mt.t20,'1')}">国示范</label>
 							</label>
 							<label class="control-label">
-							<input type="checkbox" id="t20-2" name="t20" value="2">国骨干</label>
+								<input type="checkbox" id="t20-2" name="t20" value="2"
+									   th:checked="${#strings.contains(mt.t20,'2')}">国骨干</label>
 							</label>
 							<label class="control-label">
-							<input type="checkbox" id="t20-3" name="t20" value="3">国优质</label>
+								<input type="checkbox" id="t20-3" name="t20" value="3"
+									   th:checked="${#strings.contains(mt.t20,'3')}">国优质</label>
 							</label>
 							<label class="control-label">
-							<input type="checkbox" id="t20-4" name="t20" value="4">省示范</label>
+								<input type="checkbox" id="t20-4" name="t20" value="4"
+									   th:checked="${#strings.contains(mt.t20,'4')}">省示范</label>
 							</label>
 							<label class="control-label">
-							<input type="checkbox" id="t20-5" name="t20" value="5">省品牌</label>
+								<input type="checkbox" id="t20-5" name="t20" value="5"
+									   th:checked="${#strings.contains(mt.t20,'5')}">省品牌</label>
 							</label>
 							<label class="control-label">
-							<input type="checkbox" id="t20-6" name="t20" value="6">省特色</label>
+								<input type="checkbox" id="t20-6" name="t20" value="6"
+									   th:checked="${#strings.contains(mt.t20,'6')}">省特色</label>
 							</label>
 							<label class="control-label">
-							<input type="checkbox" id="t20-0" name="t20" value="0">否</label>
+								<input type="checkbox" id="t20-0" name="t20" value="0"
+									   th:checked="${#strings.contains(mt.t20,'0')}">否</label>
 							</label>
+							</div>
+							<div th:if="${mt.t20} eq null">
+							<label class="control-label">
+								<input type="checkbox" class="" id="t20-1" name="t20" value="1">国示范</label>
+							</label>
+							<label class="control-label">
+								<input type="checkbox" id="t20-2" name="t20" value="2">国骨干</label>
+							</label>
+							<label class="control-label">
+								<input type="checkbox" id="t20-3" name="t20" value="3">国优质</label>
+							</label>
+							<label class="control-label">
+								<input type="checkbox" id="t20-4" name="t20" value="4">省示范</label>
+							</label>
+							<label class="control-label">
+								<input type="checkbox" id="t20-5" name="t20" value="5">省品牌</label>
+							</label>
+							<label class="control-label">
+								<input type="checkbox" id="t20-6" name="t20" value="6">省特色</label>
+							</label>
+							<label class="control-label">
+								<input type="checkbox" id="t20-0" name="t20" value="0">否</label>
+							</label>
+							</div>
 						</div>
 						</div>
 					</div>
@@ -486,12 +536,20 @@
 						<div class="rowGroup">
 						<label class="col-sm-2 control-label">是否入选“吉林省现代职业教育改革发展示范校建设计划项目”：</label>
 						<div class="col-sm-4">
-							<div class="radio-list">
+							<div class="radio-list" th:if="${mt.t21} eq null">
 								<label>
-									<input type="radio" id="t21-1" name="t21" value="是" data-title="是" checked/>是
+									<input type="radio" id="t21-1" name="t21" value="是" data-title="是" checked="checked"/>是
 								</label>
 								<label>
 									<input type="radio" id="t21-2" name="t21" value="否" data-title="否"/>否
+								</label>
+							</div>
+							<div class="radio-list" th:if="${mt.t21} ne null">
+								<label>
+									<input type="radio" id="t21-1" name="t21" value="是" th:field="${mt.t21}"  data-title="是" />是
+								</label>
+								<label>
+									<input type="radio" id="t21-2" name="t21" value="否" th:field="${mt.t21}"  data-title="否"/>否
 								</label>
 							</div>
 						</div>
@@ -500,7 +558,7 @@
 						<label for="n30" class="col-sm-2 control-label">骨干专业国家级现代学徒制试点项目数（个）：</label>
 						<div class="col-sm-4">
 							<input type="text" class="form-control" id="n30" name="n30"
-								   placeholder="请输入骨干专业国家级现代学徒制试点项目数（个）" value="" />
+								   placeholder="请输入骨干专业国家级现代学徒制试点项目数（个）" th:value="${mn.n30}" />
 						</div>
 						</div>
 					</div>
@@ -508,14 +566,14 @@
 						<div class="rowGroup">
 						<label for="n31" class="col-sm-2 control-label">骨干专业省级现代学徒制试点项目数（个）：</label>
 						<div class="col-sm-4">
-							<input type="text" class="form-control" id="n31" name="n31" placeholder="请输入骨干专业省级现代学徒制试点项目数（个）" value="" />
+							<input type="text" class="form-control" id="n31" name="n31" placeholder="请输入骨干专业省级现代学徒制试点项目数（个）" th:value="${mn.n31}" />
 						</div>
 						</div>
 						<div class="rowGroup">
 						<label for="n32" class="col-sm-2 control-label">近两届骨干专业国家级教学成果奖数（个）：</label>
 						<div class="col-sm-4">
 							<input type="text" class="form-control" id="n32" name="n32"
-								   placeholder="请输入近两届骨干专业国家级教学成果奖数（个）" value="" />
+								   placeholder="请输入近两届骨干专业国家级教学成果奖数（个）" th:value="${mn.n32}" />
 						</div>
 						</div>
 					</div>
@@ -523,14 +581,14 @@
 						<div class="rowGroup">
 						<label for="n33" class="col-sm-2 control-label">近两届骨干专业省级教学成果奖数（个）：</label>
 						<div class="col-sm-4">
-							<input type="text" class="form-control" id="n33" name="n33" placeholder="请输入近两届骨干专业省级教学成果奖数（个）" value="" />
+							<input type="text" class="form-control" id="n33" name="n33" placeholder="请输入近两届骨干专业省级教学成果奖数（个）" th:value="${mn.n33}" />
 						</div>
 						</div>
 						<div class="rowGroup">
 						<label for="n34" class="col-sm-2 control-label">专业群学生国赛获奖数（个）：</label>
 						<div class="col-sm-4">
 							<input type="text" class="form-control" id="n34" name="n34"
-								   placeholder="请输入专业群学生国赛获奖数（个）" value="" />
+								   placeholder="请输入专业群学生国赛获奖数（个）" th:value="${mn.n34}" />
 						</div>
 						</div>
 					</div>
@@ -538,7 +596,7 @@
 						<div class="rowGroup">
 						<label for="n35" class="col-sm-2 control-label">专业群学生省赛获奖数（个）：</label>
 						<div class="col-sm-4">
-							<input type="text" class="form-control" id="n35" name="n35" placeholder="请输入专业群学生省赛获奖数（个）" value="" />
+							<input type="text" class="form-control" id="n35" name="n35" placeholder="请输入专业群学生省赛获奖数（个）" th:value="${mn.n35}" />
 						</div>
 						</div>
 					</div>
@@ -547,7 +605,7 @@
 							<label for="n36" class="col-sm-2 control-label">专业群教师队伍建设成果数：</label>
 							<div class="col-sm-4">
 								<input type="text" class="form-control" id="n36" name="n36"
-									   placeholder="请输入专业群教师队伍建设成果数" value=""/>
+									   placeholder="请输入专业群教师队伍建设成果数" th:value="${mn.n36}"/>
 							</div>
 							<span style="color: red;">*</span>（国家职业教育教师教学创新团队、省级及以上黄大年式教学团队、长白山技能名师、省级及以上教师教学大赛获奖）（个）
 						</div>
@@ -557,14 +615,14 @@
 						<div class="rowGroup">
 						<label for="n37" class="col-sm-2 control-label">专业群三年累计社会培训和鉴定人数（个）：</label>
 						<div class="col-sm-4">
-							<input type="text" class="form-control" id="n37" name="n37" placeholder="请输入专业群三年累计社会培训和鉴定人数（个）" value="" />
+							<input type="text" class="form-control" id="n37" name="n37" placeholder="请输入专业群三年累计社会培训和鉴定人数（个）" th:value="${mn.n37}" />
 						</div>
 						</div>
 						<div class="rowGroup">
 						<label for="n38" class="col-sm-2 control-label">国家级科研成果、论文与专利数（个）：</label>
 						<div class="col-sm-4">
 							<input type="text" class="form-control" id="n38" name="n38"
-								   placeholder="请输入国家级科研成果、论文与专利数（个）" value="" />
+								   placeholder="请输入国家级科研成果、论文与专利数（个）" th:value="${mn.n38}" />
 						</div>
 						</div>
 					</div>
@@ -572,14 +630,14 @@
 						<div class="rowGroup">
 						<label for="n39" class="col-sm-2 control-label">省级科研成果、论文与专利数（个）：</label>
 						<div class="col-sm-4">
-							<input type="text" class="form-control" id="n39" name="n39" placeholder="请输入省级科研成果、论文与专利数（个）" value="" />
+							<input type="text" class="form-control" id="n39" name="n39" placeholder="请输入省级科研成果、论文与专利数（个）" th:value="${mn.n39}" />
 						</div>
 						</div>
 						<div class="rowGroup">
 						<label for="n40" class="col-sm-2 control-label">骨干专业在校生规模（人数）：</label>
 						<div class="col-sm-4">
 							<input type="text" class="form-control" id="n40" name="n40"
-								   placeholder="请输入骨干专业在校生规模（人数）" value="" />
+								   placeholder="请输入骨干专业在校生规模（人数）" th:value="${mn.n40}" />
 						</div>
 						</div>
 					</div>
@@ -587,14 +645,14 @@
 						<div class="rowGroup">
 						<label for="n41" class="col-sm-2 control-label">专业（群）实训基地建设成果数（个）：</label>
 						<div class="col-sm-4">
-							<input type="text" class="form-control" id="n41" name="n41" placeholder="请输入专业（群）实训基地建设成果数（个）" value="" />
+							<input type="text" class="form-control" id="n41" name="n41" placeholder="请输入专业（群）实训基地建设成果数（个）" th:value="${mn.n41}" />
 						</div>
 						</div>
 						<div class="rowGroup">
 						<label for="n42" class="col-sm-2 control-label">专业群服务“一带一路”战略的国际交流与合作项目数（个）：</label>
 						<div class="col-sm-4">
 							<input type="text" class="form-control" id="n42" name="n42"
-								   placeholder="请输入专业群服务“一带一路”战略的国际交流与合作项目数（个）" value="" />
+								   placeholder="请输入专业群服务“一带一路”战略的国际交流与合作项目数（个）" th:value="${mn.n42}" />
 						</div>
 						</div>
 					</div>
@@ -602,14 +660,14 @@
 						<div class="rowGroup">
 						<label for="n43" class="col-sm-2 control-label">专业群建设各级专项资金投入（单位：万元）：</label>
 						<div class="col-sm-4">
-							<input type="text" class="form-control" id="n43" name="n43" placeholder="请输入专业群建设各级专项资金投入（单位：万元）" value="" />
+							<input type="text" class="form-control" id="n43" name="n43" placeholder="请输入专业群建设各级专项资金投入（单位：万元）" th:value="${mn.n43}" />
 						</div>
 						</div>
 						<div class="rowGroup">
 						<label for="n44" class="col-sm-2 control-label">其他省级以上标志性成果数（个）：</label>
 						<div class="col-sm-4">
 							<input type="text" class="form-control" id="n44" name="n44"
-								   placeholder="请输入其他省级以上标志性成果数（个）" value="" />
+								   placeholder="请输入其他省级以上标志性成果数（个）" th:value="${mn.n44}" />
 						</div>
 						</div>
 					</div>

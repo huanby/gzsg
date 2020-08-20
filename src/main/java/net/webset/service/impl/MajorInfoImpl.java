@@ -1,5 +1,6 @@
 package net.webset.service.impl;
 
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.conditions.update.UpdateWrapper;
 import net.webset.entity.MajorNumber;
 import net.webset.entity.MajorText;
@@ -81,5 +82,26 @@ public class MajorInfoImpl implements IMajorInfoService {
                 //保存成功
                 return new ResultInfo<List<String>>((isSuccess1 && isSuccess2) ? 200 : 400, (isSuccess1 && isSuccess2) ? "保存成功" : "保存失败", null);
             }
+    }
+
+    /**
+     * 通过majorId删除专业数据文档
+     * @param majorId
+     * @return
+     */
+    @Override
+    @Transactional(rollbackFor = {RuntimeException.class, Error.class})
+    public Boolean majorDel(Integer majorId) {
+        //删除条件
+        QueryWrapper<MajorText> majorTextQueryWrapper = new QueryWrapper<>();
+        QueryWrapper<MajorNumber> majorNumberQueryWrapper = new QueryWrapper<>();
+        //通过majorId删除数据
+        majorTextQueryWrapper.eq("majorid",majorId);
+        majorNumberQueryWrapper.eq("majorid",majorId);
+        //判断是否删除成功
+        boolean isDel1 = iMajorTextService.remove(majorTextQueryWrapper);
+        boolean isDel2 = iMajorNumberService.remove(majorNumberQueryWrapper);
+        //返回结果
+        return (isDel1 && isDel2);
     }
 }

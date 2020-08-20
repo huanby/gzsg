@@ -1,14 +1,27 @@
 package net.webset.controller;
 
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.baomidou.mybatisplus.core.metadata.IPage;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import net.webset.entity.MajorNumber;
 import net.webset.entity.MajorText;
+import net.webset.entity.Role;
 import net.webset.entity.User;
 import net.webset.service.IMajorInfoService;
 import net.webset.service.IMajorNumberService;
 import net.webset.service.IMajorTextService;
 import net.webset.util.ResultInfo;
+import net.webset.util.options.Delete;
 import net.webset.wapper.MajorNumberWapper;
+import net.webset.wapper.MajorTextWapper;
+import net.webset.wapper.UserWapper;
+import net.webset.wapper.page.PageUtilResult;
+import net.webset.wapper.page.PageUtilWapper;
+import org.apache.ibatis.annotations.Param;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -49,7 +62,7 @@ public class MajorInfoController {
 	 * @param mav
 	 * @return
 	 */
-	@GetMapping("/majorFill.html")
+	/*@GetMapping("/majorFill.html")
 	public ModelAndView majorFill(ModelAndView mav) {
 		User user = (User) session.getAttribute("user");
 		MajorNumberWapper wapper = new MajorNumberWapper();
@@ -62,7 +75,100 @@ public class MajorInfoController {
 //		mav.addObject("success", d.isPresent());
 		mav.setViewName("major/fill");
 		return mav;
+	}*/
+
+
+	/**
+	 * 专业数据填报列表
+	 * @param mav
+	 * @return
+	 */
+	@GetMapping("majorFill.html")
+	public ModelAndView userList(ModelAndView mav) {
+		//清空专业ID - majorId
+		session.removeAttribute("majorId");
+		//专业列表页面
+		mav.setViewName("major/majorList.html");
+		return mav;
 	}
+
+
+	/**
+	 * 专业数据列表查询
+	 * @param majorTextWapper
+	 * @param pwapper
+	 * @return
+	 */
+	@GetMapping("majorList.json")
+	public ResponseEntity<?> majorList(MajorTextWapper majorTextWapper, PageUtilWapper pwapper) {
+		// 初始化查询条件   majorTextWapper-查询条件
+		majorTextWapper.orderByDesc("updatetime");
+		IPage<MajorText> page = iMajorTextService.page(new Page<MajorText>(pwapper.getOffset(), pwapper.getLimit()), majorTextWapper);
+		PageUtilResult<MajorText> result = new PageUtilResult<>();
+		List<MajorText> majorTexts = page.getRecords();
+		result.setTotal(page.getTotal());
+		result.setRows(page.getRecords());
+		return new ResponseEntity<>(result, HttpStatus.OK);
+	}
+
+	/**
+	 * 跳转到专业数据填报页面
+	 * @param mav
+	 * @return
+	 */
+	@GetMapping("majorAddPage.html")
+	public ModelAndView majorAddPage(ModelAndView mav) {
+		//清空专业ID - majorId
+		session.removeAttribute("majorId");
+		MajorText mt = new MajorText();
+		MajorNumber mn = new MajorNumber();
+		mav.addObject("mt", mt);
+		mav.addObject("mn", mn);
+		mav.setViewName("major/fill.html");
+		return mav;
+	}
+
+	/**
+	 * 删除专业数据文档
+	 * @param majorText
+	 * @param result
+	 * @param mav
+	 * @return
+	 */
+	@GetMapping("majorDel.html")
+	public ModelAndView majorDel(@Validated(Delete.class) MajorText majorText, BindingResult result, ModelAndView mav) {
+		Integer majorId = majorText.getMajorid();
+		Boolean isDel = this.iMajorInfoService.majorDel(majorId);
+		mav.addObject("info", isDel ? "删除成功" : "删除失败");
+		mav.setViewName("major/majorList.html");
+		return mav;
+	}
+
+
+	/**
+	 * 跳转专业数据编辑页面
+	 * @param mav
+	 * @param majorText
+	 * @return
+	 */
+	@GetMapping("majorUpdatePage.html")
+	public ModelAndView majorUpdatePage(ModelAndView mav, MajorText majorText) {
+		Integer majorId = majorText.getMajorid();
+		session.setAttribute("majorId",majorId);
+		QueryWrapper<MajorText> majorTextQueryWrapper = new QueryWrapper<>();
+		QueryWrapper<MajorNumber> majorNumberQueryWrapper = new QueryWrapper<>();
+		majorTextQueryWrapper.eq("majorid",majorId);
+		majorNumberQueryWrapper.eq("majorid",majorId);
+		MajorText mt = iMajorTextService.getOne(majorTextQueryWrapper);
+		MajorNumber mn = iMajorNumberService.getOne(majorNumberQueryWrapper);
+		mav.addObject("majorId",majorId);
+		mav.addObject("mt", mt);
+		mav.addObject("mn", mn);
+		mav.setViewName("major/fill.html");
+		return mav;
+	}
+
+
 
 
     /**
@@ -84,4 +190,9 @@ public class MajorInfoController {
 		//返回结果
 		return resultInfo;
     }
+
+
+
+
+
 }
