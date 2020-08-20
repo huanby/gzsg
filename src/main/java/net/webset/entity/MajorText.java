@@ -15,7 +15,7 @@ import java.util.Date;
  * @author hby
  * create date: 2020-08-18
  */
-@TableName(value= "major_text",resultMap="MajorTextMap")
+@TableName(value= "b_major_text",resultMap="MajorTextMap")
 public class MajorText {
 
     @Id
