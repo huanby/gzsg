@@ -242,18 +242,22 @@ function majorAchievementsSave(){
 		getRootPath()+url,
 		$("#majorEditForm_achievements").serialize(),
 		function(data) {
-			console.log(data);
+			// console.log(data);
 			if(data.status == 200){
 				showInfo("保存成功");
 			}else{
-				if(data.response.length > 0){
-					var errorInfo = "<ul><li>"+data.message+"</li>";
-					$.each(data.response,function(key,value){
-						errorInfo += "<li>" + value + "</li>";
-					})
-					errorInfo+= "</ul>";
-					showInfo(errorInfo)
-				}else{
+				if (data.response != null && typeof (data.response) != undeifned) {
+					if (data.response.length > 0) {
+						var errorInfo = "<ul><li>" + data.message + "</li>";
+						$.each(data.response, function (key, value) {
+							errorInfo += "<li>" + value + "</li>";
+						})
+						errorInfo += "</ul>";
+						showInfo(errorInfo)
+					} else {
+						showInfo(data.message)
+					}
+				} else {
 					showInfo(data.message)
 				}
 			}

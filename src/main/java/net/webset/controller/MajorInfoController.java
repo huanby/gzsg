@@ -2,19 +2,13 @@ package net.webset.controller;
 
 import net.webset.entity.MajorNumber;
 import net.webset.entity.MajorText;
-import net.webset.entity.SchoolData;
 import net.webset.entity.User;
 import net.webset.service.IMajorInfoService;
 import net.webset.service.IMajorNumberService;
 import net.webset.service.IMajorTextService;
 import net.webset.util.ResultInfo;
-import net.webset.util.options.Add;
 import net.webset.wapper.MajorNumberWapper;
-import net.webset.wapper.MajorTextWapper;
-import net.webset.wapper.SchoolDataWapper;
 import org.springframework.validation.BindingResult;
-import org.springframework.validation.FieldError;
-import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -72,7 +66,7 @@ public class MajorInfoController {
 
 
     /**
-     * 保存基础信息（待修改）
+     * 保存专业填报数据信息
      * @param mn
      * @param mt
      * @param result
@@ -85,8 +79,9 @@ public class MajorInfoController {
 			resultInfo = this.iMajorInfoService.majorFillbasicInfoSave(mn,mt,result);
 		}catch (Exception e){
 			System.out.println(e);
+			resultInfo = new ResultInfo<List<String>>(400,"保存失败",null);
 		}
 		//返回结果
-        return resultInfo;
+		return resultInfo;
     }
 }

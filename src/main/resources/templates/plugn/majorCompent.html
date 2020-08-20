@@ -4,6 +4,8 @@
 
 	专业信息
 	<div th:fragment="info" >
+<!--		<input type="hidden" id="hidden_id" th:value="${}">-->
+		<input type="hidden" id="hidden_majorId" class="hidden_majorId"  th:value="${majorId}">
 		<!--专业（群）基本情况-基础信息-->
 		<div id='1' class="col-md-12 jumbotron">
 		<form class="form-horizontal"  method="post" id="majorEditForm_basicInfo" name="majorEditForm_basicInfo" style="width: 90%" >
@@ -440,13 +442,14 @@
 							<label class="col-sm-2 control-label">是否入选“吉林省普通高等学校高水平专业（群）建设计划：</label>
 							<div class="col-sm-4">
 								<div class="">
-									<label class="checkbox-inline">
+<!--									<label class="checkbox-inline">-->
+									<label class="control-label">
 										<input type="checkbox" name="t19" value="1">A类</label>
 									</label>
-									<label class="checkbox-inline">
+									<label class="control-label">
 									<input type="checkbox" name="t19" value="2">b类</label>
 									</label>
-									<label class="checkbox-inline">
+									<label class="control-label">
 									<input type="checkbox" name="t19" value="0">否</label>
 									</label>
 								</div>
@@ -455,25 +458,25 @@
 						<div class="rowGroup">
 						<label class="col-sm-2 control-label">是否选入国家、省级重点专业：</label>
 						<div class="col-sm-4">
-							<label class="checkbox-inline">
-							<input type="checkbox" id="t20-1" name="t20" value="1">国示范</label>
+							<label class="control-label">
+							<input type="checkbox" class="" id="t20-1" name="t20" value="1">国示范</label>
 							</label>
-							<label class="checkbox-inline">
+							<label class="control-label">
 							<input type="checkbox" id="t20-2" name="t20" value="2">国骨干</label>
 							</label>
-							<label class="checkbox-inline">
+							<label class="control-label">
 							<input type="checkbox" id="t20-3" name="t20" value="3">国优质</label>
 							</label>
-							<label class="checkbox-inline">
+							<label class="control-label">
 							<input type="checkbox" id="t20-4" name="t20" value="4">省示范</label>
 							</label>
-							<label class="checkbox-inline">
+							<label class="control-label">
 							<input type="checkbox" id="t20-5" name="t20" value="5">省品牌</label>
 							</label>
-							<label class="checkbox-inline">
+							<label class="control-label">
 							<input type="checkbox" id="t20-6" name="t20" value="6">省特色</label>
 							</label>
-							<label class="checkbox-inline">
+							<label class="control-label">
 							<input type="checkbox" id="t20-0" name="t20" value="0">否</label>
 							</label>
 						</div>
@@ -541,13 +544,14 @@
 					</div>
 					<div class="form-group">
 						<div class="rowGroup">
-						<label for="n36" class="col-sm-2 control-label">专业群教师队伍建设成果数：</label>
-						<div class="col-sm-4">
-							<input type="text" class="form-control" id="n36" name="n36"
-								   placeholder="请输入专业群教师队伍建设成果数" value="" />
+							<label for="n36" class="col-sm-2 control-label">专业群教师队伍建设成果数：</label>
+							<div class="col-sm-4">
+								<input type="text" class="form-control" id="n36" name="n36"
+									   placeholder="请输入专业群教师队伍建设成果数" value=""/>
+							</div>
+							<span style="color: red;">*</span>（国家职业教育教师教学创新团队、省级及以上黄大年式教学团队、长白山技能名师、省级及以上教师教学大赛获奖）（个）
 						</div>
-						</div>
-						<label class="col-sm-6 control-label"><span style="color: red;">*</span>（国家职业教育教师教学创新团队、省级及以上黄大年式教学团队、长白山技能名师、省级及以上教师教学大赛获奖）（个）</label>
+<!--						<label class="col-sm-6 control-label"><span style="color: red;">*</span>（国家职业教育教师教学创新团队、省级及以上黄大年式教学团队、长白山技能名师、省级及以上教师教学大赛获奖）（个）</label>-->
 					</div>
 					<div class="form-group">
 						<div class="rowGroup">

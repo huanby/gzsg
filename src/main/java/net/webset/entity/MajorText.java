@@ -6,6 +6,7 @@ import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import net.webset.util.options.Add;
 import org.springframework.data.annotation.Id;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.validation.constraints.NotBlank;
 import java.util.Date;
@@ -52,16 +53,20 @@ public class MajorText {
 
     private String t4;
 
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date t5;
 
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date t6;
 
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date t7;
 
     private String t8;
 
     private String t9;
 
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date t10;
 
     private String t11;

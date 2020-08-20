@@ -23,6 +23,19 @@ function listenerMajorBasicInfo(){
 }
 
 function initMajorBasicInfo(){
+
+
+	$('.t5').datepicker({
+		todayBtn : "linked",
+		autoclose : true,
+		todayHighlight : true,
+		endDate : new Date(),
+		format: 'yyyy-mm-dd',
+		language:'zh-CN'
+	});
+
+
+
 	$("#t5").datepicker({
         todayBtn : "linked",
         autoclose : true,
@@ -171,21 +184,28 @@ function validMajorBasicInfoEditForm(){
 
 function majorBasicInfoSave(){
 	var url = "/majordata/majorFillbasicInfoSave.json";
+	var obj = $("#majorEditForm_basicInfo").serialize();
+	// console.log(obj);
 	$.post(
 		getRootPath()+url,
 		$("#majorEditForm_basicInfo").serialize(),
 		function(data) {
-			console.log(data);
+			// console.log(data);
 			if(data.status == 200){
 				showInfo("保存成功");
+				$('.nav-tabs li').siblings().find("a").show();
 			}else{
-				if(data.response.length > 0){
-					var errorInfo = "<ul><li>"+data.message+"</li>";
-					$.each(data.response,function(key,value){
-						errorInfo += "<li>" + value + "</li>";
-					})
-					errorInfo+= "</ul>";
-					showInfo(errorInfo)
+				if (data.response != null && typeof(data.response) != undeifned){
+					if(data.response.length > 0){
+						var errorInfo = "<ul><li>"+data.message+"</li>";
+						$.each(data.response,function(key,value){
+							errorInfo += "<li>" + value + "</li>";
+						})
+						errorInfo+= "</ul>";
+						showInfo(errorInfo)
+					}else{
+						showInfo(data.message)
+					}
 				}else{
 					showInfo(data.message)
 				}
