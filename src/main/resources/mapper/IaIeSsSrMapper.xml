@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="net.webset.mapper.IaIeSsSrMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="IaIeSsSrMap" type="net.webset.entity.IaIeSsSr">
+        <id column="id" property="id" />
+        <result column="create_id" property="createId" />
+        <result column="create_time" property="createTime" />
+        <result column="s39" property="s39" />
+        <result column="s40" property="s40" />
+        <result column="s41" property="s41" />
+        <result column="s42" property="s42" />
+        <result column="s43" property="s43" />
+        <result column="s44" property="s44" />
+        <result column="s45" property="s45" />
+        <result column="s46" property="s46" />
+        <result column="s47" property="s47" />
+        <result column="s48" property="s48" />
+        <result column="s49" property="s49" />
+        <result column="s50" property="s50" />
+        <result column="s51" property="s51" />
+        <result column="s52" property="s52" />
+        <result column="s53" property="s53" />
+        <result column="s54" property="s54" />
+        <result column="s55" property="s55" />
+        <result column="s56" property="s56" />
+        <result column="s57" property="s57" />
+        <result column="s58" property="s58" />
+        <result column="s59" property="s59" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id, create_id, create_time, s39, s40, s41, s42, s43, s44, s45, s46, s47, s48, s49, s50, s51, s52, s53, s54, s55, s56, s57, s58, s59
+    </sql>
+
+</mapper>

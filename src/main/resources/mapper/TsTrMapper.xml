@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="net.webset.mapper.TsTrMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="TsTrMap" type="net.webset.entity.TsTr">
+        <id column="id" property="id" />
+        <result column="create_id" property="createId" />
+        <result column="create_time" property="createTime" />
+        <result column="s1" property="s1" />
+        <result column="s2" property="s2" />
+        <result column="s3" property="s3" />
+        <result column="s4" property="s4" />
+        <result column="s5" property="s5" />
+        <result column="s8" property="s8" />
+        <result column="s9" property="s9" />
+        <result column="s10" property="s10" />
+        <result column="s11" property="s11" />
+        <result column="s12" property="s12" />
+        <result column="s13" property="s13" />
+        <result column="s14" property="s14" />
+        <result column="s15" property="s15" />
+        <result column="s16" property="s16" />
+        <result column="s17" property="s17" />
+        <result column="s18" property="s18" />
+        <result column="s19" property="s19" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id, create_id, create_time, s1, s2, s3, s4, s5, s8, s9, s10, s11, s12, s13, s14, s15, s16, s17, s18, s19
+    </sql>
+
+</mapper>

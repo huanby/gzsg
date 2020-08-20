@@ -13,14 +13,30 @@ function listener(){
 		$(".nav-tabs li").siblings().attr("class","");
 		$(this).attr("class","active");
 		switch($(this).find("a").html()){
-			case "Tutorials":
-				$("div.col-md-12").siblings().hide();
-				$("#2").show();
-				break;
-			case "学校基础信息":
-				$("div.col-md-12").siblings().hide();
-				$("#1").show();
-				break;
+		case "学校基础信息":
+			$("div.col-md-12").siblings().hide();
+			$("#1").show();
+			break;
+		case "师资队伍*教学资源":
+			$("div.col-md-12").siblings().hide();
+			$("#2").show();
+			break;
+		case "支撑平台*科研项目*学生发展*专业":
+			$("div.col-md-12").siblings().hide();
+			$("#3").show();
+			break;
+		case "创新成果*国际交流*社会服务*办学声誉":
+			$("div.col-md-12").siblings().hide();
+			$("#4").show();
+			break;
+		case "办学经费*基本条件":
+			$("div.col-md-12").siblings().hide();
+			$("#5").show();
+			break;
+		case "标志性成果*其它国家级成果":
+			$("div.col-md-12").siblings().hide();
+			$("#6").show();
+			break;
 		}
 
 	})
@@ -40,6 +56,183 @@ function listener(){
 			saveSchoolBaseInfo(2)
 		}
 	})
+	
+	$("#saveTT").click(function (){
+		$("#schoolTTForm").data("bootstrapValidator").validate();
+		var flag = $("#schoolTTForm").data("bootstrapValidator").isValid();
+		if(flag){
+			saveSchoolTTInfo(1)
+		}
+	})
+	
+	$("#updateTT").click(function (){
+		$("#schoolTTForm").data("bootstrapValidator").validate();
+		var flag = $("#schoolTTForm").data("bootstrapValidator").isValid();
+		if(flag){
+			saveSchoolTTInfo(2)
+		}
+	})
+	
+	$("#saveSRSM").click(function (){
+		$("#schoolSRSMForm").data("bootstrapValidator").validate();
+		var flag = $("#schoolSRSMForm").data("bootstrapValidator").isValid();
+		if(flag){
+			saveSchoolSRSMInfo(1)
+		}
+	})
+	
+	$("#updateSRSM").click(function (){
+		$("#schoolSRSMForm").data("bootstrapValidator").validate();
+		var flag = $("#schoolSRSMForm").data("bootstrapValidator").isValid();
+		if(flag){
+			saveSchoolSRSMInfo(2)
+		}
+	})
+	
+	$("#saveIISS").click(function (){
+		$("#schoolIISSForm").data("bootstrapValidator").validate();
+		var flag = $("#schoolIISSForm").data("bootstrapValidator").isValid();
+		if(flag){
+			saveSchoolIISSInfo(1)
+		}
+	})
+	
+	$("#updateIISS").click(function (){
+		$("#schoolIISSForm").data("bootstrapValidator").validate();
+		var flag = $("#schoolIISSForm").data("bootstrapValidator").isValid();
+		if(flag){
+			saveSchoolIISSInfo(2)
+		}
+	})
+	
+	$("#saveSB").click(function (){
+		$("#schoolSBForm").data("bootstrapValidator").validate();
+		var flag = $("#schoolSBForm").data("bootstrapValidator").isValid();
+		if(flag){
+			saveSchoolSBInfo(1)
+		}
+	})
+	
+	$("#updateSB").click(function (){
+		$("#schoolSBForm").data("bootstrapValidator").validate();
+		var flag = $("#schoolSBForm").data("bootstrapValidator").isValid();
+		if(flag){
+			saveSchoolSBInfo(2)
+		}
+	})
+}
+
+function saveSchoolSBInfo(flat){
+	var url = flat == 1 ? "/schooldata/schoolFillSBSave.json" : "/schooldata/schoolFillSBUpdate.json";
+	$.post(
+		getRootPath()+url, 
+		$("#schoolSBForm").serialize(),
+		function(data) {
+			if(data.status == 200){
+				showInfo("保存成功");
+				if(flat==1){
+					$("#saveSB").hide();
+					$("#updateSB").show();
+				}
+			}else{
+				if(data.response != null){
+					var errorInfo = "<ul><li>"+data.message+"</li>";
+					$.each(data.response,function(key,value){
+						errorInfo += "<li>" + value + "</li>";
+					})
+					errorInfo+= "</ul>";
+					showInfo(errorInfo)
+				}else{
+					showInfo(data.message)
+				}
+			}
+		}
+	);
+}
+
+function saveSchoolIISSInfo(flat){
+	var url = flat == 1 ? "/schooldata/schoolFillIISSSave.json" : "/schooldata/schoolFillIISSUpdate.json";
+	$.post(
+		getRootPath()+url, 
+		$("#schoolIISSForm").serialize(),
+		function(data) {
+			if(data.status == 200){
+				showInfo("保存成功");
+				if(flat==1){
+					$("#saveIISS").hide();
+					$("#updateIISS").show();
+				}
+			}else{
+				if(data.response != null){
+					var errorInfo = "<ul><li>"+data.message+"</li>";
+					$.each(data.response,function(key,value){
+						errorInfo += "<li>" + value + "</li>";
+					})
+					errorInfo+= "</ul>";
+					showInfo(errorInfo)
+				}else{
+					showInfo(data.message)
+				}
+			}
+		}
+	);
+}
+
+function saveSchoolSRSMInfo(flat){
+	var url = flat == 1 ? "/schooldata/schoolFillSRSMSave.json" : "/schooldata/schoolFillSRSMUpdate.json";
+	$.post(
+		getRootPath()+url, 
+		$("#schoolSRSMForm").serialize(),
+		function(data) {
+			if(data.status == 200){
+				showInfo("保存成功");
+				if(flat==1){
+					$("#saveSRSM").hide();
+					$("#updateSRSM").show();
+				}
+			}else{
+				if(data.response != null){
+					var errorInfo = "<ul><li>"+data.message+"</li>";
+					$.each(data.response,function(key,value){
+						errorInfo += "<li>" + value + "</li>";
+					})
+					errorInfo+= "</ul>";
+					showInfo(errorInfo)
+				}else{
+					showInfo(data.message)
+				}
+			}
+		}
+	);
+}
+
+function saveSchoolTTInfo(flat){
+	var url = flat == 1 ? "/schooldata/schoolFillTTSave.json" : "/schooldata/schoolFillTTUpdate.json";
+	$.post(
+		getRootPath()+url, 
+		$("#schoolTTForm").serialize(),
+		function(data) {
+			if(data.status == 200){
+				showInfo("保存成功");
+				if(flat==1){
+					$("#saveTT").hide();
+					$("#updateTT").show();
+				}
+			}else{
+				if(data.response != null){
+					var errorInfo = "<ul><li>"+data.message+"</li>";
+					$.each(data.response,function(key,value){
+						errorInfo += "<li>" + value + "</li>";
+					})
+					errorInfo+= "</ul>";
+					showInfo(errorInfo)
+				}else{
+					showInfo(data.message)
+				}
+			}
+		}
+	);
+		
 }
 
 function saveSchoolBaseInfo(flat){
@@ -51,8 +244,13 @@ function saveSchoolBaseInfo(flat){
 		function(data) {
 			if(data.status == 200){
 				showInfo("保存成功");
+				$('.nav-tabs li').siblings().find("a").show();
+				if(flat==1){
+					$("#save").hide();
+					$("#update").show();
+				}
 			}else{
-				if(data.response.length > 0){
+				if(data.response != null){
 					var errorInfo = "<ul><li>"+data.message+"</li>";
 					$.each(data.response,function(key,value){
 						errorInfo += "<li>" + value + "</li>";
@@ -94,13 +292,827 @@ function init(){
 	
 	validSchoolEditForm();
 	
+	validSchoolTTForm();
+	
+	validSchoolSRSMForm();
+	
+	validSchoolIISSForm();
+	
+	validSchoolSBForm();
+	
 	if($("#id").val()!=""){
 		$("#update").show();
 		$("#save").hide();
-		$("#nature").val($("#nat").val());
-		$("#type").val($("#typ").val());
+	}else{
+		$('.nav-tabs li').siblings().find("a").hide();
+		$('.nav-tabs li.active').find("a").show();
+	}
+	if($("#TTid").val()!=""){
+		$("#updateTT").show();
+		$("#saveTT").hide();
 	}
 	
+	if($("#SRSMid").val()!=""){
+		$("#updateSRSM").show();
+		$("#saveSRSM").hide();
+	}
+	
+	if($("#IISSid").val()!=""){
+		$("#updateIISS").show();
+		$("#saveIISS").hide();
+	}
+	
+	if($("#SBid").val()!=""){
+		$("#updateSB").show();
+		$("#saveSB").hide();
+	}
+}
+
+function validSchoolSBForm(){
+	$('#schoolSBForm').bootstrapValidator({
+		message : '该值无效',
+		group: '.rowGroup',
+		feedbackIcons: {
+			valid: 'glyphicon glyphicon-ok',
+			invalid: 'glyphicon glyphicon-remove',
+			validating: 'glyphicon glyphicon-refresh'
+		},
+		excluded : ':disabled',
+		fields : {
+			x1 : {
+				validators : {
+					notEmpty : {
+						message : '本学校年生均财政拨款水平（万元）不能为空'
+					},
+					regexp: {
+					      regexp: /^\d+(\.\d{0,2})?$/,
+					      message: '请输入大于0的正数'
+					}
+				}
+			},
+			x2 : {
+				validators : {
+					notEmpty : {
+						message : '2017年学校总收入（万元）不能为空'
+					},
+					regexp: {
+					      regexp: /^\d+(\.\d{0,2})?$/,
+					      message: '请输入大于0的正数'
+					}
+				}
+			},
+			x3 : {
+				validators : {
+					notEmpty : {
+						message : '2017年学校总支出（万元）不能为空'
+					},
+					regexp: {
+					      regexp: /^\d+(\.\d{0,2})?$/,
+					      message: '请输入大于0的正数'
+					}
+				}
+			},
+			x4 : {
+				validators : {
+					notEmpty : {
+						message : '2018年学校总收入（万元）不能为空'
+					},
+					regexp: {
+					      regexp: /^\d+(\.\d{0,2})?$/,
+					      message: '请输入大于0的正数'
+					}
+				}
+			},
+			x5 : {
+				validators : {
+					notEmpty : {
+						message : '2018年学校总支出（万元）不能为空'
+					},
+					regexp: {
+					      regexp: /^\d+(\.\d{0,2})?$/,
+					      message: '请输入大于0的正数'
+					}
+				}
+			},
+			x6 : {
+				validators : {
+					notEmpty : {
+						message : '2019年学校总收入（万元）不能为空'
+					},
+					regexp: {
+					      regexp: /^\d+(\.\d{0,2})?$/,
+					      message: '请输入大于0的正数'
+					}
+				}
+			},
+			x7 : {
+				validators : {
+					notEmpty : {
+						message : '2019年学校总支出（万元）不能为空'
+					},
+					regexp: {
+					      regexp: /^\d+(\.\d{0,2})?$/,
+					      message: '请输入大于0的正数'
+					}
+				}
+			},
+			x8 : {
+				validators : {
+					notEmpty : {
+						message : '请选择学校办学条件高于专科高职学校设置标准【是-否】'
+					}
+				}
+			},
+			x9 : {
+				validators : {
+					notEmpty : {
+						message : '请选择年生均财政拨款水平达到国家统一要求【是-否】'
+					}
+				}
+			},
+			x10 : {
+				validators : {
+					notEmpty : {
+						message : '请选择校园网全覆盖【是-否】'
+					}
+				}
+			},
+			x11 : {
+				validators : {
+					notEmpty : {
+						message : '请选择有三届以上全日制普通专科（三年制）毕业生【是-否】'
+					}
+				}
+			},
+			x12 : {
+				validators : {
+					notEmpty : {
+						message : '请选择重点建设专业群的全日制在校生规模在800人以上【是-否】'
+					}
+				}
+			},
+			x13 : {
+				validators : {
+					notEmpty : {
+						message : '请选择学校师生在校期间获得过省级教学成果一等及以上奖【是-否】'
+					}
+				}
+			},
+			x14 : {
+				validators : {
+					notEmpty : {
+						message : '请选择学校师生在校期间获得过吉林省高等职业院校技能大赛一等奖【是-否】'
+					}
+				}
+			},
+			x15 : {
+				validators : {
+					notEmpty : {
+						message : '请选择2016年以来，学校（单位或现任主要领导）没有因违纪违法受到处分的情况【是-否】'
+					}
+				}
+			}
+		}
+	})
+}
+
+
+function validSchoolIISSForm(){
+	$('#schoolIISSForm').bootstrapValidator({
+		message : '该值无效',
+		group: '.rowGroup',
+		feedbackIcons: {
+			valid: 'glyphicon glyphicon-ok',
+			invalid: 'glyphicon glyphicon-remove',
+			validating: 'glyphicon glyphicon-refresh'
+		},
+		excluded : ':disabled',
+		fields : {
+			s39 : {
+				validators : {
+					notEmpty : {
+						message : '国家级教学成果奖获奖数（个）不能为空'
+					},
+					digits: {
+						message : '国家级教学成果奖获奖数（个）只能是正整数'
+					}
+				}
+			},
+			s40 : {
+				validators : {
+					notEmpty : {
+						message : '省级教学成果奖获奖数（个）不能为空'
+					},
+					digits: {
+						message : '省级教学成果奖获奖数（个）只能是正整数'
+					}
+				}
+			},
+			s41 : {
+				validators : {
+					notEmpty : {
+						message : '获国家级科研奖项数（个）不能为空'
+					},
+					digits: {
+						message : '获国家级科研奖项数（个）只能是正整数'
+					}
+				}
+			},
+			s42 : {
+				validators : {
+					notEmpty : {
+						message : '获省部级和行业科研奖项数（个）不能为空'
+					},
+					digits: {
+						message : '获省部级和行业科研奖项数（个）只能是正整数'
+					}
+				}
+			},
+			s43 : {
+				validators : {
+					notEmpty : {
+						message : '师均论文数（篇/人）不能为空'
+					},
+					regexp: {
+					      regexp: /^\d+(\.\d{0,2})?$/,
+					      message: '请输入大于0的正数'
+					}
+				}
+			},
+			s44 : {
+				validators : {
+					notEmpty : {
+						message : '在校学历教育国际学生占比（%）不能为空'
+					},
+					regexp: {
+					      regexp: /^\d+(\.\d{0,2})?$/,
+					      message: '请输入大于0的正数'
+					}
+				}
+			},
+			s45 : {
+				validators : {
+					notEmpty : {
+						message : '学生国（境）外学习、实习占比（%）不能为空'
+					},
+					regexp: {
+					      regexp: /^\d+(\.\d{0,2})?$/,
+					      message: '请输入大于0的正数'
+					}
+				}
+			},
+			s46 : {
+				validators : {
+					notEmpty : {
+						message : '国际合作办学机构（项目）数（个）不能为空'
+					},
+					digits: {
+						message : '国际合作办学机构（项目）数（个）只能是正整数'
+					}
+				}
+			},
+			s47 : {
+				validators : {
+					notEmpty : {
+						message : '技术转让当年实际收入（万元）不能为空'
+					},
+					regexp: {
+					      regexp: /^\d+(\.\d{0,2})?$/,
+					      message: '请输入大于0的正数'
+					}
+				}
+			},
+			s48 : {
+				validators : {
+					notEmpty : {
+						message : '决策咨询报告采纳数（篇）不能为空'
+					},
+					digits: {
+						message : '决策咨询报告采纳数（篇）只能是正整数'
+					}
+				}
+			},
+			s49 : {
+				validators : {
+					notEmpty : {
+						message : '社会培训人时数（人天）不能为空'
+					},
+					regexp: {
+					      regexp: /^\d+(\.\d{0,2})?$/,
+					      message: '请输入大于0的正数'
+					}
+				}
+			},
+			s50 : {
+				validators : {
+					notEmpty : {
+						message : '第一志愿录取率（%）不能为空'
+					},
+					regexp: {
+					      regexp: /^\d+(\.\d{0,2})?$/,
+					      message: '请输入大于0的正数'
+					}
+				}
+			},
+			s51 : {
+				validators : {
+					notEmpty : {
+						message : '毕业生满意度（%）不能为空'
+					},
+					regexp: {
+					      regexp: /^\d+(\.\d{0,2})?$/,
+					      message: '请输入大于0的正数'
+					}
+				}
+			},
+			s52 : {
+				validators : {
+					notEmpty : {
+						message : '社会捐赠收入占比（%）不能为空'
+					},
+					regexp: {
+					      regexp: /^\d+(\.\d{0,2})?$/,
+					      message: '请输入大于0的正数'
+					}
+				}
+			},
+			s53 : {
+				validators : {
+					notEmpty : {
+						message : '国家级示范校、骨干校荣誉数（个）不能为空'
+					},
+					digits: {
+						message : '国家级示范校、骨干校荣誉数（个）只能是正整数'
+					}
+				}
+			},
+			s54 : {
+				validators : {
+					notEmpty : {
+						message : '国家级特色高水平院校荣誉数（个）不能为空'
+					},
+					digits: {
+						message : '国家级特色高水平院校荣誉数（个）只能是正整数'
+					}
+				}
+			},
+			s55 : {
+				validators : {
+					notEmpty : {
+						message : '国家级优质校荣誉数（个）不能为空'
+					},
+					digits: {
+						message : '国家级优质校荣誉数（个）只能是正整数'
+					}
+				}
+			},
+			s56 : {
+				validators : {
+					notEmpty : {
+						message : '省级示范校、骨干校、优质校荣誉数（个）不能为空'
+					},
+					digits: {
+						message : '省级示范校、骨干校、优质校荣誉数（个）只能是正整数'
+					}
+				}
+			},
+			s57 : {
+				validators : {
+					notEmpty : {
+						message : '产教融合规划项目（个）不能为空'
+					},
+					digits: {
+						message : '产教融合规划项目（个）只能是正整数'
+					}
+				}
+			},
+			s58 : {
+				validators : {
+					notEmpty : {
+						message : '承办过全国职业院校技能大赛个数（个）不能为空'
+					},
+					digits: {
+						message : '承办过全国职业院校技能大赛个数（个）只能是正整数'
+					}
+				}
+			},
+			s59 : {
+				validators : {
+					notEmpty : {
+						message : '发布《高等职业院校质量年度报告》个数（个）不能为空'
+					},
+					digits: {
+						message : '发布《高等职业院校质量年度报告》个数（个）只能是正整数'
+					}
+				}
+			},
+			
+		}
+	})
+}
+
+function validSchoolSRSMForm(){
+	$('#schoolSRSMForm').bootstrapValidator({
+		message : '该值无效',
+		group: '.rowGroup',
+		feedbackIcons: {
+			valid: 'glyphicon glyphicon-ok',
+			invalid: 'glyphicon glyphicon-remove',
+			validating: 'glyphicon glyphicon-refresh'
+		},
+		excluded : ':disabled',
+		fields : {
+			s20 : {
+				validators : {
+					notEmpty : {
+						message : '国家级现代学徒制试点（个）不能为空'
+					},
+					digits: {
+						message : '国家级现代学徒制试点（个）只能是正整数'
+					}
+				}
+			},
+			s21 : {
+				validators : {
+					notEmpty : {
+						message : '省级现代学徒制试点（个）不能为空'
+					},
+					digits: {
+						message : '省级现代学徒制试点（个）只能是正整数'
+					}
+				}
+			},
+			s22 : {
+				validators : {
+					notEmpty : {
+						message : '省级及以上三全育人综合改革试点（个）不能为空'
+					},
+					digits: {
+						message : '省级及以上三全育人综合改革试点（个）只能是正整数'
+					}
+				}
+			},
+			s23 : {
+				validators : {
+					notEmpty : {
+						message : '省级及以上教学工作诊断与改进工作试点（个）不能为空'
+					},
+					digits: {
+						message : '省级及以上教学工作诊断与改进工作试点（个）只能是正整数'
+					}
+				}
+			},
+			s24 : {
+				validators : {
+					notEmpty : {
+						message : '国家级创新创业教育示范基地数（个）不能为空'
+					},
+					digits: {
+						message : '国家级创新创业教育示范基地数（个）只能是正整数'
+					}
+				}
+			},
+			s25 : {
+				validators : {
+					notEmpty : {
+						message : '省部级创新创业教育示范基地数（个）不能为空'
+					},
+					digits: {
+						message : '省部级创新创业教育示范基地数（个）只能是正整数'
+					}
+				}
+			},
+			s26 : {
+				validators : {
+					notEmpty : {
+						message : '省级示范性实习实训基地（个）不能为空'
+					},
+					digits: {
+						message : '省级示范性实习实训基地（个）只能是正整数'
+					}
+				}
+			},
+			s27 : {
+				validators : {
+					notEmpty : {
+						message : '师均科研经费（万元/人）不能为空'
+					},
+					regexp: {
+					      regexp: /^\d+(\.\d{0,2})?$/,
+					      message: '请输入大于0的正数'
+					}
+				}
+			},
+			s28 : {
+				validators : {
+					notEmpty : {
+						message : '师均新增省部级科研项目数（个/人）不能为空'
+					},
+					regexp: {
+					      regexp: /^\d+(\.\d{0,2})?$/,
+					      message: '请输入大于0的正数'
+					}
+				}
+			},
+			s29 : {
+				validators : {
+					notEmpty : {
+						message : '师均企事业委托项目数（个/人）不能为空'
+					},
+					regexp: {
+					      regexp: /^\d+(\.\d{0,2})?$/,
+					      message: '请输入大于0的正数'
+					}
+				}
+			},
+			s30 : {
+				validators : {
+					notEmpty : {
+						message : '高级职称人员、技术技能大师为学生授课比例（%）不能为空'
+					},
+					regexp: {
+					      regexp: /^\d+(\.\d{0,2})?$/,
+					      message: '请输入大于0的正数'
+					}
+				}
+			},
+			s31 : {
+				validators : {
+					notEmpty : {
+						message : '学生在国家级竞赛中获得奖励数（项）不能为空'
+					},
+					digits: {
+						message : '学生在国家级竞赛中获得奖励数（项）只能是正整数'
+					}
+				}
+			},
+			s32 : {
+				validators : {
+					notEmpty : {
+						message : '学生在省级竞赛中获得奖励数（项）不能为空'
+					},
+					digits: {
+						message : '学生在省级竞赛中获得奖励数（项）只能是正整数'
+					}
+				}
+			},
+			s33 : {
+				validators : {
+					notEmpty : {
+						message : '学生初次就业率（%）不能为空'
+					},
+					regexp: {
+					      regexp: /^\d+(\.\d{0,2})?$/,
+					      message: '请输入大于0的正数'
+					}
+				}
+			},
+			s34 : {
+				validators : {
+					notEmpty : {
+						message : '学生本省就业率（%）不能为空'
+					},
+					regexp: {
+					      regexp: /^\d+(\.\d{0,2})?$/,
+					      message: '请输入大于0的正数'
+					}
+				}
+			},
+			s35 : {
+				validators : {
+					notEmpty : {
+						message : '国家级特色高水平专业数（个）不能为空'
+					},
+					digits: {
+						message : '国家级特色高水平专业数（个）只能是正整数'
+					}
+				}
+			},
+			s36 : {
+				validators : {
+					notEmpty : {
+						message : '国家级重点专业数（个）不能为空'
+					},
+					digits: {
+						message : '国家级重点专业数（个）只能是正整数'
+					}
+				}
+			},
+			s37 : {
+				validators : {
+					notEmpty : {
+						message : '国家级优质（骨干）专业数（个）不能为空'
+					},
+					digits: {
+						message : '国家级优质（骨干）专业数（个）只能是正整数'
+					}
+				}
+			},
+			s38 : {
+				validators : {
+					notEmpty : {
+						message : '入选“特色高水平专业（群）”数（个）不能为空'
+					},
+					digits: {
+						message : '入选“特色高水平专业（群）”数（个）只能是正整数'
+					}
+				}
+			}
+			
+		}
+	})
+}
+
+function validSchoolTTForm(){
+	$('#schoolTTForm').bootstrapValidator({
+		message : '该值无效',
+		group: '.rowGroup',
+		feedbackIcons: {
+			valid: 'glyphicon glyphicon-ok',
+			invalid: 'glyphicon glyphicon-remove',
+			validating: 'glyphicon glyphicon-refresh'
+		},
+		excluded : ':disabled',
+		fields : {
+			s1 : {
+				validators : {
+					notEmpty : {
+						message : '生师比（X:1）不能为空'
+					},
+					regexp: {
+					      regexp: /^\d+(\.\d{0,2})?$/,
+					      message: '请输入大于0的正数'
+					}
+				}
+			},
+			s2 : {
+				validators : {
+					notEmpty : {
+						message : '国家级高层次人才数（人）不能为空'
+					},
+					digits: {
+						message : '国家级高层次人才数（人）只能是正整数'
+					}
+				}
+			},
+			s3 : {
+				validators : {
+					notEmpty : {
+						message : '省级人才数（人）不能为空'
+					},
+					digits: {
+						message : '省级人才数（人）只能是正整数'
+					}
+				}
+			},
+			s4 : {
+				validators : {
+					notEmpty : {
+						message : '国家级高层次教学、研究团队数 （个）不能为空'
+					},
+					digits: {
+						message : '国家级高层次教学、研究团队数 （个）只能是正整数'
+					}
+				}
+			},
+			s5 : {
+				validators : {
+					notEmpty : {
+						message : '省级教学、研究团队数（个）不能为空'
+					},
+					digits: {
+						message : '省级教学、研究团队数（个）只能是正整数'
+					}
+				}
+			},
+			s8 : {
+				validators : {
+					notEmpty : {
+						message : '具有国（境）外学习工作经历的专任教师占比（%）不能为空'
+					},
+					regexp: {
+					      regexp: /^\d+(\.\d{0,2})?$/,
+					      message: '请输入大于0的正数'
+					}
+				}
+			},
+			s9 : {
+				validators : {
+					notEmpty : {
+						message : '双师型专任教师占比（%）不能为空'
+					},
+					regexp: {
+					      regexp: /^\d+(\.\d{0,2})?$/,
+					      message: '请输入大于0的正数'
+					}
+				}
+			},
+			s10 : {
+				validators : {
+					notEmpty : {
+						message : '企业兼职教师占比（%）不能为空'
+					},
+					regexp: {
+					      regexp: /^\d+(\.\d{0,2})?$/,
+					      message: '请输入大于0的正数'
+					}
+				}
+			},
+			s11 : {
+				validators : {
+					notEmpty : {
+						message : '专业教师人均企业实践时间（天/人）不能为空'
+					},
+					regexp: {
+					      regexp: /^\d+(\.\d{0,2})?$/,
+					      message: '请输入大于0的正数'
+					}
+				}
+			},
+			s12 : {
+				validators : {
+					notEmpty : {
+						message : '实践课时占比（%）不能为空'
+					},
+					regexp: {
+					      regexp: /^\d+(\.\d{0,2})?$/,
+					      message: '请输入大于0的正数'
+					}
+				}
+			},
+			s13 : {
+				validators : {
+					notEmpty : {
+						message : '公开出版的校企合作教材数（种）不能为空'
+					},
+					digits: {
+						message : '公开出版的校企合作教材数（种）只能是正整数'
+					}
+				}
+			},
+			s14 : {
+				validators : {
+					notEmpty : {
+						message : '国家级规划教材、精品教材数（种）不能为空'
+					},
+					digits: {
+						message : '国家级规划教材、精品教材数（种）只能是正整数'
+					}
+				}
+			},
+			s15 : {
+				validators : {
+					notEmpty : {
+						message : '省部级规划教材、精品教材数（种）不能为空'
+					},
+					digits: {
+						message : '省部级规划教材、精品教材数（种）只能是正整数'
+					}
+				}
+			},
+			s16 : {
+				validators : {
+					notEmpty : {
+						message : '省部级教学资源库开发数量（个）不能为空'
+					},
+					digits: {
+						message : '省部级教学资源库开发数量（个）只能是正整数'
+					}
+				}
+			},
+			s17 : {
+				validators : {
+					notEmpty : {
+						message : '生均图书流通量、生均电子资源访问量（次/人）不能为空'
+					},
+					regexp: {
+					      regexp: /^\d+(\.\d{0,2})?$/,
+					      message: '请输入大于0的正数'
+					}
+				}
+			},
+			s18 : {
+				validators : {
+					notEmpty : {
+						message : '省级以上实习实训基地数（个）不能为空'
+					},
+					digits: {
+						message : '省级以上实习实训基地数（个）只能是正整数'
+					}
+				}
+			},
+			s19 : {
+				validators : {
+					notEmpty : {
+						message : '产学研合作项目（基地）数（个）不能为空'
+					},
+					digits: {
+						message : '产学研合作项目（基地）数（个）只能是正整数'
+					}
+				}
+			}
+		}
+	})
 }
 
 function validSchoolEditForm(){
@@ -225,7 +1237,7 @@ function validSchoolEditForm(){
 					stringLength: {
 	                    min: 5,
 	                    max: 20,
-	                    message: '法人办公电话长度为2到20个字节。'
+	                    message: '法人办公电话长度为5到20个字节。'
 	                }
 				}
 			},
@@ -244,7 +1256,7 @@ function validSchoolEditForm(){
 					stringLength: {
 	                    min: 5,
 	                    max: 20,
-	                    message: '法人电话长度为2到20个字节。'
+	                    message: '法人电话长度为5到20个字节。'
 	                }
 				}
 			},
@@ -268,7 +1280,7 @@ function validSchoolEditForm(){
 					stringLength: {
 	                    min: 5,
 	                    max: 20,
-	                    message: '联系人公电话长度为2到20个字节。'
+	                    message: '联系人公电话长度为5到20个字节。'
 	                }
 				}
 			},
@@ -287,13 +1299,10 @@ function validSchoolEditForm(){
 					stringLength: {
 	                    min: 5,
 	                    max: 20,
-	                    message: '联系人电话长度为2到20个字节。'
+	                    message: '联系人电话长度为5到20个字节。'
 	                }
 				}
 			}
 		}
-	}).on('success.form.bv', function(e) {
-		e.preventDefault();
-		saveSchoolBaseInfo(1);
-	});
+	})
 }

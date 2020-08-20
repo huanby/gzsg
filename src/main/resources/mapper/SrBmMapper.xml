@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="net.webset.mapper.SrBmMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="SrBmMap" type="net.webset.entity.SrBm">
+        <id column="id" property="id" />
+        <result column="create_id" property="createId" />
+        <result column="x1" property="x1" />
+        <result column="x2" property="x2" />
+        <result column="x3" property="x3" />
+        <result column="x4" property="x4" />
+        <result column="x5" property="x5" />
+        <result column="x6" property="x6" />
+        <result column="x7" property="x7" />
+        <result column="x8" property="x8" />
+        <result column="x9" property="x9" />
+        <result column="x10" property="x10" />
+        <result column="x11" property="x11" />
+        <result column="x12" property="x12" />
+        <result column="x13" property="x13" />
+        <result column="x14" property="x14" />
+        <result column="x15" property="x15" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id, create_id, x1, x2, x3, x4, x5, x6, x7, x8, x9, x10, x11, x12, x13, x14, x15
+    </sql>
+
+</mapper>
