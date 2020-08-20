@@ -1,6 +1,9 @@
 /**
  * 编辑普通模板页面 author 梁雪峰
  */
+var pathList=[];
+var initPreviewConfig=[];  
+var ks = {};
 $(document).ready(function() {
 	/* 自定义监听器 */
 	listener();
@@ -37,8 +40,12 @@ function listener(){
 			$("div.col-md-12").siblings().hide();
 			$("#6").show();
 			break;
+		case "佐证材料管理":
+			$("div.col-md-12").siblings().hide();
+			$("#7").show();
+			break;
+		
 		}
-
 	})
 	
 	$("#save").click(function (){
@@ -120,6 +127,50 @@ function listener(){
 			saveSchoolSBInfo(2)
 		}
 	})
+	
+	$("#saveLAON").click(function (){
+		$("#schoolLAONForm").data("bootstrapValidator").validate();
+		var flag = $("#schoolLAONForm").data("bootstrapValidator").isValid();
+		if(flag){
+			saveSchoolLAONInfo(1)
+		}
+	})
+	
+	$("#updateLAON").click(function (){
+		$("#schoolLAONForm").data("bootstrapValidator").validate();
+		var flag = $("#schoolLAONForm").data("bootstrapValidator").isValid();
+		if(flag){
+			saveSchoolLAONInfo(2)
+		}
+	})
+}
+
+function saveSchoolLAONInfo(flat){
+	var url = flat == 1 ? "/schooldata/schoolFillLAONSave.json" : "/schooldata/schoolFillLAONUpdate.json";
+	$.post(
+		getRootPath()+url, 
+		$("#schoolLAONForm").serialize(),
+		function(data) {
+			if(data.status == 200){
+				showInfo("保存成功");
+				if(flat==1){
+					$("#saveLAON").hide();
+					$("#updateLAON").show();
+				}
+			}else{
+				if(data.response != null){
+					var errorInfo = "<ul><li>"+data.message+"</li>";
+					$.each(data.response,function(key,value){
+						errorInfo += "<li>" + value + "</li>";
+					})
+					errorInfo+= "</ul>";
+					showInfo(errorInfo)
+				}else{
+					showInfo(data.message)
+				}
+			}
+		}
+	);
 }
 
 function saveSchoolSBInfo(flat){
@@ -300,6 +351,8 @@ function init(){
 	
 	validSchoolSBForm();
 	
+	validSchoolLAONForm();
+	
 	if($("#id").val()!=""){
 		$("#update").show();
 		$("#save").hide();
@@ -326,6 +379,278 @@ function init(){
 		$("#updateSB").show();
 		$("#saveSB").hide();
 	}
+	
+	if($("#LAONid").val()!=""){
+		$("#updateLAON").show();
+		$("#saveLAON").hide();
+	}
+	
+	initImages();
+}
+
+function validSchoolLAONForm(){
+	$('#schoolLAONForm').bootstrapValidator({
+		message : '该值无效',
+		group: '.rowGroup',
+		feedbackIcons: {
+			valid: 'glyphicon glyphicon-ok',
+			invalid: 'glyphicon glyphicon-remove',
+			validating: 'glyphicon glyphicon-refresh'
+		},
+		excluded : ':disabled',
+		fields : {
+			g1 : {
+				validators : {
+					notEmpty : {
+						message : '国家示范校、骨干校、优质校成果数（个）不能为空'
+					},
+					digits: {
+						message : '国家示范校、骨干校、优质校成果数（个）只能是正整数'
+					}
+				}
+			},
+			g2 : {
+				validators : {
+					notEmpty : {
+						message : '吉林省示范校、骨干校、优质校成果数（个）不能为空'
+					},
+					digits: {
+						message : '国家示范校、骨干校、优质校成果数（个）只能是正整数'
+					}
+				}
+			},
+			g3 : {
+				validators : {
+					notEmpty : {
+						message : '仅包括现代学徒制试点、教学工作诊断与改进工作试点、定向培养士官试点'
+					},
+					digits: {
+						message : '国家级教育教学改革试点数（个）只能是正整数'
+					}
+				}
+			},
+			g4 : {
+				validators : {
+					notEmpty : {
+						message : '仅包括现代学徒制试点、教学工作诊断与改进工作试点、定向培养士官试点'
+					},
+					digits: {
+						message : '省级教育教学改革试点数（个）只能是正整数'
+					}
+				}
+			},
+			g5 : {
+				validators : {
+					notEmpty : {
+						message : '填报2006年以来国家级示范、品牌、特色专业和高水平专业建设项目'
+					},
+					digits: {
+						message : '国家级重点专业数（个）只能是正整数'
+					}
+				}
+			},
+			g6 : {
+				validators : {
+					notEmpty : {
+						message : '填报2006年以来省级示范、品牌、特色专业和高水平专业建设项目'
+					},
+					digits: {
+						message : '省级重点专业数（个）只能是正整数'
+					}
+				}
+			},
+			g7 : {
+				validators : {
+					notEmpty : {
+						message : '国家级财政支持的实训基地数（个）不能为空'
+					},
+					digits: {
+						message : '国家级财政支持的实训基地数（个）只能是正整数'
+					}
+				}
+			},
+			g8 : {
+				validators : {
+					notEmpty : {
+						message : '省级财政支持的实训基地数（个）不能为空'
+					}
+				},
+				digits: {
+					message : '省级财政支持的实训基地数（个）只能是正整数'
+				}
+			},
+			g9 : {
+				validators : {
+					notEmpty : {
+						message : '国家职业教育教学资源库数（个）不能为空'
+					}
+				},
+				digits: {
+					message : '国家职业教育教学资源库数（个）只能是正整数'
+				}
+			},
+			g10 : {
+				validators : {
+					notEmpty : {
+						message : '填报近五年全国毕业生就业典型经验高校、创新创业典型经验高校、创新创业教育改革示范高校，国家“双创”基地、国家创新创业教育改革示范高校、国家大学科技园、国家级科技企业孵化器等'
+					}
+				},
+				digits: {
+					message : '全国就业创业典型数（个）只能是正整数'
+				}
+			},
+			g11 : {
+				validators : {
+					notEmpty : {
+						message : '填报近五年全国、吉林省毕业生就业典型经验高校、创新创业典型经验高校、创新创业教育改革示范高校，国家“双创”基地、国家创新创业教育改革示范高校、国家大学科技园、国家级科技企业孵化器等'
+					}
+				},
+				digits: {
+					message : '吉林省就业创业典型数（个）只能是正整数'
+				}
+			},
+			g12 : {
+				validators : {
+					notEmpty : {
+						message : '教师国家级荣誉数（个）不能为空'
+					}
+				},
+				digits: {
+					message : '教师国家级荣誉数（个）只能是正整数'
+				}
+			},
+			g13 : {
+				validators : {
+					notEmpty : {
+						message : '教师省级荣誉数（个）不能为空'
+					}
+				},
+				digits: {
+					message : '教师省级荣誉数（个）只能是正整数'
+				}
+			},
+			g14 : {
+				validators : {
+					notEmpty : {
+						message : '仅填报近五年学校承办过的全国职业院校技能大赛'
+					}
+				},
+				digits: {
+					message : '承办全国职业院校技能大赛数（个）只能是正整数'
+				}
+			},
+			g15 : {
+				validators : {
+					notEmpty : {
+						message : '仅填报近五年学校承办过的吉林职业院校技能大赛'
+					}
+				},
+				digits: {
+					message : '承办吉林省职业院校技能大赛数（个）只能是正整数'
+				}
+			},
+			g16 : {
+				validators : {
+					notEmpty : {
+						message : '学校须为第一完成单位'
+					}
+				},
+				digits: {
+					message : '国家级教学成果奖励数（个）只能是正整数'
+				}
+			},
+			g17 : {
+				validators : {
+					notEmpty : {
+						message : '学校须为第一完成单位'
+					}
+				},
+				digits: {
+					message : '吉林省教学成果奖励数（个）只能是正整数'
+				}
+			},
+			g18 : {
+				validators : {
+					notEmpty : {
+						message : '教师全国职业院校教学能力比赛获奖（含职业院校信息化教学大赛）数（个）不能为空'
+					}
+				},
+				digits: {
+					message : '教师全国职业院校教学能力比赛获奖（含职业院校信息化教学大赛）数（个）只能是正整数'
+				}
+			},
+			g19 : {
+				validators : {
+					notEmpty : {
+						message : '教师吉林省职业院校教学能力比赛获奖（含职业院校信息化教学大赛）数（个）不能为空'
+					}
+				},
+				digits: {
+					message : '教师吉林省职业院校教学能力比赛获奖（含职业院校信息化教学大赛）数（个）只能是正整数'
+				}
+			},
+			g20 : {
+				validators : {
+					notEmpty : {
+						message : '学生全国职业院校技能大赛获奖数（个）近五年不能为空'
+					}
+				},
+				digits: {
+					message : '学生全国职业院校技能大赛获奖数（个）近五年只能是正整数'
+				}
+			},
+			g21 : {
+				validators : {
+					notEmpty : {
+						message : '学生吉林省职业院校技能大赛获奖数（个）近五年不能为空'
+					}
+				},
+				digits: {
+					message : '学生吉林省职业院校技能大赛获奖数（个）近五年只能是正整数'
+				}
+			},
+			g22 : {
+				validators : {
+					notEmpty : {
+						message : '学生中国“互联网+”大学生创新创业大赛获奖数（个）近五年不能为空'
+					}
+				},
+				digits: {
+					message : '学生中国“互联网+”大学生创新创业大赛获奖数（个）近五年只能是正整数'
+				}
+			},
+			g23 : {
+				validators : {
+					notEmpty : {
+						message : '学生吉林省“互联网+”大学生创新创业大赛获奖数（个）近五年不能为空'
+					}
+				},
+				digits: {
+					message : '学生吉林省“互联网+”大学生创新创业大赛获奖数（个）近五年只能是正整数'
+				}
+			},
+			g24 : {
+				validators : {
+					notEmpty : {
+						message : '学生“挑战杯”全国大学生课外学术科技作品竞赛和中国大学生创业计划竞赛获奖数（个）近五年不能为空'
+					}
+				},
+				digits: {
+					message : '学生“挑战杯”全国大学生课外学术科技作品竞赛和中国大学生创业计划竞赛获奖数（个）近五年只能是正整数'
+				}
+			},
+			g25 : {
+				validators : {
+					notEmpty : {
+						message : '其它国家级成果数，学校须为主持单位（个）不能为空'
+					}
+				},
+				digits: {
+					message : '其它国家级成果数，学校须为主持单位（个）只能是正整数'
+				}
+			}
+		}
+	})
 }
 
 function validSchoolSBForm(){
@@ -1305,4 +1630,70 @@ function validSchoolEditForm(){
 			}
 		}
 	})
+}
+
+function initFileUpload(){
+	$("#file").fileinput({
+        language : 'zh',
+        uploadUrl : getRootPath()+"/schooldata/schoolFillUploadPDF.json",
+        showUpload: true, //是否显示上传按钮
+        showRemove : false, //显示移除按钮
+        showPreview : true, //是否显示预览
+        showCaption: true,//是否显示标题
+        autoReplace : true,
+        dropZoneEnabled: true,//是否显示拖拽区域
+        minFileCount: 0,
+        uploadAsync: true,
+	    preferIconicPreview: true, // this will force thumbnails to display icons for following file extensions
+	    previewFileIconSettings: { // configure your icon file extensions
+			'doc': '<i class="fa fa-file-word-o text-primary"></i>',
+			'xls': '<i class="fa fa-file-excel-o text-success"></i>',
+			'ppt': '<i class="fa fa-file-powerpoint-o text-danger"></i>',
+			'pdf': '<i class="fa fa-file-pdf-o text-danger"></i>',
+			'txt': '<i class="fa fa-file-text-o text-info"></i>',
+			'zip': '<i class="fa fa-file-archive-o text-muted"></i>',
+			'htm': '<i class="fa fa-file-code-o text-info"></i>',
+			'mov': '<i class="fa fa-file-movie-o text-warning"></i>',
+			'mp3': '<i class="fa fa-file-audio-o text-warning"></i>'
+		},
+        initialPreview:pathList,
+        initialPreviewAsData: true, 
+        initialPreviewConfig:initPreviewConfig,
+        maxFileCount: 10,//最大上传数量
+        browseOnZoneClick: true,
+        browseClass:"btn btn-primary",
+        msgFilesTooMany: "选择上传的文件数量 超过允许的最大数值！",
+        enctype: 'multipart/form-data',
+        overwriteInitial: false,//不覆盖已上传的图片
+        allowedFileExtensions : [ "pdf" ],
+        browseClass : "btn btn-primary", //按钮样式
+        previewFileIcon : "<i class='glyphicon glyphicon-king'></i>"
+    }).on("fileuploaded", function(e, data) {//文件上传成功的回调函数，还有其他的一些回调函数，比如上传之前...
+    	initImages();
+    });
+}
+
+function initImages(){
+	
+	$.post(
+		getRootPath()+"/schooldata/schoolFillgetImagesById.json", 
+		/*<embed class="kv-preview-data file-preview-pdf file-zoom-detail" src="blob:http://localhost:8080/c980b3b3-fc78-43ac-9c2c-f8a0c948e905" type="application/pdf" style="width: 100%; height: 100%; min-height: 480px;">*/
+		function(data) {
+    		if(data.length > 0){
+	    		$(data).each(function(index,value){
+	        		pathList[index] = getRootPath()+"/schooldata/schoolFillshowFile.json?name="+value.name;
+	        		ks = {
+	        				type: value.type,
+	        				caption: value.sourceName, 
+	        				size: value.size, 
+	        				url: getRootPath()+"/schooldata/schoolFilldeleteFile.json", 
+	        				key: value.id
+	    			};
+	        		initPreviewConfig[index] = ks;
+	    		})
+	    		
+    		}
+    		initFileUpload();
+		}
+    );
 }

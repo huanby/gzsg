@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="net.webset.mapper.LaOnMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="laOnMap" type="net.webset.entity.LaOn">
+        <id column="id" property="id" />
+        <result column="create_id" property="createId" />
+        <result column="create_time" property="createTime" />
+        <result column="g1" property="g1" />
+        <result column="g2" property="g2" />
+        <result column="g3" property="g3" />
+        <result column="g4" property="g4" />
+        <result column="g5" property="g5" />
+        <result column="g6" property="g6" />
+        <result column="g7" property="g7" />
+        <result column="g8" property="g8" />
+        <result column="g9" property="g9" />
+        <result column="g10" property="g10" />
+        <result column="g11" property="g11" />
+        <result column="g12" property="g12" />
+        <result column="g13" property="g13" />
+        <result column="g14" property="g14" />
+        <result column="g15" property="g15" />
+        <result column="g16" property="g16" />
+        <result column="g17" property="g17" />
+        <result column="g18" property="g18" />
+        <result column="g19" property="g19" />
+        <result column="g20" property="g20" />
+        <result column="g21" property="g21" />
+        <result column="g22" property="g22" />
+        <result column="g23" property="g23" />
+        <result column="g24" property="g24" />
+        <result column="g25" property="g25" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id, create_id, create_time, g1, g2, g3, g4, g5, g6, g7, g8, g9, g10, g11, g12, g13, g14, g15, g16, g17, g18, g19, g20, g21, g22, g23, g24, g25
+    </sql>
+
+</mapper>

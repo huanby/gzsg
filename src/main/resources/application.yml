@@ -8,7 +8,7 @@ spring:
     encoding: UTF-8
   #数据库源配置 
   datasource: 
-    url: jdbc:mysql://192.168.0.110:3306/gzsg?serverTimezone=GMT%2B8&&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull&allowMultiQueries=true
+    url: jdbc:mysql://127.0.0.1:3306/gzsg?serverTimezone=GMT%2B8&&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull&allowMultiQueries=true
 #    url: jdbc:mysql://127.0.0.1:3307/gzsg?serverTimezone=GMT%2B8&&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull&allowMultiQueries=true
     username: root
     password: 123456
@@ -93,3 +93,5 @@ config:
     image: 
       length: 1 
       width: 50 
+  other:
+    path: E:/files/
