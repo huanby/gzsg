@@ -8,6 +8,7 @@
 		<input type="hidden" id="hidden_majorId" class="hidden_majorId"  th:value="${majorId}">
 		<!--专业（群）基本情况-基础信息-->
 		<div id='1' class="col-md-12 jumbotron">
+			<input type="hidden" id="hidden_btn1" value="0">
 		<form class="form-horizontal"  method="post" id="majorEditForm_basicInfo" name="majorEditForm_basicInfo" style="width: 90%" >
 			<fieldset>
 				<legend>基础信息</legend>
@@ -103,6 +104,7 @@
 
 		<!--专业（群）基本情况-基础数据-->
 		<div id='2' class="col-md-12 jumbotron">
+			<input type="hidden" id="hidden_btn2" value="0">
 			<form class="form-horizontal"  method="post" id="majorEditForm_basicData" name="majorEditForm_basicData" style="width: 90%" >
 				<fieldset>
 					<legend>专业（群）基本情况-基础数据</legend>
@@ -334,6 +336,7 @@
 		</div>
 		<!--专业（群）带头人基本情况-->
 		<div id='3' class="col-md-12 jumbotron">
+			<input type="hidden" id="hidden_btn3" value="0">
 		<form class="form-horizontal"  method="post" id="majorEditForm_leaderInfo" name="majorEditForm_leaderInfo" style="width: 90%" >
 				<fieldset>
 					<legend>专业（群）带头人基本情况</legend>
@@ -442,6 +445,7 @@
 		</div>
 		<!--专业（群）建设成果表-->
 		<div id='4' class="col-md-12 jumbotron">
+			<input type="hidden" id="hidden_btn4" value="0">
 		<form class="form-horizontal"  method="post" id="majorEditForm_achievements" name="majorEditForm_leaderInfo" style="width: 90%" >
 				<fieldset>
 					<legend>基础信息</legend>
@@ -676,6 +680,26 @@
 					<input type="button" id="saveAchievements" class="btn btn-default btn-primary center-block" value="提交">
 				</div>
 
+			</form>
+		</div>
+
+
+
+		<!--佐证材料管理-->
+		<div id='5' class="col-md-12 jumbotron">
+<!--			<input type="hidden" id="hidden_btn5" value="0">-->
+			<form action="" class="form-horizontal tab-content" id="uploadForm" method="post" >
+				<div class="form-group">
+					<label class="col-sm-2 control-label">佐证文档</label>
+					<div class="col-md-10">
+		            	<span class="btn fileinput-button" style="width:100%">
+					        <i class="glyphicon glyphicon-plus"></i>
+					        <span>添加佐证文档</span>
+					        <input type="file" id="file" multiple name="file"  />
+					        <i class="fa fa-file-pdf-o text-danger"></i>
+					    </span>
+					</div>
+				</div>
 			</form>
 		</div>
 

@@ -194,6 +194,8 @@ function majorBasicInfoSave(){
 			if(data.status == 200){
 				showInfo("保存成功");
 				$('.nav-tabs li').siblings().find("a").show();
+				initImages();
+				$("#saveBasicInfo").val("修改");
 			}else{
 				if (data.response != null && typeof(data.response) != undeifned){
 					if(data.response.length > 0){

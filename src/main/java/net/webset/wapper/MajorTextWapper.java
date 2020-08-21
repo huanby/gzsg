@@ -40,16 +40,15 @@ public class MajorTextWapper extends QueryWrapper<MajorText>  {
 		return t1;
 	}
 
-	public Integer getCreateId() {
-		return createId;
-	}
-
-
-	public void setCreateId(String t1) {
+	public void setT1(String t1) {
 		this.t1 = t1;
 		if (StringUtils.isNotBlank(this.t1)) {
 			this.like(MajorText.T1, this.t1);
 		}
+	}
+
+	public Integer getCreateId() {
+		return createId;
 	}
 
 	public void setCreateId(Integer createId) {

@@ -30,6 +30,10 @@ function listener(){
 				$("div.col-md-12").siblings().hide();
 				$("#4").show();
 				break;
+			case "佐证材料管理":
+				$("div.col-md-12").siblings().hide();
+				$("#5").show();
+				break;
 		}
 	})
 }
@@ -50,8 +54,23 @@ function init(){
 	if($("#hidden_majorId").val() == ""){
 		$('.nav-tabs li').siblings().find("a").hide();
 		$('.nav-tabs li.active').find("a").show();
+	}else{
+		$("#saveBasicInfo").val("修改");
+		$("#saveBasciData").val("修改");
+		$("#saveLeaderInfo").val("修改");
+		$("#saveAchievements").val("修改");
 	}
 	
+}
+
+
+function initSaveBtn() {
+	var majorId = $("#hidden_majorId").val();
+	if(majorId != "" && majorId != null){
+
+	}
+
+
 }
 
 
