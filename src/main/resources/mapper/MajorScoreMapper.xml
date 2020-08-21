@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="net.webset.mapper.MajorScoreMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="MajorScoreMap" type="net.webset.entity.MajorScore">
+        <id column="id" property="id" />
+        <result column="majorId" property="majorId" />
+        <result column="create_id" property="createId" />
+        <result column="score" property="score" />
+        <result column="isdel" property="isdel" />
+        <result column="createtime" property="createtime" />
+        <result column="updatetime" property="updatetime" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id, majorId, create_id, score, isdel, createtime, updatetime
+    </sql>
+
+</mapper>

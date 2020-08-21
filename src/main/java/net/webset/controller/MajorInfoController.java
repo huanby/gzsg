@@ -63,33 +63,12 @@ public class MajorInfoController {
 
 
 	/**
-	 * 专业数据填报
-	 * @param mav
-	 * @return
-	 */
-	/*@GetMapping("/majorFill.html")
-	public ModelAndView majorFill(ModelAndView mav) {
-		User user = (User) session.getAttribute("user");
-		MajorNumberWapper wapper = new MajorNumberWapper();
-		wapper.setCreateId(user.getId());
-		//清空专业ID - majorId
-		session.removeAttribute("majorId");
-//		Optional<MajorNumber> d = Optional.ofNullable(iMajorNumberService.getOne(wapper));
-//		System.out.println(d);
-//		mav.addObject("d", d.isPresent() ? d.get() : null);
-//		mav.addObject("success", d.isPresent());
-		mav.setViewName("major/fill");
-		return mav;
-	}*/
-
-
-	/**
 	 * 专业数据填报列表
 	 * @param mav
 	 * @return
 	 */
 	@GetMapping("majorFill.html")
-	public ModelAndView userList(ModelAndView mav) {
+	public ModelAndView majorFill(ModelAndView mav) {
 		//清空专业ID - majorId
 		session.removeAttribute("majorId");
 		//专业列表页面
@@ -306,7 +285,6 @@ public class MajorInfoController {
 		return b;
 
 	}
-
 
 
 
