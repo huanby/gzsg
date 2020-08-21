@@ -19,7 +19,7 @@ public class LaOnWapper extends QueryWrapper<LaOn> {
 	public void setCreateId(Integer createId) {
 		this.createId = createId;
 		if (this.createId != null) {
-			this.eq(LaOn.CREATE_ID, this.createId);
+			this.eq(LaOn.CREATEID, this.createId);
 		}
 	}
 

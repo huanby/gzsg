@@ -34,6 +34,7 @@ import net.webset.entity.IaIeSsSr;
 import net.webset.entity.Images;
 import net.webset.entity.LaOn;
 import net.webset.entity.SchoolData;
+import net.webset.entity.Score;
 import net.webset.entity.SpRpSdM;
 import net.webset.entity.SrBm;
 import net.webset.entity.TsTr;
@@ -122,6 +123,9 @@ public class SchoolInfoController {
 		mav.addObject("f", f.isPresent() ? f.get() : new IaIeSsSr());
 		mav.addObject("x", x.isPresent() ? x.get() : new SrBm());
 		mav.addObject("g", g.isPresent() ? g.get() : new LaOn());
+		mav.addObject("a", new Score());
+		mav.addObject("isExamine", false);
+		mav.addObject("createId", "");
 		mav.setViewName("school/fill");
 		return mav;
 	}

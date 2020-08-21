@@ -19,7 +19,7 @@ public class TsTrWapper extends QueryWrapper<TsTr> {
 	public void setCreateId(Integer createId) {
 		this.createId = createId;
 		if (this.createId != null) {
-			this.eq(TsTr.CREATE_ID, this.createId);
+			this.eq(TsTr.CREATEID, this.createId);
 		}
 	}
 	

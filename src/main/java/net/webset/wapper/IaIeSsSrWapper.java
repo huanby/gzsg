@@ -19,7 +19,7 @@ public class IaIeSsSrWapper extends QueryWrapper<IaIeSsSr> {
 	public void setCreateId(Integer createId) {
 		this.createId = createId;
 		if (this.createId != null) {
-			this.eq(IaIeSsSr.CREATE_ID, this.createId);
+			this.eq(IaIeSsSr.CREATEID, this.createId);
 		}
 	}
 

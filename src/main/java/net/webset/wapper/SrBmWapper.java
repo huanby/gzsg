@@ -19,7 +19,7 @@ public class SrBmWapper extends QueryWrapper<SrBm> {
 	public void setCreateId(Integer createId) {
 		this.createId = createId;
 		if (this.createId != null) {
-			this.eq(SrBm.CREATE_ID, this.createId);
+			this.eq(SrBm.CREATEID, this.createId);
 		}
 	}
 	

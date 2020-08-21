@@ -1,6 +1,7 @@
 package net.webset.entity;
 
 import java.math.BigDecimal;
+import java.util.Date;
 
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Null;
@@ -45,6 +46,12 @@ public class SrBm extends Model<SrBm> {
      */
     @TableField("create_id")
     private Integer createId;
+    
+    /**
+     * 创建时间
+     */
+    @TableField("create_time")
+    private Date createTime;
 
     /**
      * X1.本学校年生均财政拨款水平（万元）
@@ -154,18 +161,25 @@ public class SrBm extends Model<SrBm> {
     public Integer getId() {
         return id;
     }
-
+    
     public void setId(Integer id) {
         this.id = id;
     }
     public Integer getCreateId() {
         return createId;
     }
-
+    
     public void setCreateId(Integer createId) {
         this.createId = createId;
     }
-    public BigDecimal getX1() {
+    public Date getCreateTime() {
+		return createTime;
+	}
+    
+	public void setCreateTime(Date createTime) {
+		this.createTime = createTime;
+	}
+	public BigDecimal getX1() {
         return x1;
     }
 
@@ -273,7 +287,9 @@ public class SrBm extends Model<SrBm> {
 
     public static final String ID = "id";
 
-    public static final String CREATE_ID = "create_id";
+    public static final String CREATEID = "create_id";
+    
+    public static final String CREATETIME = "create_time";
 
     public static final String X1 = "x1";
 
@@ -315,6 +331,7 @@ public class SrBm extends Model<SrBm> {
         return "SrBm{" +
         "id=" + id +
         ", createId=" + createId +
+        ", createTime=" + createTime +
         ", x1=" + x1 +
         ", x2=" + x2 +
         ", x3=" + x3 +

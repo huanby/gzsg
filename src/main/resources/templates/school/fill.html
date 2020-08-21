@@ -22,11 +22,14 @@
                 <li><a href="#">办学经费*基本条件</a></li>
                 <li><a href="#">标志性成果*其它国家级成果</a></li>
                 <li><a href="#">佐证材料管理</a></li>
+                <li id="score"><a href="#">评分</a></li>
             </ul>
         </div>
     </div>
 
 </div> 
+<input type="hidden" id="isExamine" th:value="${isExamine}">
+<input type="hidden" id="createId" th:value="${createId}">
 <div th:replace="plugn/schoolCompent::info"></div>
 <div th:replace="plugn/pageCompent::showModal"></div>
 

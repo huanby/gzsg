@@ -104,11 +104,11 @@ public class Images extends Model<Images> {
 
 	public static final String ID = "id";
 
-    public static final String CREATE_ID = "create_id";
+    public static final String CREATEID = "create_id";
 
     public static final String NAME = "name";
 
-    public static final String SOURCE_NAME = "source_name";
+    public static final String SOURCENAME = "source_name";
 
     public static final String SIZE = "size";
     

@@ -44,6 +44,10 @@ function listener(){
 			$("div.col-md-12").siblings().hide();
 			$("#7").show();
 			break;
+		case "评分":
+			$("div.col-md-12").siblings().hide();
+			$("#8").show();
+			break;
 		
 		}
 	})
@@ -143,6 +147,50 @@ function listener(){
 			saveSchoolLAONInfo(2)
 		}
 	})
+	
+	$("#saveSCORE").click(function (){
+		$("#scoreForm").data("bootstrapValidator").validate();
+		var flag = $("#scoreForm").data("bootstrapValidator").isValid();
+		if(flag){
+			saveSCOREinfo(1)
+		}
+	})
+	
+	$("#updateSCORE").click(function (){
+		$("#scoreForm").data("bootstrapValidator").validate();
+		var flag = $("#scoreForm").data("bootstrapValidator").isValid();
+		if(flag){
+			saveSCOREinfo(2)
+		}
+	})
+}
+
+function saveSCOREinfo(flat){
+	var url = flat == 1 ? "/score/scoreSave.json" : "/score/scoreUpdate.json";
+	$.post(
+		getRootPath()+url, 
+		$("#scoreForm").serialize(),
+		function(data) {
+			if(data.status == 200){
+				showInfo("保存成功");
+				if(flat==1){
+					$("#saveSCORE").hide();
+					$("#updateSCORE").show();
+				}
+			}else{
+				if(data.response != null){
+					var errorInfo = "<ul><li>"+data.message+"</li>";
+					$.each(data.response,function(key,value){
+						errorInfo += "<li>" + value + "</li>";
+					})
+					errorInfo+= "</ul>";
+					showInfo(errorInfo)
+				}else{
+					showInfo(data.message)
+				}
+			}
+		}
+	);
 }
 
 function saveSchoolLAONInfo(flat){
@@ -353,6 +401,8 @@ function init(){
 	
 	validSchoolLAONForm();
 	
+	validScoreForm();
+	
 	if($("#id").val()!=""){
 		$("#update").show();
 		$("#save").hide();
@@ -385,7 +435,57 @@ function init(){
 		$("#saveLAON").hide();
 	}
 	
+	if($("#SCOREid").val()!=""){
+		$("#updateSCORE").show();
+		$("#saveSCORE").hide();
+	}
+	
+	if($("#isExamine").val() == "true"){
+		console.log(true)
+		$("input").attr("disabled",true)
+		$("select").attr("disabled",true)
+		$("#7 input").attr("disabled",false)
+		$("#8 input").attr("disabled",false)
+	}else{
+		console.log(false)
+		$("#score").hide();
+	}
+	
 	initImages();
+}
+
+function validScoreForm(){
+	$('#scoreForm').bootstrapValidator({
+		message : '该值无效',
+		group: '.rowGroup',
+		feedbackIcons: {
+			valid: 'glyphicon glyphicon-ok',
+			invalid: 'glyphicon glyphicon-remove',
+			validating: 'glyphicon glyphicon-refresh'
+		},
+		excluded : ':disabled',
+		fields : {
+			score : {
+				validators : {
+					notEmpty : {
+						message : '评分结果不能为空'
+					},
+					between : {
+						min : 0,
+						max : 100,
+						message : "评分必须是0-100之间"
+					}
+				}
+			},
+			remark : {
+				validators : {
+					notEmpty : {
+						message : '评分评价不能为空'
+					}
+				}
+			}
+		}
+	})
 }
 
 function validSchoolLAONForm(){
@@ -1635,8 +1735,8 @@ function validSchoolEditForm(){
 function initFileUpload(){
 	$("#file").fileinput({
         language : 'zh',
-        uploadUrl : getRootPath()+"/schooldata/schoolFillUploadPDF.json",
-        showUpload: true, //是否显示上传按钮
+        uploadUrl : $("#isExamine").val() ? "" : getRootPath()+"/schooldata/schoolFillUploadPDF.json",
+        showUpload: !$("#isExamine").val(), //是否显示上传按钮
         showRemove : false, //显示移除按钮
         showPreview : true, //是否显示预览
         showCaption: true,//是否显示标题
@@ -1674,19 +1774,19 @@ function initFileUpload(){
 }
 
 function initImages(){
-	
+	var gurl = $("#isExamine").val() ? "/score/schoolFillgetImagesById.json?id="+$("#createId").val() : "/schooldata/schoolFillgetImagesById.json"
+	var surl = $("#isExamine").val() ? "/score/" : "/schooldata/";
 	$.post(
-		getRootPath()+"/schooldata/schoolFillgetImagesById.json", 
-		/*<embed class="kv-preview-data file-preview-pdf file-zoom-detail" src="blob:http://localhost:8080/c980b3b3-fc78-43ac-9c2c-f8a0c948e905" type="application/pdf" style="width: 100%; height: 100%; min-height: 480px;">*/
+		getRootPath()+gurl, 
 		function(data) {
     		if(data.length > 0){
 	    		$(data).each(function(index,value){
-	        		pathList[index] = getRootPath()+"/schooldata/schoolFillshowFile.json?name="+value.name;
+	        		pathList[index] = getRootPath()+surl+"schoolFillshowFile.json?name="+value.name;
 	        		ks = {
 	        				type: value.type,
 	        				caption: value.sourceName, 
 	        				size: value.size, 
-	        				url: getRootPath()+"/schooldata/schoolFilldeleteFile.json", 
+	        				url: $("#isExamine").val() ? "" : getRootPath()+surl+"schoolFilldeleteFile.json", 
 	        				key: value.id
 	    			};
 	        		initPreviewConfig[index] = ks;

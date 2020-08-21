@@ -371,9 +371,9 @@ public class IaIeSsSr extends Model<IaIeSsSr> {
 
     public static final String ID = "id";
 
-    public static final String CREATE_ID = "create_id";
+    public static final String CREATEID = "create_id";
 
-    public static final String CREATE_TIME = "create_time";
+    public static final String CREATETIME = "create_time";
 
     public static final String S39 = "s39";
 

@@ -315,9 +315,9 @@ public class TsTr extends Model<TsTr> {
 
     public static final String ID = "id";
 
-    public static final String CREATE_ID = "create_id";
+    public static final String CREATEID = "create_id";
 
-    public static final String CREATE_TIME = "create_time";
+    public static final String CREATETIME = "create_time";
 
     public static final String S1 = "s1";
 

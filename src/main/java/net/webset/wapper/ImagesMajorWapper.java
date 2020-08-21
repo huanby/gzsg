@@ -34,7 +34,7 @@ public class ImagesMajorWapper extends QueryWrapper<ImagesMajor> {
 	public void setCreateId(Integer createId) {
 		this.createId = createId;
 		if (this.createId != null) {
-			this.eq(Images.CREATE_ID, this.createId);
+			this.eq(Images.CREATEID, this.createId);
 		}
 	}
 

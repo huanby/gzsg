@@ -19,7 +19,7 @@ public class SpRpSdMWapper extends QueryWrapper<SpRpSdM> {
 	public void setCreateId(Integer createId) {
 		this.createId = createId;
 		if (this.createId != null) {
-			this.eq(SpRpSdM.CREATE_ID, this.createId);
+			this.eq(SpRpSdM.CREATEID, this.createId);
 		}
 	}
 
