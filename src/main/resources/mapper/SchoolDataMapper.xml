@@ -5,4 +5,8 @@
         <id column="id" property="id" />
 		
     </resultMap>
+    
+    <select id="selectByCreateId" resultMap="schoolInfoMap">
+    	SELECT * FROM b_school_info WHERE create_id = #{id}
+    </select>
 </mapper>

@@ -1,6 +1,8 @@
 package net.webset.service;
 
 import net.webset.entity.LaOn;
+import net.webset.entity.Score;
+
 import com.baomidou.mybatisplus.extension.service.IService;
 
 /**
@@ -12,5 +14,7 @@ import com.baomidou.mybatisplus.extension.service.IService;
  * @since 2020-08-20
  */
 public interface ILaOnService extends IService<LaOn> {
+
+	public boolean syncScoreAndLaOn(Score sc);
 
 }

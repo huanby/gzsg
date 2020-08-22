@@ -32,11 +32,14 @@
         <result column="g23" property="g23" />
         <result column="g24" property="g24" />
         <result column="g25" property="g25" />
+        <result column="source_end" property="sourceEnd" />
+        <association property="schoolData"  select="net.webset.mapper.selectByCreateId" 
+			column="createId" ></association>
     </resultMap>
 
     <!-- 通用查询结果列 -->
     <sql id="Base_Column_List">
-        id, create_id, create_time, g1, g2, g3, g4, g5, g6, g7, g8, g9, g10, g11, g12, g13, g14, g15, g16, g17, g18, g19, g20, g21, g22, g23, g24, g25
+        id, create_id, create_time, g1, g2, g3, g4, g5, g6, g7, g8, g9, g10, g11, g12, g13, g14, g15, g16, g17, g18, g19, g20, g21, g22, g23, g24, g25,source_end
     </sql>
 
 </mapper>

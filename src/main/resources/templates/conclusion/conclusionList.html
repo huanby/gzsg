@@ -3,7 +3,7 @@
 	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
 <head>
 <meta charset="UTF-8" />
-<title>用户信息管理</title>
+<title>评分结果查看</title>
 <link rel="stylesheet" th:href="@{/js/plugin/bootstrap/dist/css/bootstrap.min.css}" />
 <link rel="stylesheet" th:href="@{/js/plugin/bootstraptable/dist/bootstrap-table.css}" />
 
@@ -13,12 +13,12 @@
 <div th:replace="/plugn/pageCompent::showChooseModal"></div>
 <input id="info" th:value="${info}"  type="hidden"/>
 	<div class="panel-body" style="padding-bottom:0px;">
-        <div class="panel panel-default">
+        <!-- <div class="panel panel-default">
             <div class="panel-heading">查询条件</div>
             <div class="panel-body">
                 <form id="formSearch" class="form-horizontal">
                     <div class="form-group" style="margin-top:15px">
-                        <label class="control-label col-sm-1" for="schoolName">学校名</label>
+                        <label class="control-label col-sm-1" for="schoolName">用户名</label>
                         <div class="col-sm-2">
                             <input type="text" class="form-control" id="schoolName">
                         </div>
@@ -32,9 +32,9 @@
                     </div>
                 </form>
             </div>
-        </div>       
+        </div> -->       
 
-        <table id="tb_schools"></table>
+        <table id="tb_conclusions"></table>
     </div>
 </body>
 <script th:src="@{/js/plugin/jquery.js}"></script>
@@ -42,5 +42,5 @@
 <script th:src="@{/js/plugin/bootstraptable/dist/bootstrap-table.js}"></script>
 <script th:src="@{/js/plugin/bootstraptable/dist/locale/bootstrap-table-zh-CN.min.js}"></script>
 <script th:src="@{/js/native/native.js}"></script>
-<script th:src="@{/js/native/score/scoreList.js}"></script>
+<script th:src="@{/js/native/conclusion/conclusionList.js}"></script>
 </html>

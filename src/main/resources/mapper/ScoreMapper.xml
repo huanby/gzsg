@@ -5,10 +5,6 @@
     <!-- 通用查询映射结果 -->
     <resultMap id="scoreMap" type="net.webset.entity.Score">
         <id column="id" property="id" />
-        <result column="score" property="score" />
-        <result column="user_id" property="userId" />
-        <result column="exam_id" property="examId" />
-        <result column="remark" property="remark" />
     </resultMap>
 
     <!-- 通用查询结果列 -->

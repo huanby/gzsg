@@ -10,6 +10,7 @@ import net.webset.util.options.Add;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableField;
 import java.io.Serializable;
+import java.math.BigDecimal;
 
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
@@ -65,6 +66,12 @@ public class Score extends Model<Score> {
     @TableField("remark")
     @NotBlank(message = "评分说明不能为空", groups = {Add.class})
     private String remark;
+    
+    /**
+     * 评分结果
+     */
+    @TableField("score_end")
+    private BigDecimal scoreEnd;
 
     public Integer getId() {
         return id;
@@ -102,8 +109,15 @@ public class Score extends Model<Score> {
     public void setRemark(String remark) {
         this.remark = remark;
     }
+	public BigDecimal getScoreEnd() {
+		return scoreEnd;
+	}
 
-    public static final String ID = "id";
+	public void setScoreEnd(BigDecimal scoreEnd) {
+		this.scoreEnd = scoreEnd;
+	}
+
+	public static final String ID = "id";
 
     public static final String SCORE = "score";
 

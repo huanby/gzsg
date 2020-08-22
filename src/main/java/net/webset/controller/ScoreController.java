@@ -70,9 +70,6 @@ public class ScoreController {
 	private ISchoolDataService iSchoolDataService;
 	
 	@Autowired
-	private ISchoolDataService iSchoolInfoService;
-	
-	@Autowired
 	private ITsTrService iTsTrService;
 	
 	@Autowired
@@ -117,7 +114,7 @@ public class ScoreController {
 		//获取学校基础信息
 		SchoolDataWapper wapper = new SchoolDataWapper();
 		wapper.setCreateId(id);
-		Optional<SchoolData> d = Optional.ofNullable(iSchoolInfoService.getOne(wapper));
+		Optional<SchoolData> d = Optional.ofNullable(iSchoolDataService.getOne(wapper));
 		//获取师资队伍和教学资源
 		TsTrWapper ts = new TsTrWapper();
 		ts.setCreateId(id);
@@ -210,7 +207,10 @@ public class ScoreController {
 				return new ResultInfo<List<String>>(400,"数据已存在。无法保存",null);
 			}
 			sc.setExamId(user.getId());
+			
 			boolean isSuccess = iScoreService.save(sc);
+			isSuccess = iLaonService.syncScoreAndLaOn(sc);
+			
 			return new ResultInfo<List<String>>(isSuccess ? 200 : 400,
 					isSuccess ? "保存成功" : "保存失败",null);
 		} 
@@ -227,6 +227,8 @@ public class ScoreController {
 		    return new ResultInfo<List<String>>(400,"请求参数错误",collect);
 		}else {
 			boolean isSuccess = iScoreService.updateById(sc);
+			isSuccess = iLaonService.syncScoreAndLaOn(sc);
+
 			return new ResultInfo<List<String>>(isSuccess ? 200 : 400,
 					isSuccess ? "更新成功" : "更新失败",null);
 		} 

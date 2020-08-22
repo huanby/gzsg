@@ -17,6 +17,7 @@ import org.springframework.data.annotation.Id;
 
 import com.baomidou.mybatisplus.annotation.TableField;
 import java.io.Serializable;
+import java.math.BigDecimal;
 
 /**
  * <p>
@@ -226,6 +227,17 @@ public class LaOn extends Model<LaOn> {
     @TableField("g25")
     @NotNull(message = "其它国家级成果数，学校须为主持单位（个）不能为空",groups = {Add.class})
     private Integer g25;
+    
+    /**
+     * 学校基础信息反向查询
+     */
+    private SchoolData schoolData;
+    
+    /**
+     * 评分结果
+     */
+    @TableField("score_end")
+    private BigDecimal scoreEnd;
 
     public Integer getId() {
         return id;
@@ -423,8 +435,23 @@ public class LaOn extends Model<LaOn> {
     public void setG25(Integer g25) {
         this.g25 = g25;
     }
+    public SchoolData getSchoolData() {
+		return schoolData;
+	}
 
-    public static final String ID = "id";
+	public void setSchoolData(SchoolData schoolData) {
+		this.schoolData = schoolData;
+	}
+	public BigDecimal getScoreEnd() {
+		return scoreEnd;
+	}
+
+	public void setScoreEnd(BigDecimal scoreEnd) {
+		this.scoreEnd = scoreEnd;
+	}
+
+
+	public static final String ID = "id";
 
     public static final String CREATEID = "create_id";
 
@@ -479,6 +506,8 @@ public class LaOn extends Model<LaOn> {
     public static final String G24 = "g24";
 
     public static final String G25 = "g25";
+    
+    public static final String SCOREEND = "score_end";
 
     @Override
     protected Serializable pkVal() {
