@@ -1774,8 +1774,8 @@ function initFileUpload(){
 }
 
 function initImages(){
-	var gurl = $("#isExamine").val() ? "/score/schoolFillgetImagesById.json?id="+$("#createId").val() : "/schooldata/schoolFillgetImagesById.json"
-	var surl = $("#isExamine").val() ? "/score/" : "/schooldata/";
+	var gurl = $("#isExamine").val() == "true" ? "/score/schoolFillgetImagesById.json?id="+$("#createId").val() : "/schooldata/schoolFillgetImagesById.json"
+	var surl = $("#isExamine").val() == "true"  ? "/score/" : "/schooldata/";
 	$.post(
 		getRootPath()+gurl, 
 		function(data) {
@@ -1786,7 +1786,7 @@ function initImages(){
 	        				type: value.type,
 	        				caption: value.sourceName, 
 	        				size: value.size, 
-	        				url: $("#isExamine").val() ? "" : getRootPath()+surl+"schoolFilldeleteFile.json", 
+	        				url: $("#isExamine").val() == "true"  ? "" : getRootPath()+surl+"schoolFilldeleteFile.json", 
 	        				key: value.id
 	    			};
 	        		initPreviewConfig[index] = ks;
