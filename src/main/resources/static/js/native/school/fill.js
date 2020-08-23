@@ -1735,8 +1735,8 @@ function validSchoolEditForm(){
 function initFileUpload(){
 	$("#file").fileinput({
         language : 'zh',
-        uploadUrl : $("#isExamine").val() ? "" : getRootPath()+"/schooldata/schoolFillUploadPDF.json",
-        showUpload: !$("#isExamine").val(), //是否显示上传按钮
+        uploadUrl : $("#isExamine").val() == "true" ? "" : getRootPath()+"/schooldata/schoolFillUploadPDF.json",
+        showUpload: $("#isExamine").val() == "false", //是否显示上传按钮
         showRemove : false, //显示移除按钮
         showPreview : true, //是否显示预览
         showCaption: true,//是否显示标题
