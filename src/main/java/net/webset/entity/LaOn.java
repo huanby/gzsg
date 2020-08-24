@@ -231,6 +231,7 @@ public class LaOn extends Model<LaOn> {
     /**
      * 学校基础信息反向查询
      */
+    @TableField(exist = false)
     private SchoolData schoolData;
     
     /**
@@ -449,7 +450,6 @@ public class LaOn extends Model<LaOn> {
 	public void setScoreEnd(BigDecimal scoreEnd) {
 		this.scoreEnd = scoreEnd;
 	}
-
 
 	public static final String ID = "id";
 

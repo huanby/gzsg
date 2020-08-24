@@ -75,5 +75,9 @@ function initTables(){
 };
 
 function toExamine(value, row, index){
-	return "<a href='"+getRootPath()+"/score/scoreSchoolShow.html?id="+row.createId+"' onclick><i class='glyphicon glyphicon-zoom-in' title='开始评分'></i></a>";
+	if(row.score != null){
+		return "<a href='"+getRootPath()+"/score/scoreSchoolShow.html?id="+row.createId+"' class='btn btn-success'>修改评分</a>";
+	}else{
+		return "<a href='"+getRootPath()+"/score/scoreSchoolShow.html?id="+row.createId+"' class='btn btn-warning'>开始评分</a>";
+	}
 }

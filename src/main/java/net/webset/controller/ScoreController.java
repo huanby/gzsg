@@ -103,6 +103,19 @@ public class ScoreController {
 	public PageUtilResult<SchoolData> scoreSchoolList(SchoolDataWapper data,PageUtilWapper pwapper){
 		IPage<SchoolData> page = iSchoolDataService.page(
 				new Page<SchoolData>(pwapper.getOffset(), pwapper.getLimit()), data);
+		
+		
+		if(!page.getRecords().isEmpty()) {
+			User user = (User) session.getAttribute("user");
+			List<SchoolData> sds = page.getRecords();
+			for(int i=0;i<sds.size();i++) {
+				ScoreWapper wap = new ScoreWapper();
+				wap.setUserId(sds.get(i).getCreateId());
+				wap.setExamId(user.getId());
+				sds.get(i).setScore(iScoreService.getOne(wap));
+			}
+			page.setRecords(sds);
+		}
 		PageUtilResult<SchoolData> result = new PageUtilResult<>();
 		result.setTotal(page.getTotal());
 		result.setRows(page.getRecords());
@@ -139,6 +152,7 @@ public class ScoreController {
 		User user = (User) session.getAttribute("user");
 		ScoreWapper aa = new ScoreWapper();
 		aa.setExamId(user.getId());
+		aa.setUserId(id);
 		Optional<Score> a = Optional.ofNullable(iScoreService.getOne(aa));
 		
 		mav.addObject("d", d.isPresent() ? d.get() : new SchoolData());

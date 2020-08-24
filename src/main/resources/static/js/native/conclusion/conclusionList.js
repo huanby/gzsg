@@ -62,6 +62,7 @@ function initTables(){
         
 		columns : [ 
 			{checkbox : true}, 
+			{field : "schoolData.schoolName",valign: 'middle',align: 'center',title : '学校名称',formatter: toView},
 			{field : 'g1',valign: 'middle',align: 'center',title : '国家示范校、骨干校、</br>优质校成果数（个）',sortable: true,visible : false}, 
 			{field : 'g2',valign: 'middle',align: 'center',title : '吉林省示范校、骨干校</br>、优质校成果数（个）',sortable: true}, 
 			{field : 'g3',valign: 'middle',align: 'center',title : '国家级教育教学改革试</br>点数（个）',sortable: true,visible : false}, 
@@ -92,6 +93,6 @@ function initTables(){
 	});
 };
 
-function toExamine(value, row, index){
-	return "<a href='"+getRootPath()+"/score/scoreSchoolShow.html?id="+row.createId+"' onclick><i class='glyphicon glyphicon-zoom-in' title='开始评分'></i></a>";
+function toView(value, row, index){
+	return "<a href='"+getRootPath()+"/conclusion/conclusionSchoolDataShow.html?id="+row.createId+"'>"+row.schoolData.schoolName+"</a>";
 }

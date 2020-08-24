@@ -33,8 +33,8 @@
         <result column="g24" property="g24" />
         <result column="g25" property="g25" />
         <result column="source_end" property="sourceEnd" />
-        <association property="schoolData"  select="net.webset.mapper.selectByCreateId" 
-			column="createId" ></association>
+        <association property="schoolData"  select="net.webset.mapper.SchoolDataMapper.selectByCreateId" 
+			column="create_id" ></association>
     </resultMap>
 
     <!-- 通用查询结果列 -->

@@ -107,6 +107,8 @@ public class SchoolData {
 	
 	@TableField(CREATEID)
 	private Integer createId;
+	
+    private Score score;
 	public Integer getId() {
 		return id;
 	}
@@ -233,12 +235,17 @@ public class SchoolData {
 	public void setConEmail(String conEmail) {
 		this.conEmail = conEmail;
 	}
-	
 	public Integer getCreateId() {
 		return createId;
 	}
 	public void setCreateId(Integer createId) {
 		this.createId = createId;
+	}
+	public Score getScore() {
+		return score;
+	}
+	public void setScore(Score score) {
+		this.score = score;
 	}
 
 	public static final String ID = "id";

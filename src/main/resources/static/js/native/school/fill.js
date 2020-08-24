@@ -441,13 +441,15 @@ function init(){
 	}
 	
 	if($("#isExamine").val() == "true"){
-		console.log(true)
 		$("input").attr("disabled",true)
 		$("select").attr("disabled",true)
 		$("#7 input").attr("disabled",false)
 		$("#8 input").attr("disabled",false)
 	}else{
-		console.log(false)
+		$("#score").hide();
+	}
+	
+	if($("#isView").val() == "true"){
 		$("#score").hide();
 	}
 	
