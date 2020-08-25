@@ -8,9 +8,8 @@ import net.webset.service.ILaOnService;
 import net.webset.service.IMajorNumberService;
 import net.webset.service.IMajorScoreService;
 import net.webset.service.IMajorTextService;
-import net.webset.wapper.*;
 import net.webset.wapper.api.vos.MajorConclusionVO;
-import net.webset.wapper.api.vos.MajorScoreVO;
+import net.webset.wapper.MajorConclusionVOWapper;
 import net.webset.wapper.page.PageUtilResult;
 import net.webset.wapper.page.PageUtilWapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,7 +23,6 @@ import org.springframework.web.servlet.ModelAndView;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpSession;
-import java.util.Optional;
 
 /**
  * 专业数据厅展示Controller类
@@ -60,18 +58,31 @@ public class MajorConclusionController {
 
 	//查询厅展示列表数据
 	@GetMapping("majorConclusionList.json")
-	public ResponseEntity<?> majorConclusionList(MajorTextWapper majorTextWapper, PageUtilWapper pwapper){
+	public ResponseEntity<?> majorConclusionList(MajorConclusionVOWapper majorConclusionVOWapper, PageUtilWapper pwapper){
 		User user = (User) session.getAttribute("user");
 		// 初始化查询条件   majorTextWapper-查询条件
 //		majorTextWapper.setCreateId(user.getId());
-		majorTextWapper.orderByDesc("updatetime");
+		majorConclusionVOWapper.orderByDesc("updatetime");
 		PageUtilResult<MajorConclusionVO> result = new PageUtilResult<>();
 //		IPage<MajorConclusionVO> page = this.iMajorTextService.getConclusionList(new Page(pwapper.getOffset(), pwapper.getLimit()), majorTextWapper);
-		IPage<MajorConclusionVO> page = this.iMajorNumberService.getConclusionList(new Page(pwapper.getOffset(), pwapper.getLimit()), majorTextWapper);
+		IPage<MajorConclusionVO> page = this.iMajorNumberService.getConclusionList(new Page(pwapper.getOffset(), pwapper.getLimit()), majorConclusionVOWapper);
+//		IPage<MajorConclusionVO> page = this.iMajorNumberService.page(new Page<MajorConclusionVO>(pwapper.getOffset(), pwapper.getLimit()), majorConclusionVOWapper);
 		result.setTotal(page.getTotal());
 		result.setRows(page.getRecords());
 		return new ResponseEntity<>(result, HttpStatus.OK);
 	}
+	/*public ResponseEntity<?> majorConclusionList(MajorTextWapper majorTextWapper, MajorNumberWapper majorNumberWapper,PageUtilWapper pwapper){
+		User user = (User) session.getAttribute("user");
+		// 初始化查询条件   majorTextWapper-查询条件
+//		majorTextWapper.setCreateId(user.getId());
+		majorNumberWapper.orderByDesc("updatetime");
+		PageUtilResult<MajorConclusionVO> result = new PageUtilResult<>();
+//		IPage<MajorConclusionVO> page = this.iMajorTextService.getConclusionList(new Page(pwapper.getOffset(), pwapper.getLimit()), majorTextWapper);
+		IPage<MajorConclusionVO> page = this.iMajorNumberService.getConclusionList(new Page(pwapper.getOffset(), pwapper.getLimit()), majorNumberWapper);
+		result.setTotal(page.getTotal());
+		result.setRows(page.getRecords());
+		return new ResponseEntity<>(result, HttpStatus.OK);
+	}*/
 
 
 	@GetMapping("conclusionMajorShow.html")

@@ -5,8 +5,8 @@ import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import net.webset.entity.MajorNumber;
 import net.webset.mapper.MajorNumberMapper;
 import net.webset.service.IMajorNumberService;
-import net.webset.wapper.MajorTextWapper;
 import net.webset.wapper.api.vos.MajorConclusionVO;
+import net.webset.wapper.MajorConclusionVOWapper;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -26,12 +26,12 @@ public class MajorNumberImpl extends ServiceImpl<MajorNumberMapper, MajorNumber>
     /**
      * 专业数据厅展示列表
      * @param page
-     * @param majorTextWapper
+     * @param majorConclusionVOWapper
      * @return
      */
     @Override
-    public Page<MajorConclusionVO> getConclusionList(Page page, MajorTextWapper majorTextWapper) {
-        return this.majorNumberMapper.getConclusionList(page,majorTextWapper);
+    public Page<MajorConclusionVO> getConclusionList(Page page, MajorConclusionVOWapper majorConclusionVOWapper) {
+        return this.majorNumberMapper.getConclusionList(page,majorConclusionVOWapper);
     }
 
 }

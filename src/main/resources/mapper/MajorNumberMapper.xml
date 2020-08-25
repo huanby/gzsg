@@ -8,7 +8,7 @@
 
 
     <!--专业数据厅展示列表-->
-    <select id="getConclusionList" parameterType="net.webset.wapper.MajorTextWapper"
+    <select id="getConclusionList" parameterType="net.webset.wapper.MajorConclusionVOWapper"
             resultType="net.webset.wapper.api.vos.MajorConclusionVO">
         SELECT
         bmn.`id`,bmn.majorid,bmn.`NAME`,bmn.type,bmn.state,bmn.isdel,bmn.createtime,bmn.updatetime,bmn.create_id,n1,n2,n3,n4,n5,n6,n7,n8,n9,n10,n11,n12,n13,n14,n15,n16,n17,n18,n19,n20,n21,n22,n23,n24,n25,n26,n27,n28,n29,n30,n31,n32,n33,n34,n35,n36,n37,n38,n39,n40,n41,n42,n43,n44,score,bms.create_id AS raterId,t1,t2,t3,t4
@@ -16,12 +16,18 @@
         b_major_text bmt
         LEFT JOIN b_major_number bmn ON bmt.majorId = bmn.majorId
         LEFT JOIN b_major_score bms ON bmt.majorId = bms.majorId
-        <if test="majorTextWapper.createId != null and majorTextWapper.createId != '' ">AND bms.create_id = #{majorTextWapper.createId}</if>
-        <where>
-            <if test="majorTextWapper.majorTextName != null and majorTextWapper.majorTextName != ''">t1 like
+<!--        <if test="majorConclusionVOWapper.createId != null and majorConclusionVOWapper.createId != '' ">AND bms.create_id = #{majorConclusionVOWapper.createId}</if>-->
+        <if test="majorConclusionVOWapper.sort != null and majorConclusionVOWapper.sort != '' ">
+            ORDER BY  ${majorConclusionVOWapper.sort} ${majorConclusionVOWapper.sortOrder}
+        </if>
+        <!--<where>
+            <if test="majorConclusionVOWapper.updatetime != null and majorConclusionVOWapper.updatetime != ''">t1 like
                 concat('%',#{majorTextWapper.majorTextName},'%')
             </if>
-        </where>
+            &lt;!&ndash;<if test="majorTextWapper.majorTextName != null and majorTextWapper.majorTextName != ''">t1 like
+                concat('%',#{majorTextWapper.majorTextName},'%')
+            </if>&ndash;&gt;
+        </where>-->
     </select>
 
 
