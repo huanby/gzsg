@@ -155,8 +155,8 @@ public class MajorScoreController {
                 return new ResultInfo<List<String>>(400,"数据已存在。无法保存",null);
             }
             boolean isSuccess = iMajorScoreService.save(ms);
-//            isSuccess = iLaonService.syncScoreAndLaOn(sc);
-
+            //同步评分总数
+            isSuccess = iMajorNumberService.syncScoreAndMajorNumber(ms);
             return new ResultInfo<List<String>>(isSuccess ? 200 : 400,
                     isSuccess ? "保存成功" : "保存失败",null);
         }
@@ -177,7 +177,8 @@ public class MajorScoreController {
             User user = (User) session.getAttribute("user");
             ms.setCreateId(user.getId());
             boolean isSuccess = iMajorScoreService.updateById(ms);
-//            isSuccess = iLaonService.syncScoreAndLaOn(sc);
+            //同步评分总数
+            isSuccess = iMajorNumberService.syncScoreAndMajorNumber(ms);
 
             return new ResultInfo<List<String>>(isSuccess ? 200 : 400,
                     isSuccess ? "更新成功" : "更新失败",null);

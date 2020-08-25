@@ -17,6 +17,8 @@ public class MajorNumberWapper extends QueryWrapper<MajorNumber>  {
 
 	private Integer createId;
 
+	private Integer majorid;
+
 	public Integer getCreateId() {
 		return createId;
 	}
@@ -28,6 +30,14 @@ public class MajorNumberWapper extends QueryWrapper<MajorNumber>  {
 		}
 	}
 
-	
-	
+	public Integer getMajorid() {
+		return majorid;
+	}
+
+	public void setMajorid(Integer majorid) {
+		this.majorid = majorid;
+		if (this.majorid != null) {
+			this.eq(MajorNumber.MAJORID, this.majorid);
+		}
+	}
 }

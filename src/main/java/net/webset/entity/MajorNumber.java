@@ -8,6 +8,7 @@ import net.webset.util.options.Add;
 import org.springframework.data.annotation.Id;
 
 import javax.validation.constraints.NotBlank;
+import java.math.BigDecimal;
 import java.util.Date;
 
 /**
@@ -178,6 +179,9 @@ public class MajorNumber {
 
     @TableField(N44)
     private Integer n44;
+
+    @TableField("score_end")
+    private BigDecimal scoreEnd;
 
     public MajorNumber(Integer id, Integer majorid, String name, Integer type, Integer state, Integer isdel, Date createtime, Date updatetime, Integer n1, Integer n2, Integer n3, Integer n4, Integer n5, Integer n6, Integer n7, Double n8, Double n9, Integer n10, Double n11, Integer n12, Double n13, Integer n14, Double n15, Integer n16, Integer n17, Double n18, Double n19, Integer n20, Integer n21, Integer n22, Integer n23, Integer n24, Integer n25, Integer n26, Double n27, Double n28, Double n29, Integer n30, Integer n31, Integer n32, Integer n33, Integer n34, Integer n35, Integer n36, Integer n37, Integer n38, Integer n39, Integer n40, Integer n41, Integer n42, Double n43, Integer n44, Integer createId) {
         this.id = id;
@@ -663,6 +667,14 @@ public class MajorNumber {
         this.n44 = n44;
     }
 
+    public BigDecimal getScoreEnd() {
+        return scoreEnd;
+    }
+
+    public void setScoreEnd(BigDecimal scoreEnd) {
+        this.scoreEnd = scoreEnd;
+    }
+
     public static final String ID = "id";
     public static final String MAJORID = "majorId";
     public static final String NAME = "name";
@@ -716,5 +728,6 @@ public class MajorNumber {
     public static final String N42 = "n42";
     public static final String N43 = "n43";
     public static final String N44 = "n44";
+    public static final String SCOREEND = "score_end";
 
 }

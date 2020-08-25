@@ -5,6 +5,8 @@ import com.baomidou.mybatisplus.annotation.TableName;
 import com.baomidou.mybatisplus.core.conditions.update.Update;
 import com.baomidou.mybatisplus.extension.activerecord.Model;
 import com.baomidou.mybatisplus.annotation.TableId;
+
+import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import com.baomidou.mybatisplus.annotation.TableField;
 import net.webset.util.options.Add;
@@ -81,6 +83,13 @@ public class MajorScore extends Model<MajorScore> {
     @TableField("updatetime")
     private LocalDateTime updatetime;
 
+
+    /**
+     * 评分结果
+     */
+    @TableField("score_end")
+    private BigDecimal scoreEnd;
+
     public Integer getId() {
         return id;
     }
@@ -140,6 +149,14 @@ public class MajorScore extends Model<MajorScore> {
         this.updatetime = updatetime;
     }
 
+    public BigDecimal getScoreEnd() {
+        return scoreEnd;
+    }
+
+    public void setScoreEnd(BigDecimal scoreEnd) {
+        this.scoreEnd = scoreEnd;
+    }
+
     public static final String ID = "id";
 
     public static final String MAJORID = "majorId";
@@ -157,7 +174,6 @@ public class MajorScore extends Model<MajorScore> {
     public static final String UPDATETIME = "updatetime";
 
 
-    @Override
     protected Serializable pkVal() {
         return this.id;
     }

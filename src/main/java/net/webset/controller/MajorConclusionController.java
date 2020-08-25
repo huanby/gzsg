@@ -64,25 +64,12 @@ public class MajorConclusionController {
 //		majorTextWapper.setCreateId(user.getId());
 		majorConclusionVOWapper.orderByDesc("updatetime");
 		PageUtilResult<MajorConclusionVO> result = new PageUtilResult<>();
-//		IPage<MajorConclusionVO> page = this.iMajorTextService.getConclusionList(new Page(pwapper.getOffset(), pwapper.getLimit()), majorTextWapper);
 		IPage<MajorConclusionVO> page = this.iMajorNumberService.getConclusionList(new Page(pwapper.getOffset(), pwapper.getLimit()), majorConclusionVOWapper);
 //		IPage<MajorConclusionVO> page = this.iMajorNumberService.page(new Page<MajorConclusionVO>(pwapper.getOffset(), pwapper.getLimit()), majorConclusionVOWapper);
 		result.setTotal(page.getTotal());
 		result.setRows(page.getRecords());
 		return new ResponseEntity<>(result, HttpStatus.OK);
 	}
-	/*public ResponseEntity<?> majorConclusionList(MajorTextWapper majorTextWapper, MajorNumberWapper majorNumberWapper,PageUtilWapper pwapper){
-		User user = (User) session.getAttribute("user");
-		// 初始化查询条件   majorTextWapper-查询条件
-//		majorTextWapper.setCreateId(user.getId());
-		majorNumberWapper.orderByDesc("updatetime");
-		PageUtilResult<MajorConclusionVO> result = new PageUtilResult<>();
-//		IPage<MajorConclusionVO> page = this.iMajorTextService.getConclusionList(new Page(pwapper.getOffset(), pwapper.getLimit()), majorTextWapper);
-		IPage<MajorConclusionVO> page = this.iMajorNumberService.getConclusionList(new Page(pwapper.getOffset(), pwapper.getLimit()), majorNumberWapper);
-		result.setTotal(page.getTotal());
-		result.setRows(page.getRecords());
-		return new ResponseEntity<>(result, HttpStatus.OK);
-	}*/
 
 
 	@GetMapping("conclusionMajorShow.html")
