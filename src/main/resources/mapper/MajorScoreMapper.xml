@@ -8,6 +8,7 @@
         <result column="majorId" property="majorId" />
         <result column="create_id" property="createId" />
         <result column="score" property="score" />
+        <result column="remark" property="remark" />
         <result column="isdel" property="isdel" />
         <result column="createtime" property="createtime" />
         <result column="updatetime" property="updatetime" />
@@ -15,7 +16,7 @@
 
     <!-- 通用查询结果列 -->
     <sql id="Base_Column_List">
-        id, majorId, create_id, score, isdel, createtime, updatetime
+        id, majorId, create_id, score, remark, isdel, createtime, updatetime
     </sql>
 
 </mapper>

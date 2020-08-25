@@ -93,7 +93,7 @@ function init(){
 	// $("input").attr("disabled",true);
 	// $("input[type='radio']:checked").attr("disabled",true);
 	$("input").attr("readonly",true);
-	$("#6 input").attr("readonly",false)
+	// $("#6 input").attr("readonly",false)
 	$("#5 input").attr("readonly",true);
 	// console.log($("#5 button"));
 	// $("#5 input button").attr("data-url","");
@@ -107,7 +107,7 @@ function init(){
 	initSaveBtn();
 
 	// 验证得分提交表单
-	validMajorScoreForm();
+	// validMajorScoreForm();
 
 
 }

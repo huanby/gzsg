@@ -5,35 +5,39 @@ import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import net.webset.config.SecurityProperties;
-import net.webset.entity.MajorNumber;
-import net.webset.entity.MajorScore;
-import net.webset.entity.MajorText;
-import net.webset.entity.User;
+import net.webset.entity.*;
 import net.webset.service.IMajorNumberService;
 import net.webset.service.IMajorScoreService;
 import net.webset.service.IMajorTextService;
+import net.webset.util.ResultInfo;
+import net.webset.util.options.Add;
+import net.webset.util.options.Update;
 import net.webset.wapper.MajorTextWapper;
+import net.webset.wapper.ScoreWapper;
 import net.webset.wapper.api.vos.MajorScoreVO;
 import net.webset.wapper.page.PageUtilResult;
 import net.webset.wapper.page.PageUtilWapper;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.FieldError;
+import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.*;
 
-import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpSession;
 import java.util.List;
+import java.util.Optional;
+import java.util.stream.Collectors;
+
 
 /**
  * 专业数据评分Controller类
  * @author hby
  * create date: 2020-08-21
  */
-
 @RequestMapping("/score/")
 @RestController
 public class MajorScoreController {
@@ -98,10 +102,10 @@ public class MajorScoreController {
      * @return
      */
     @GetMapping("majorScoreUpdatePage.html")
-    public ModelAndView majorUpdatePage(ModelAndView mav, MajorText majorText) {
+    public ModelAndView majorUpdatePage(ModelAndView mav, MajorText majorText, @RequestParam(value = "majorId") Integer majorId) {
         User user = (User) session.getAttribute("user");
         //获取专业数据id
-        Integer majorId = majorText.getMajorid();
+//        Integer majorId = majorText.getMajorid();
         //存入majorId到session
         session.setAttribute("majorId",majorId);
         QueryWrapper<MajorText> majorTextQueryWrapper = new QueryWrapper<>();
@@ -116,12 +120,68 @@ public class MajorScoreController {
         MajorNumber mn = iMajorNumberService.getOne(majorNumberQueryWrapper);
         MajorScore ms = iMajorScoreService.getOne(majorScoreQueryWrapper);
         mav.addObject("majorId",majorId);
+        mav.addObject("createId",user.getId());
         mav.addObject("mt", mt);
         mav.addObject("mn", mn);
         mav.addObject("ms", ms);
+        mav.addObject("isExamine", true);
         //跳转页面
-        mav.setViewName("scoreMajor/fill.html");
+        mav.setViewName("scoreMajor/fill");
         return mav;
+    }
+
+
+
+
+    @PostMapping("majorScoreSave.json")
+    public ResultInfo<List<String>> majorScoreSave(@Validated(Add.class) MajorScore ms,
+                                                   BindingResult result){
+        if(result.hasErrors()) {
+            List<FieldError> fieldErrors = result.getFieldErrors();
+            List<String> collect = fieldErrors.stream()
+                    .map(o -> o.getDefaultMessage())
+                    .collect(Collectors.toList());
+            return new ResultInfo<List<String>>(400,"请求参数错误",collect);
+        }else {
+            User user = (User) session.getAttribute("user");
+            QueryWrapper<MajorScore> majorScoreQueryWrapper = new QueryWrapper();
+            //查询条件
+            majorScoreQueryWrapper.eq(MajorScore.MAJORID,ms.getMajorId());
+            majorScoreQueryWrapper.eq(MajorScore.CREATE_ID,ms.getCreateId());
+            //判断是否已评分
+            Optional<MajorScore> d = Optional.ofNullable(iMajorScoreService.getOne(majorScoreQueryWrapper));
+            ms.setCreateId(user.getId());
+            if(d.isPresent()) {
+                return new ResultInfo<List<String>>(400,"数据已存在。无法保存",null);
+            }
+            boolean isSuccess = iMajorScoreService.save(ms);
+//            isSuccess = iLaonService.syncScoreAndLaOn(sc);
+
+            return new ResultInfo<List<String>>(isSuccess ? 200 : 400,
+                    isSuccess ? "保存成功" : "保存失败",null);
+        }
+    }
+
+
+
+    @PostMapping("majorScoreUpdate.json")
+    public ResultInfo<List<String>> scoreUpdate(@Validated(Update.class) MajorScore ms,
+                                                BindingResult result){
+        if(result.hasErrors()) {
+            List<FieldError> fieldErrors = result.getFieldErrors();
+            List<String> collect = fieldErrors.stream()
+                    .map(o -> o.getDefaultMessage())
+                    .collect(Collectors.toList());
+            return new ResultInfo<List<String>>(400,"请求参数错误",collect);
+        }else {
+            User user = (User) session.getAttribute("user");
+            ms.setCreateId(user.getId());
+            boolean isSuccess = iMajorScoreService.updateById(ms);
+//            isSuccess = iLaonService.syncScoreAndLaOn(sc);
+
+            return new ResultInfo<List<String>>(isSuccess ? 200 : 400,
+                    isSuccess ? "更新成功" : "更新失败",null);
+        }
     }
 
 

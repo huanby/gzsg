@@ -4,6 +4,7 @@ import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.IService;
 import net.webset.entity.MajorText;
 import net.webset.wapper.MajorTextWapper;
+import net.webset.wapper.api.vos.MajorConclusionVO;
 import net.webset.wapper.api.vos.MajorScoreVO;
 
 import java.util.List;
@@ -18,6 +19,8 @@ public interface IMajorTextService extends IService<MajorText> {
 
     //专业数据得分列表
     Page<MajorScoreVO> getMajorScoreList(Page page, MajorTextWapper majorTextWapper);
+
+
 
 
 }

@@ -26,7 +26,8 @@ function initMajorFileUpload(){
 function initFileUpload() {
 	$("#file").fileinput({
 		language : 'zh',
-		uploadUrl : getRootPath()+"/majordata/majorFillUploadPDF.json",
+		// uploadUrl : getRootPath()+"/majordata/majorFillUploadPDF.json",
+		uploadUrl : $("#isExamine").val() == "true"? "" : getRootPath()+"/majordata/majorFillUploadPDF.json",
 		showUpload: true, //是否显示上传按钮
 		showRemove : false, //显示移除按钮
 		showPreview : true, //是否显示预览
@@ -74,7 +75,7 @@ function initImages(){
 			getRootPath()+"/majordata/majorFillgetImagesById.json",
 			/*<embed class="kv-preview-data file-preview-pdf file-zoom-detail" src="blob:http://localhost:8080/c980b3b3-fc78-43ac-9c2c-f8a0c948e905" type="application/pdf" style="width: 100%; height: 100%; min-height: 480px;">*/
 			function(data) {
-				console.log(data);
+				// console.log(data);
 				if(data.length > 0){
 					$(data).each(function(index,value){
 						pathList[index] = getRootPath()+"/majordata/majorFillshowFile.json?name="+value.name;
@@ -82,7 +83,8 @@ function initImages(){
 							type: value.type,
 							caption: value.sourceName,
 							size: value.size,
-							url: getRootPath()+"/majordata/majorFilldeleteFile.json",
+							// url: getRootPath()+"/majordata/majorFilldeleteFile.json",
+							url: $("#isExamine").val() == "true"? "" : getRootPath()+"/majordata/majorFilldeleteFile.json",
 							key: value.id
 						};
 						initPreviewConfig[index] = ks;
@@ -90,6 +92,10 @@ function initImages(){
 
 				}
 				initFileUpload();
+				if($("#isExamine").val() == "true"){
+					$("#5 button").attr("disabled",false);
+					// $("#5 .fileinput-remove").attr("disabled",true);
+				}
 			}
 		);
 	// }

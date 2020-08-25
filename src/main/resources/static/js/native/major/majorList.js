@@ -20,7 +20,7 @@ function init(){
 function listener(){
 	$("#btn_query").click(function(){
 		var val = $("#t1").val();
-		console.log(val);
+		// console.log(val);
 		$('#tb_majors').bootstrapTable('refresh');
 	});
 	
@@ -30,7 +30,7 @@ function listener(){
 	
 	$("#btn_del").click(function(){
 		var select = $('#tb_majors').bootstrapTable('getSelections');
-		console.log(select);
+		// console.log(select);
 		if(select.length > 0){
 			showChooseInfo("您确定要删除专业群建设文档【"+select[0].t1+"】吗");
 		}else{
@@ -52,7 +52,7 @@ function listener(){
 //确认删除
 function primary(){
 	var select = $('#tb_majors').bootstrapTable('getSelections');
-	console.log(select);
+	// console.log(select);
 	window.location.href = getRootPath() + '/majordata/majorDel.html?majorid=' + select[0].majorid;
 }
 

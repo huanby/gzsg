@@ -20,23 +20,23 @@ function init(){
 function listener(){
 	$("#btn_query").click(function(){
 		var val = $("#t1").val();
-		console.log(val);
+		// console.log(val);
 		$('#tb_majors').bootstrapTable('refresh');
 	});
 	
 
-	$("#btn_edit").click(function(){
+	/*$("#btn_edit").click(function(){
 		var select = $('#tb_majors').bootstrapTable('getSelections');
 		if(select.length > 0){
 			window.location.href = getRootPath() + '/score/majorScoreUpdatePage.html?majorid=' + select[0].majorid;
 		}else{
 			showInfo("您没有选择要修改的专业数据");
 		}
-	});
+	});*/
 	
 }
 
-
+//初始化表
 function initTables(){
 	$('#tb_majors').bootstrapTable({
 		url : getRootPath() + '/score/majorList.json', 	// 请求后台的URL（*）
@@ -87,6 +87,23 @@ function initTables(){
 				}
 				}
 			},
+			{field : 'examine',title : '评分',formatter: toExamine}
 		]
 	});
 };
+
+
+function toExamine(value, row, index){
+	// console.log(row);
+	// return "<a href='"+getRootPath()+"/score/majorScoreUpdatePage.html?majorId="+row.majorid+"' onclick><i class='glyphicon glyphicon-zoom-in' title='开始评分'></i></a>";
+
+	if(row.score != null){
+		// return "<a href='"+getRootPath()+"/score/scoreSchoolShow.html?id="+row.createId+"' >修改评分</a>";
+		return "<a href='"+getRootPath()+"/score/majorScoreUpdatePage.html?majorId="+row.majorid+"' class='btn btn-success'>修改评分</a>";
+	}else{
+		// return "<a href='"+getRootPath()+"/score/scoreSchoolShow.html?id="+row.createId+"' class='btn btn-warning'>开始评分</a>";
+		return "<a href='"+getRootPath()+"/score/majorScoreUpdatePage.html?majorId="+row.majorid+"' class='btn btn-warning'>开始评分</a>";
+	}
+
+}
+

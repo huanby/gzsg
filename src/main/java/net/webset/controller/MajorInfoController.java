@@ -194,7 +194,7 @@ public class MajorInfoController {
 			return null;
 		}
 //		if(majorId != null && sessionMajorId.equals(majorId)){
-			wapper.setCreateId(user.getId());
+//			wapper.setCreateId(user.getId());
 			wapper.setMajorId(sessionMajorId);
 			imagesMajorList = this.iImagesMajorService.list(wapper);
 //		}

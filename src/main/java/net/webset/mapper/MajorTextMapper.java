@@ -5,6 +5,7 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import net.webset.entity.MajorText;
 import net.webset.wapper.MajorTextWapper;
+import net.webset.wapper.api.vos.MajorConclusionVO;
 import net.webset.wapper.api.vos.MajorScoreVO;
 
 import java.util.List;
@@ -16,6 +17,8 @@ import java.util.List;
  */
 public interface MajorTextMapper extends BaseMapper<MajorText> {
 
+    //专业数据厅展示列表
     Page<MajorScoreVO> getMajorScoreList(Page page, MajorTextWapper majorTextWapper);
+
 
 }

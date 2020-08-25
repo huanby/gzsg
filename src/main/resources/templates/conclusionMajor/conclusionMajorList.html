@@ -3,7 +3,7 @@
 	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
 <head>
 <meta charset="UTF-8" />
-<title>专业评分信息管理</title>
+<title>评分结果查看</title>
 <link rel="stylesheet" th:href="@{/js/plugin/bootstrap/dist/css/bootstrap.min.css}" />
 <link rel="stylesheet" th:href="@{/js/plugin/bootstraptable/dist/bootstrap-table.css}" />
 
@@ -13,14 +13,18 @@
 <div th:replace="/plugn/pageCompent::showChooseModal"></div>
 <input id="info" th:value="${info}"  type="hidden"/>
 	<div class="panel-body" style="padding-bottom:0px;">
-        <div class="panel panel-default" th:if="${#bools.isTrue(session.authPromissionMap.scoreMajorList)}">
+        <!-- <div class="panel panel-default">
             <div class="panel-heading">查询条件</div>
             <div class="panel-body">
                 <form id="formSearch" class="form-horizontal">
                     <div class="form-group" style="margin-top:15px">
-                        <label class="control-label col-sm-2" for="t1">专业（群）名称</label>
-                        <div class="col-sm-4">
-                            <input type="text" class="form-control" id="t1">
+                        <label class="control-label col-sm-1" for="schoolName">用户名</label>
+                        <div class="col-sm-2">
+                            <input type="text" class="form-control" id="schoolName">
+                        </div>
+                        <label class="control-label col-sm-1" for="leName">法人姓名</label>
+                        <div class="col-sm-2">
+                            <input type="text" class="form-control" id="leName">
                         </div>
                         <div class="col-sm-3" style="text-align:left;">
                             <button type="button" style="margin-left:50px" id="btn_query" class="btn btn-primary">查询</button>
@@ -28,14 +32,9 @@
                     </div>
                 </form>
             </div>
-        </div>
+        </div> -->       
 
-        <!--<div id="toolbar" class="btn-group" >
-            <button id="btn_edit" type="button" class="btn btn-warning" th:if="${#bools.isTrue(session.authPromissionMap?.scoreMajorUpdate)}">
-                <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>修改
-            </button>
-        </div>-->
-        <table id="tb_majors"></table>
+        <table id="tb_majorConclusions"></table>
     </div>
 </body>
 <script th:src="@{/js/plugin/jquery.js}"></script>
@@ -43,5 +42,5 @@
 <script th:src="@{/js/plugin/bootstraptable/dist/bootstrap-table.js}"></script>
 <script th:src="@{/js/plugin/bootstraptable/dist/locale/bootstrap-table-zh-CN.min.js}"></script>
 <script th:src="@{/js/native/native.js}"></script>
-<script th:src="@{/js/native/scoreMajor/majorList.js}"></script>
+<script th:src="@{/js/native/conclusionMajor/conclusionMajorList.js}"></script>
 </html>

@@ -1,10 +1,18 @@
 package net.webset.entity;
 
+import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableName;
+import com.baomidou.mybatisplus.core.conditions.update.Update;
 import com.baomidou.mybatisplus.extension.activerecord.Model;
 import com.baomidou.mybatisplus.annotation.TableId;
 import java.time.LocalDateTime;
 import com.baomidou.mybatisplus.annotation.TableField;
+import net.webset.util.options.Add;
+import org.springframework.data.annotation.Id;
+
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Null;
 import java.io.Serializable;
 
 /**
@@ -20,26 +28,40 @@ public class MajorScore extends Model<MajorScore> {
     /**
      * 主键id
      */
-    @TableId("id")
+    @Id
+    @TableId(value = ID,type= IdType.AUTO)
+    @Null(message = "该数据已存在",groups = {Add.class})
+    @NotNull(message = "数据不存在",groups = {Update.class})
     private Integer id;
 
     /**
      * 专业文档id
      */
     @TableField("majorId")
+    @NotNull(message = "评分对象不存在", groups = {Add.class})
     private Integer majorId;
 
     /**
      * 评价者ID
      */
     @TableField("create_id")
+    @NotNull(message = "评价者不存在", groups = {Add.class})
     private Integer createId;
 
     /**
      * 得分
      */
     @TableField("score")
+    @NotNull(message = "评分结果不能为空", groups = {Add.class})
     private Double score;
+
+
+    /**
+     * 评价说明
+     */
+    @TableField("remark")
+    @NotBlank(message = "评分说明不能为空", groups = {Add.class})
+    private String remark;
 
     /**
      * 是否删除：0：未删除、1：删除
@@ -87,6 +109,15 @@ public class MajorScore extends Model<MajorScore> {
     public void setScore(Double score) {
         this.score = score;
     }
+
+    public String getRemark() {
+        return remark;
+    }
+
+    public void setRemark(String remark) {
+        this.remark = remark;
+    }
+
     public Integer getIsdel() {
         return isdel;
     }
@@ -117,11 +148,14 @@ public class MajorScore extends Model<MajorScore> {
 
     public static final String SCORE = "score";
 
+    public static final String REMARK = "remark";
+
     public static final String ISDEL = "isdel";
 
     public static final String CREATETIME = "createtime";
 
     public static final String UPDATETIME = "updatetime";
+
 
     @Override
     protected Serializable pkVal() {
@@ -138,6 +172,7 @@ public class MajorScore extends Model<MajorScore> {
         ", isdel=" + isdel +
         ", createtime=" + createtime +
         ", updatetime=" + updatetime +
+        ", remark=" + remark +
         "}";
     }
 }

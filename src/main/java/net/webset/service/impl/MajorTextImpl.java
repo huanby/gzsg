@@ -6,6 +6,7 @@ import net.webset.entity.MajorText;
 import net.webset.mapper.MajorTextMapper;
 import net.webset.service.IMajorTextService;
 import net.webset.wapper.MajorTextWapper;
+import net.webset.wapper.api.vos.MajorConclusionVO;
 import net.webset.wapper.api.vos.MajorScoreVO;
 import org.springframework.stereotype.Service;
 
@@ -33,4 +34,6 @@ public class MajorTextImpl extends ServiceImpl<MajorTextMapper, MajorText> imple
     public Page<MajorScoreVO> getMajorScoreList(Page page, MajorTextWapper majorTextWapper) {
         return this.majorTextMapper.getMajorScoreList(page,majorTextWapper);
     }
+
+
 }

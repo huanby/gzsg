@@ -21,15 +21,16 @@ SET FOREIGN_KEY_CHECKS = 0;
 -- Table structure for b_major_score
 -- ----------------------------
 DROP TABLE IF EXISTS `b_major_score`;
-CREATE TABLE `b_major_score`  (
+CREATE TABLE `b_major_score` (
   `id` int(11) NOT NULL AUTO_INCREMENT COMMENT '主键id',
   `majorId` int(11) NOT NULL COMMENT '专业文档id',
   `create_id` int(11) NOT NULL COMMENT '评价者ID',
-  `score` double(30, 2) NULL DEFAULT NULL COMMENT '得分',
-  `isdel` int(1) NOT NULL DEFAULT 0 COMMENT '是否删除：0：未删除、1：删除',
-  `createtime` datetime(0) NULL DEFAULT CURRENT_TIMESTAMP(0) COMMENT '创建时间',
-  `updatetime` timestamp(0) NULL DEFAULT CURRENT_TIMESTAMP(0) ON UPDATE CURRENT_TIMESTAMP(0) COMMENT '更新时间',
+  `score` double(30,2) DEFAULT NULL COMMENT '得分',
+  `isdel` int(1) NOT NULL DEFAULT '0' COMMENT '是否删除：0：未删除、1：删除',
+  `createtime` datetime DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
+  `updatetime` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间',
+  `remark` text COMMENT '评价说明',
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 4 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 
 SET FOREIGN_KEY_CHECKS = 1;
