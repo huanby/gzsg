@@ -8,3 +8,18 @@
 ul.nav-tabs {
     background-color: #eee;
 }
+
+
+.W120 .th-inner {
+    width:120px !important;
+}
+.W80 .th-inner {
+    width:80px !important;
+}
+.W60 .th-inner {
+    width:60px !important;
+}
+
+.W150 .th-inner {
+    width:150px !important;
+}

@@ -89,6 +89,7 @@ public class MajorInfoController {
 		// 初始化查询条件   majorTextWapper-查询条件
 		majorTextWapper.setCreateId(user.getId());
 		majorTextWapper.orderByDesc("updatetime");
+//		majorTextWapper.eq("t2",majorTextWapper.getT2());
 		IPage<MajorText> page = iMajorTextService.page(new Page<MajorText>(pwapper.getOffset(), pwapper.getLimit()), majorTextWapper);
 		PageUtilResult<MajorText> result = new PageUtilResult<>();
 		List<MajorText> majorTexts = page.getRecords();

@@ -60,8 +60,9 @@ public class MajorText {
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date t5;
 
-    @DateTimeFormat(pattern = "yyyy-MM-dd")
-    private Date t6;
+//    @DateTimeFormat(pattern = "yyyy-MM-dd")
+//    private Date t6;
+    private String t6;
 
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date t7;
@@ -102,7 +103,7 @@ public class MajorText {
     @TableField(CREATEID)
     private Integer createId;
 
-    public MajorText(Integer id, Integer majorid, String name, Integer type, Integer state, Integer isdel, Date createtime, Date updatetime, String t1, String t2, String t3, String t4, Date t5, Date t6, Date t7, String t8, String t9, Date t10, String t11, String t12, String t13, String t14, String t15, String t16, String t17, String t18, String t19, String t20, String t21, Integer createId) {
+    public MajorText(Integer id, Integer majorid, String name, Integer type, Integer state, Integer isdel, Date createtime, Date updatetime, String t1, String t2, String t3, String t4, Date t5, String t6, Date t7, String t8, String t9, Date t10, String t11, String t12, String t13, String t14, String t15, String t16, String t17, String t18, String t19, String t20, String t21, Integer createId) {
         this.id = id;
         this.majorid = majorid;
         this.name = name;
@@ -243,11 +244,11 @@ public class MajorText {
         this.t5 = t5;
     }
 
-    public Date getT6() {
+    public String getT6() {
         return t6;
     }
 
-    public void setT6(Date t6) {
+    public void setT6(String t6) {
         this.t6 = t6;
     }
 
