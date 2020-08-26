@@ -17,6 +17,8 @@ function listenerMajorBasicData(){
 		if(flag){
 			//保存数据
 			majorBasicDataSave();
+		}else {
+			showInfo("数据填报有误，请检查");
 		}
 	})
 
@@ -109,6 +111,16 @@ function validMajorBasicDataEditForm(){
 						regexp: /^\d+(\.\d{0,2})?$/,
 						message: '字段只能为整数或两位小数'
 					},
+					// 内容最小值验证
+					greaterThan: {
+						value : 0,
+						message : '字段最小输入0'
+					},
+					//内容最大值验证
+					lessThan: {
+						value : 100,
+						message : '字段最大输入100'
+					}
 				}
 			},
 			n9 : {
@@ -120,6 +132,16 @@ function validMajorBasicDataEditForm(){
 						regexp: /^\d+(\.\d{0,2})?$/,
 						message: '字段只能为整数或两位小数'
 					},
+					// 内容最小值验证
+					greaterThan: {
+						value : 0,
+						message : '字段最小输入0'
+					},
+					//内容最大值验证
+					lessThan: {
+						value : 100,
+						message : '字段最大输入100'
+					}
 				}
 			},
 			n10 : {
@@ -141,6 +163,16 @@ function validMajorBasicDataEditForm(){
 						regexp: /^\d+(\.\d{0,2})?$/,
 						message: '字段只能为整数或两位小数'
 					},
+					// 内容最小值验证
+					greaterThan: {
+						value : 0,
+						message : '字段最小输入0'
+					},
+					//内容最大值验证
+					lessThan: {
+						value : 100,
+						message : '字段最大输入100'
+					}
 				}
 			},
 			n12 : {
@@ -162,6 +194,16 @@ function validMajorBasicDataEditForm(){
 						regexp: /^\d+(\.\d{0,2})?$/,
 						message: '字段只能为整数或两位小数'
 					},
+					// 内容最小值验证
+					greaterThan: {
+						value : 0,
+						message : '字段最小输入0'
+					},
+					//内容最大值验证
+					lessThan: {
+						value : 100,
+						message : '字段最大输入100'
+					}
 				}
 			},
 			n14 : {
@@ -183,6 +225,16 @@ function validMajorBasicDataEditForm(){
 						regexp: /^\d+(\.\d{0,2})?$/,
 						message: '字段只能为整数或两位小数'
 					},
+					// 内容最小值验证
+					greaterThan: {
+						value : 0,
+						message : '字段最小输入0'
+					},
+					//内容最大值验证
+					lessThan: {
+						value : 100,
+						message : '字段最大输入100'
+					}
 				}
 			},
 			n16: {
@@ -213,7 +265,7 @@ function validMajorBasicDataEditForm(){
 					regexp: { //正则表达式
 						regexp: /^\d+(\.\d{0,2})?$/,
 						message: '字段只能为整数或两位小数'
-					},
+					}
 				}
 			},
 			n19 : {
@@ -224,7 +276,7 @@ function validMajorBasicDataEditForm(){
 					regexp: { //正则表达式
 						regexp: /^\d+(\.\d{0,2})?$/,
 						message: '字段只能为整数或两位小数'
-					},
+					}
 				}
 			},
 			n20 : {
@@ -305,7 +357,7 @@ function validMajorBasicDataEditForm(){
 					regexp: { //正则表达式
 						regexp: /^\d+(\.\d{0,2})?$/,
 						message: '字段只能为整数或两位小数'
-					},
+					}
 				}
 			},
 			n28 : {
@@ -316,7 +368,7 @@ function validMajorBasicDataEditForm(){
 					regexp: { //正则表达式
 						regexp: /^\d+(\.\d{0,2})?$/,
 						message: '字段只能为整数或两位小数'
-					},
+					}
 				}
 			},
 			n29 : {
@@ -327,7 +379,7 @@ function validMajorBasicDataEditForm(){
 					regexp: { //正则表达式
 						regexp: /^\d+(\.\d{0,2})?$/,
 						message: '字段只能为整数或两位小数'
-					},
+					}
 				}
 			},
 

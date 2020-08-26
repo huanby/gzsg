@@ -95,6 +95,10 @@ public class MajorText {
 
     private String t21;
 
+    private String t22;
+
+    private String t23;
+
     @TableField(CREATEID)
     private Integer createId;
 
@@ -375,6 +379,22 @@ public class MajorText {
         this.createId = createId;
     }
 
+    public String getT22() {
+        return t22;
+    }
+
+    public void setT22(String t22) {
+        this.t22 = t22;
+    }
+
+    public String getT23() {
+        return t23;
+    }
+
+    public void setT23(String t23) {
+        this.t23 = t23;
+    }
+
     public static final String ID = "id";
     public static final String MAJORID = "majorId";
     public static final String NAME = "name";
@@ -405,5 +425,7 @@ public class MajorText {
     public static final String T19 = "t19";
     public static final String T20 = "t20";
     public static final String T21 = "t21";
+    public static final String T22 = "t22";
+    public static final String T23 = "t23";
 
 }

@@ -16,6 +16,8 @@ function listenerMajorBasicInfo(){
 		var flag = $("#majorEditForm_basicInfo").data("bootstrapValidator").isValid();
 		if(flag){
 			majorBasicInfoSave();
+		}else {
+			showInfo("数据填报有误，请检查");
 		}
 
 	})

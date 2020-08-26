@@ -18,7 +18,7 @@ function listenerMajorFileUpload(){
 
 function initMajorFileUpload(){
 	//初始化附件上传插件
-	initImages();
+	initImages(0);
 
 }
 
@@ -61,14 +61,16 @@ function initFileUpload() {
 		browseClass : "btn btn-primary", //按钮样式
 		previewFileIcon : "<i class='glyphicon glyphicon-king'></i>"
 	}).on("fileuploaded", function(e, data) {//文件上传成功的回调函数，还有其他的一些回调函数，比如上传之前...
-		initImages();
+		initImages(1);
 	});
+
+
 
 }
 
 
 //附件展示
-function initImages(){
+function initImages(flag){
 	// var majorId = $("#hidden_majorId").val();
 	// if(majorId != ""){
 		$.post(
@@ -95,6 +97,9 @@ function initImages(){
 				if($("#isExamine").val() == "true"){
 					$("#5 button").attr("disabled",false);
 					// $("#5 .fileinput-remove").attr("disabled",true);
+				}
+				if(flag == 1){
+					showInfo("上传成功");
 				}
 			}
 		);

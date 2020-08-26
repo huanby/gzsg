@@ -1,0 +1,10 @@
+@charset "utf-8";
+/*.nav-tabs{
+    border: 1px solid #ddd;
+    border-right: 0px;
+    padding-right: 0px;
+}*/
+
+ul.nav-tabs {
+    background-color: #eee;
+}
