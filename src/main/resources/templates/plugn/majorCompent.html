@@ -151,7 +151,7 @@
                         <label for="t7" class="col-sm-2 control-label">首届学生毕业时间：</label>
                         <div class="col-sm-4">
                             <input type="text" class="form-control" id="t7" name="t7"
-                                   th:value="${#dates.format(mt.t7,'yyyy-MM-dd')}" placeholder="请填写建校日期"/>
+                                   th:value="${#dates.format(mt.t7,'yyyy-MM-dd')}" placeholder="请填写首届学生毕业时间"/>
                         </div>
                     </div>
                     <div class="rowGroup">
@@ -460,7 +460,7 @@
                         <label for="t11" class="col-sm-2 control-label">参加工作时学历及所学专业：</label>
                         <div class="col-sm-4">
                             <input type="text" class="form-control" id="t11" name="t11"
-                                   placeholder="输入多个学历以;符号分隔，如：学历1;学历2" th:value="${mt.t11}"/>
+                                   placeholder="格式如:本科;通信工程" th:value="${mt.t11}"/>
                         </div>
                     </div>
                 </div>
@@ -468,7 +468,7 @@
                     <div class="rowGroup">
                         <label for="t12" class="col-sm-2 control-label">最后学历及所学专业：</label>
                         <div class="col-sm-4">
-                            <input type="text" class="form-control" id="t12" name="t12" placeholder="请输入最后学历及所学专业"
+                            <input type="text" class="form-control" id="t12" name="t12" placeholder="格式如:研究生;通信工程"
                                    th:value="${mt.t12}"/>
                         </div>
                     </div>
@@ -476,7 +476,7 @@
                         <label for="t13" class="col-sm-2 control-label">专业技术职称：</label>
                         <div class="col-sm-4">
                             <input type="text" class="form-control" id="t13" name="t13"
-                                   placeholder="请输入专业技术职称" th:value="${mt.t13}"/>
+                                   placeholder="格式如:职称1;职称2" th:value="${mt.t13}"/>
                         </div>
                     </div>
                 </div>
@@ -484,7 +484,7 @@
                     <div class="rowGroup">
                         <label for="t14" class="col-sm-2 control-label">证书擅长专业领域：</label>
                         <div class="col-sm-4">
-                            <input type="text" class="form-control" id="t14" name="t14" placeholder="请输入证书擅长专业领域"
+                            <input type="text" class="form-control" id="t14" name="t14" placeholder="格式如:无线通信;通信工程"
                                    th:value="${mt.t14}"/>
                         </div>
                     </div>
@@ -500,7 +500,7 @@
                     <div class="rowGroup">
                         <label for="t16" class="col-sm-2 control-label">职业资格（含行业企业认证）：</label>
                         <div class="col-sm-4">
-                            <input type="text" class="form-control" id="t16" name="t16" placeholder="请输入职业资格（含行业企业认证）"
+                            <input type="text" class="form-control" id="t16" name="t16" placeholder="格式如:职业资格1;职业资格2"
                                    th:value="${mt.t16}"/>
                         </div>
                     </div>
@@ -508,7 +508,7 @@
                         <label for="t17" class="col-sm-2 control-label">主要社会兼职：</label>
                         <div class="col-sm-4">
                             <input type="text" class="form-control" id="t17" name="t17"
-                                   placeholder="请输入主要社会兼职" th:value="${mt.t17}"/>
+                                   placeholder="格式如:兼职1;兼职2" th:value="${mt.t17}"/>
                         </div>
                     </div>
                 </div>
@@ -516,8 +516,9 @@
                     <div class="rowGroup">
                         <label for="t18" class="col-sm-2 control-label">主要业绩（含企业实践）及相关荣誉：</label>
                         <div class="col-sm-4">
-                            <input type="text" class="form-control" id="t18" name="t18"
-                                   placeholder="请输入主要业绩（含企业实践）及相关荣誉" th:value="${mt.t18}"/>
+                            <!--<input type="text" class="form-control" id="t18" name="t18"
+                                   placeholder="格式如：业绩1；业绩2；荣誉1；荣誉2" th:value="${mt.t18}"/>-->
+                            <textarea class="form-control" id="t18" name="t18" placeholder="格式如：业绩1；业绩2；荣誉1；荣誉2" data-bv-field="t18" th:text="${mt.t18}" style="resize: none;"></textarea>
                         </div>
                     </div>
                 </div>
@@ -557,7 +558,7 @@
                                     <input type="checkbox" name="t19" value="1">A类</label>
                                 </label>
                                 <label class="control-label">
-                                    <input type="checkbox" name="t19" value="2">b类</label>
+                                    <input type="checkbox" name="t19" value="2">B类</label>
                                 </label>
                                 <label class="control-label">
                                     <input type="checkbox" name="t19" value="0">否</label>
@@ -792,7 +793,7 @@
 		            	<span class="btn fileinput-button" style="width:100%">
 					        <i class="glyphicon glyphicon-plus"></i>
 <!--					        <span>添加佐证文档</span>-->
-                            <span style="color: red">添加附件材料 （注意）：附件材料必须上传</span>
+                            <span style="color: red">请务必上传附件材料，包含：项目申报书、项目建设方案（提纲）、相关佐证材料</span>
 					        <input type="file" id="file" multiple name="file"/>
 <!--					        <i class="fa fa-file-pdf-o text-danger"></i >-->
 					    </span>

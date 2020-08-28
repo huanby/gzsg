@@ -31,7 +31,7 @@
                 平台使用相关问题，请拨打咨询电话：13581793282
             </div>
             <div class="chose_box">
-                <input name="1" type="checkbox" value="" onclick="if (this.checked) {enable()} else {disable()}" style="width:15px;height: 15px;float:left;border-radius: 2px;border: 1px solid #aaa;margin-top: 2px;"/>
+                <input name="1" type="checkbox" value="" onclick="loginBtn(this)" style="width:15px;height: 15px;float:left;border-radius: 2px;border: 1px solid #aaa;margin-top: 2px;"/>
                 <div class="check_text">我校承诺对《吉林省高职“双高计划”遴选服务平台》所填写及上传附件的内容真实性和准确性负责,特此声明。</div>
             </div>
             <div href="javascript:;">
@@ -59,6 +59,15 @@
 <!--<script th:src="@{/js/plugin/bootstrap/docs/assets/js/ie10-viewport-bug-workaround.js}"></script>-->
 <script th:src="@{/js/native/native.js}"></script>
 <script>
+    function loginBtn(thisCheck) {
+        // console.log($(this));
+        if (thisCheck.checked) {
+            enable()
+        } else {
+            disable()
+        }
+    }
+
     function disable()
     {
         document.getElementById("login_input").disabled=true

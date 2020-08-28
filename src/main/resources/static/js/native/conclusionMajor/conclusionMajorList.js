@@ -61,9 +61,13 @@ function initTables(){
 		showToggle : true, // 是否显示详细视图和列表视图的切换按钮
 		cardView : false, // 是否显示详细视图
 		detailView : false, // 是否显示父子表
+		// theadClasses: "thead-blue",//这里设置表头样式
+		// classes: "table table-bordered table-striped table-sm table-dark",
+		// fixedColumns: true,
+		// fixedNumber: 6,
 		columns : [ 
 			{checkbox : true},
-			{field : 't22',title : '申报学校',valign: 'middle',align: 'center'},
+			{field : 't22',title : '<br><br>申报学校<br><br><br>',valign: 'middle',align: 'center'},
 			{field : 't1',title : '专业（群）名称',valign: 'middle',align: 'center',formatter:toView},
 			{field : 't2',title : '专业所属大类',valign: 'middle',align: 'center'},
 			// {field : 't3',title : '龙头专业代码',valign: 'middle',align: 'center'},
@@ -84,14 +88,14 @@ function initTables(){
 			{field : 'n5',title : '2017年<br>毕业生数',valign: 'middle',align: 'center',sortable: true,visible : true},
 			{field : 'n6',title : '2018年<br>毕业生数',valign: 'middle',align: 'center',sortable: true,visible : true},
 			{field : 'n7',title : '2019年<br>毕业生数',valign: 'middle',align: 'center',sortable: true,visible : true},
-			{field : 'n8',title : '2018届毕业生<br>年底就业率（%）',valign: 'middle',align: 'center',sortable: true,visible : true},
-			{field : 'n9',title : '2018届毕业生<br>用人单位<br>满意或基本<br>满意比例（%）',valign: 'middle',align: 'center',sortable: true,visible : true,width:200},
-			{field : 'n10',title : '校内专任教师数',valign: 'middle',align: 'center',sortable: true,visible : true},
+			{field : 'n8',title : '2018届<br>毕业生<br>年底就业率（%）',valign: 'middle',align: 'center',sortable: true,visible : true},
+			{field : 'n9',title : '2018届<br>毕业生<br>用人单位<br>满意或基本<br>满意比例（%）',valign: 'middle',align: 'center',sortable: true,visible : true,width:200},
+			{field : 'n10',title : '校内专任<br>教师数',valign: 'middle',align: 'center',sortable: true,visible : true},
 			{field : 'n11',title : '专任教师双师<br>素质比例（%）',valign: 'middle',align: 'center',sortable: true,visible : true},
 			{field : 'n12',title : '校内专任教师<br>高级职称人数',valign: 'middle',align: 'center',sortable: true,visible : true},
-			{field : 'n13',title : '专任教师研究生<br>以上学历人数比例（%）',valign: 'middle',align: 'center',sortable: true,visible : true},
+			{field : 'n13',title : '专任教师研究生<br>以上学历<br>人数比例（%）',valign: 'middle',align: 'center',sortable: true,visible : true},
 			{field : 'n14',title : '2018-2019<br>学年兼职教师总数',valign: 'middle',align: 'center',sortable: true,visible : true},
-			{field : 'n15',title : '2018-兼职教师人数<br>占专业课教师总数的比例（%）',valign: 'middle',align: 'center',sortable: true,visible : true},
+			{field : 'n15',title : '兼职教师人数<br>占专业课教师<br>总数的比例（%）',valign: 'middle',align: 'center',sortable: true,visible : true},
 			{field : 'n16',title : '校内实训<br>基地数',valign: 'middle',align: 'center',sortable: true,visible : true},
 			{field : 'n17',title : '校内实训<br>基地工位数',valign: 'middle',align: 'center',sortable: true,visible : true},
 			{field : 'n18',title : '校内实训基地生均<br>设备值（万元/生）',valign: 'middle',align: 'center',sortable: true,visible : true},
@@ -129,3 +133,14 @@ function toView(value, row, index){
 	// console.log(row);
 	return "<a href='"+getRootPath()+"/conclusion/conclusionMajorShow.html?majorId="+row.majorid+"'>"+row.t1+"</a>";
 }
+
+//表格展示样式
+function toShow(value, row, index){
+	// console.log(index);
+	// console.log(value);
+	// console.log(row);
+	return value;
+	// return "<a href='"+getRootPath()+"/conclusion/conclusionMajorShow.html?majorId="+row.majorid+"'>"+row.t1+"</a>";
+}
+
+

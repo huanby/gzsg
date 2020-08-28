@@ -6,6 +6,7 @@
 <title>评分结果查看</title>
 <link rel="stylesheet" th:href="@{/js/plugin/bootstrap/dist/css/bootstrap.min.css}" />
 <link rel="stylesheet" th:href="@{/js/plugin/bootstraptable/dist/bootstrap-table.css}" />
+<link rel="stylesheet" th:href="@{/js/plugin/bootstrap-table-fixed-columns/bootstrap-table-fixed-columns.css}" />
 <link rel="stylesheet" th:href="@{/static/css/major/major.css}" />
 
 </head>
@@ -56,13 +57,16 @@
             </div>
         </div>
 
+        <div class="table_box">
         <table id="tb_majorConclusions"></table>
+        </div>
     </div>
 </body>
 <script th:src="@{/js/plugin/jquery.js}"></script>
 <script th:src="@{/js/plugin/bootstrap/dist/js/bootstrap.min.js}"></script>
 <script th:src="@{/js/plugin/bootstraptable/dist/bootstrap-table.js}"></script>
 <script th:src="@{/js/plugin/bootstraptable/dist/locale/bootstrap-table-zh-CN.min.js}"></script>
+<script th:src="@{/js/plugin/bootstrap-table-fixed-columns/bootstrap-table-fixed-columns.js}"></script>
 <script th:src="@{/js/native/native.js}"></script>
 <script th:src="@{/js/native/conclusionMajor/conclusionMajorList.js}"></script>
 </html>

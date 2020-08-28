@@ -56,6 +56,10 @@ spring:
     cache: false
     #字符集编码统一为utf-8
     encoding: UTF-8
+  servlet:
+    multipart:
+      max-file-size: 100MB
+      max-request-size: 500MB
    
 #swagger
 swagger:

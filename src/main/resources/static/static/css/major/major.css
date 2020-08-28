@@ -23,3 +23,105 @@ ul.nav-tabs {
 .W150 .th-inner {
     width:150px !important;
 }
+
+
+.table_box{
+    white-space: nowrap;
+    /*overflow: hidden;*/
+    /*overflow-x: scroll;*/
+    /*-webkit-backface-visibility: hidden;*/
+    /*-webkit-overflow-scrolling: touch;*/
+}
+
+
+/*固定列样式*/
+/*.bootstrap-table .table thead tr th{
+    color: #333333;
+    padding: 0px;
+    padding: 0;
+    margin: 0;
+    !*vertical-align: bottom;*!
+    border-bottom: 1px solid #ddd;
+    line-height: 1.42857143;
+    height: 0;
+    !*padding: 0;*!
+    !*margin: 0;*!
+    border-left: 1px solid #dddddd;
+    box-sizing: border-box;
+}
+.fixed-table-body thead th .th-inner{
+    box-sizing: border-box;
+    padding: 8px;
+    line-height: 24px;
+    vertical-align: top;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    !*text-align: center;*!
+    !*color: #333333;*!
+}*/
+
+/*.fixed-table-container thead th .th-inner{
+
+}*/
+/*固定列样式*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*.table thead > tr > th*/
+/*.bootstrap-table .table thead tr th {
+    color: #333333;
+    padding: 0px;
+}
+
+.fixed-table-container thead th .sortable {
+    padding-right: 20px;
+}*/
+
+
+/*表格滚动条*/
+/*.calcscrollin {
+    width: 100%;
+    height: 200px;
+}
+.calcscrollout{
+    top: 0;
+    left: 0;
+    width: 200px;
+    height: 150px;
+    overflow: scroll;
+}
+!*::-webkit-scrollbar 代表整个滚动条*!
+.calcscrollout::-webkit-scrollbar,.fixed-table-body::-webkit-scrollbar{
+    width: 7px;
+    height: 15px;
+    background: #fff;
+}
+!*::-webkit-scrollbar-track 表示滚动条轨道 *!
+.calcscrollout::-webkit-scrollbar-track,.fixed-table-body::-webkit-scrollbar-track{
+    background: #fff;
+    !*border: 1px solid #ddd;*!
+    margin-right: 4px;
+}
+!*::-webkit-scrollbar-thumb代表轨道上的小方块*!
+.calcscrollout::-webkit-scrollbar-thumb,.fixed-table-body::-webkit-scrollbar-thumb{
+    height: 7px;
+    border: 1px solid #ccc;
+    background-color: #e5e5e5;
+}*/
+
+
+
+
+

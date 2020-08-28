@@ -49,6 +49,10 @@ function initFileUpload() {
 			'mp3': '<i class="fa fa-file-audio-o text-warning"></i>'
 		},
 		initialPreview:pathList,
+		dropZoneTitle:"点击此处进行PDF文件上传",
+		dropZoneClickTitle:"<br>支持多文件同时上传（需点击下方上传按钮）",
+		browseLabel:"选择",
+		filePlural:"文件",
 		initialPreviewAsData: true,
 		initialPreviewConfig:initPreviewConfig,
 		maxFileCount: 10,//最大上传数量
