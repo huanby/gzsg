@@ -988,6 +988,11 @@ function validSchoolIISSForm(){
 					regexp: {
 					      regexp: /^\d+(\.\d{0,2})?$/,
 					      message: '请输入大于0的正数'
+					},
+					between : {
+						min : 0,
+						max : 100,
+						message : "输入百分比为0-100之间"
 					}
 				}
 			},
@@ -999,6 +1004,11 @@ function validSchoolIISSForm(){
 					regexp: {
 					      regexp: /^\d+(\.\d{0,2})?$/,
 					      message: '请输入大于0的正数'
+					},
+					between : {
+						min : 0,
+						max : 100,
+						message : "输入百分比为0-100之间"
 					}
 				}
 			},
@@ -1052,6 +1062,11 @@ function validSchoolIISSForm(){
 					regexp: {
 					      regexp: /^\d+(\.\d{0,2})?$/,
 					      message: '请输入大于0的正数'
+					},
+					between : {
+						min : 0,
+						max : 100,
+						message : "输入百分比为0-100之间"
 					}
 				}
 			},
@@ -1063,6 +1078,11 @@ function validSchoolIISSForm(){
 					regexp: {
 					      regexp: /^\d+(\.\d{0,2})?$/,
 					      message: '请输入大于0的正数'
+					},
+					between : {
+						min : 0,
+						max : 100,
+						message : "输入百分比为0-100之间"
 					}
 				}
 			},
@@ -1074,6 +1094,11 @@ function validSchoolIISSForm(){
 					regexp: {
 					      regexp: /^\d+(\.\d{0,2})?$/,
 					      message: '请输入大于0的正数'
+					},
+					between : {
+						min : 0,
+						max : 100,
+						message : "输入百分比为0-100之间"
 					}
 				}
 			},
@@ -1274,6 +1299,11 @@ function validSchoolSRSMForm(){
 					regexp: {
 					      regexp: /^\d+(\.\d{0,2})?$/,
 					      message: '请输入大于0的正数'
+					},
+					between : {
+						min : 0,
+						max : 100,
+						message : "输入百分比为0-100之间"
 					}
 				}
 			},
@@ -1305,6 +1335,11 @@ function validSchoolSRSMForm(){
 					regexp: {
 					      regexp: /^\d+(\.\d{0,2})?$/,
 					      message: '请输入大于0的正数'
+					},
+					between : {
+						min : 0,
+						max : 100,
+						message : "输入百分比为0-100之间"
 					}
 				}
 			},
@@ -1316,6 +1351,11 @@ function validSchoolSRSMForm(){
 					regexp: {
 					      regexp: /^\d+(\.\d{0,2})?$/,
 					      message: '请输入大于0的正数'
+					},
+					between : {
+						min : 0,
+						max : 100,
+						message : "输入百分比为0-100之间"
 					}
 				}
 			},
@@ -1434,6 +1474,11 @@ function validSchoolTTForm(){
 					regexp: {
 					      regexp: /^\d+(\.\d{0,2})?$/,
 					      message: '请输入大于0的正数'
+					},
+					between : {
+						min : 0,
+						max : 100,
+						message : "输入百分比为0-100之间"
 					}
 				}
 			},
@@ -1445,6 +1490,11 @@ function validSchoolTTForm(){
 					regexp: {
 					      regexp: /^\d+(\.\d{0,2})?$/,
 					      message: '请输入大于0的正数'
+					},
+					between : {
+						min : 0,
+						max : 100,
+						message : "输入百分比为0-100之间"
 					}
 				}
 			},
@@ -1456,6 +1506,11 @@ function validSchoolTTForm(){
 					regexp: {
 					      regexp: /^\d+(\.\d{0,2})?$/,
 					      message: '请输入大于0的正数'
+					},
+					between : {
+						min : 0,
+						max : 100,
+						message : "输入百分比为0-100之间"
 					}
 				}
 			},
@@ -1478,6 +1533,11 @@ function validSchoolTTForm(){
 					regexp: {
 					      regexp: /^\d+(\.\d{0,2})?$/,
 					      message: '请输入大于0的正数'
+					},
+					between : {
+						min : 0,
+						max : 100,
+						message : "输入百分比为0-100之间"
 					}
 				}
 			},
@@ -1831,11 +1891,15 @@ function initFileUpload(){
     }).on("fileuploaded", function(e, data) {//文件上传成功的回调函数，还有其他的一些回调函数，比如上传之前...
     	initImages();
     });
+	if($("#isExamine").val() == "true" || $("#isView").val() == "true"){
+		$(".file-caption-main").hide();
+	}
+	
 }
 
 function initImages(){
 	var gurl = $("#isExamine").val() == "true" ? "/score/schoolFillgetImagesById.json?id="+$("#createId").val() : "/schooldata/schoolFillgetImagesById.json"
-	var surl = $("#isExamine").val() == "true"  ? "/score/" : "/schooldata/";
+	var surl = $("#isExamine").val() == "true" ? "/score/" : "/schooldata/";
 	$.post(
 		getRootPath()+gurl, 
 		function(data) {

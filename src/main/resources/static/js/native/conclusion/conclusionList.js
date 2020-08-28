@@ -63,6 +63,7 @@ function initTables(){
 		columns : [ 
 			{checkbox : true}, 
 			{field : "schoolData.schoolName",valign: 'middle',align: 'center',title : '学校名称',formatter: toView},
+			{field : 'scoreEnd',valign: 'middle',align: 'center',title : '专家评分',sortable: true},
 			{field : 'g1',valign: 'middle',align: 'center',title : '国家示范校、骨干校、</br>优质校成果数（个）',sortable: true,visible : false}, 
 			{field : 'g2',valign: 'middle',align: 'center',title : '吉林省示范校、骨干校</br>、优质校成果数（个）',sortable: true}, 
 			{field : 'g3',valign: 'middle',align: 'center',title : '国家级教育教学改革试</br>点数（个）',sortable: true,visible : false}, 
@@ -87,8 +88,8 @@ function initTables(){
 			{field : 'g22',valign: 'middle',align: 'center',title : '学生中国“互联网+”大</br>学生创新创业大赛获奖</br>数（个）',sortable: true,visible : false},
 			{field : 'g23',valign: 'middle',align: 'center',title : '学生吉林省“互联网+”</br>大学生创新创业大赛获</br>奖数（个）',sortable: true},
 			{field : 'g24',valign: 'middle',align: 'center',title : '学生“挑战杯”全国大学</br>生课外学术科技作品竞</br>赛和中国大学生创业计</br>划竞赛获奖数（个）',sortable: true,visible : false},
-			{field : 'g25',valign: 'middle',align: 'center',title : '其它国家级成果数，学校</br>须为主持单位（个）',sortable: true},
-			{field : 'scoreEnd',valign: 'middle',align: 'center',title : '专家评分',sortable: true}
+			{field : 'g25',valign: 'middle',align: 'center',title : '其它国家级成果数，学校</br>须为主持单位（个）',sortable: true}
+			
 		]
 	});
 };
