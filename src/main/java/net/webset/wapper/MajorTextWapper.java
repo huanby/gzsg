@@ -19,6 +19,8 @@ public class MajorTextWapper extends QueryWrapper<MajorText>  {
 
 	private String t1;
 
+	private String t2;
+
 	private Integer createId;
 
 
@@ -44,6 +46,17 @@ public class MajorTextWapper extends QueryWrapper<MajorText>  {
 		this.t1 = t1;
 		if (StringUtils.isNotBlank(this.t1)) {
 			this.like(MajorText.T1, this.t1);
+		}
+	}
+
+	public String getT2() {
+		return t2;
+	}
+
+	public void setT2(String t2) {
+		this.t2 = t2;
+		if (StringUtils.isNotBlank(this.t2)) {
+			this.like(MajorText.T2, this.t2);
 		}
 	}
 

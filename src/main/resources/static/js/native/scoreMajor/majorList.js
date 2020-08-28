@@ -54,7 +54,8 @@ function initTables(){
 				offset: params.offset, 						// 每页显示数据的开始行号
 				sort: params.sort, 							// 要排序的字段
 				sortOrder: params.order, 					// 排序规则
-				majorTextName: $("#t1").val()
+				majorTextName: $("#t1").val(),
+				t2: $("#t2").val()
 			}
 		},
 		sidePagination : "server", // 分页方式：client客户端分页，server服务端分页（*）
@@ -74,9 +75,10 @@ function initTables(){
 		detailView : false, // 是否显示父子表
 		columns : [
 			{checkbox : true},
+			{field : 't22',title : '申报学校'},
 			{field : 't1',title : '专业（群）名称'},
 			{field : 't2',title : '专业所属大类'},
-			{field : 't3',title : '龙头专业代码'},
+			// {field : 't3',title : '龙头专业代码'},
 			{field : 't4',title : '所在院（系）'},
 			{field : 'score',title : '得分',
 				formatter : function (value, row, index) {

@@ -49,6 +49,42 @@
                         </div>
                     </div>
                 </div>
+
+                <div class="form-group">
+                    <div class="rowGroup">
+                        <label for="t22" class="col-sm-2 control-label">申报学校：</label>
+                        <div class="col-sm-4">
+                            <input type="text" class="form-control" id="t22" name="t22"
+                                   placeholder="请输入申报学校" th:value="${mt.t22}"/>
+                        </div>
+                    </div>
+                    <div class="rowGroup">
+                        <label class="col-sm-2 control-label">申报类别：</label>
+                        <div class="col-sm-4">
+                            <div class="radio-list" th:if="${mt.t23} eq null">
+                                <label>
+                                    <input type="radio" id="majortType1" name="t23" value="专业群" data-title="专业群"
+                                           checked/> 专业群
+                                </label>
+                                <label>
+                                    <input type="radio" id="majortType2" name="t23" value="特色专业" data-title="特色专业"/>
+                                    特色专业
+                                </label>
+                            </div>
+                            <div class="radio-list" th:if="${mt.t23} ne null">
+                                <label>
+                                    <input type="radio" id="majortType1" name="t23" value="专业群" th:field="${mt.t23}"
+                                           data-title="专业群"/> 专业群
+                                </label>
+                                <label>
+                                    <input type="radio" id="majortType2" name="t23" value="特色专业" th:field="${mt.t23}"
+                                           data-title="特色专业"/> 特色专业
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
                 <div class="form-group">
                     <div class="rowGroup">
                         <label for="t3" class="col-sm-2 control-label">龙头专业代码：</label>
@@ -76,13 +112,38 @@
                         </div>
                     </div>
                     <div class="rowGroup">
+                        <label class="col-sm-2 control-label">是否为国示或省重专业：</label>
+                        <div class="col-sm-4">
+                            <div class="radio-list" th:if="${mt.t6} eq null">
+                                <label>
+                                    <input type="radio" id="isMajor1" name="t6" value="是" data-title="是"
+                                           checked/> 是
+                                </label>
+                                <label>
+                                    <input type="radio" id="isMajor2" name="t6" value="否" data-title="否"/>
+                                    否
+                                </label>
+                            </div>
+                            <div class="radio-list" th:if="${mt.t6} ne null">
+                                <label>
+                                    <input type="radio" id="isMajor1" name="t6" value="是" th:field="${mt.t6}"
+                                           data-title="是"/> 是
+                                </label>
+                                <label>
+                                    <input type="radio" id="isMajor2" name="t6" value="否" th:field="${mt.t6}"
+                                           data-title="否"/> 否
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <!--<div class="rowGroup">
                         <label for="t6" class="col-sm-2 control-label">国示或省重专业及批准时间：</label>
                         <div class="col-sm-4">
                             <input type="text" class="form-control" id="t6" name="t6"
                                    th:value="${#dates.format(mt.t6,'yyyy-MM-dd')}"
                                    placeholder="请填写是否国示或省重专业及批准时间"/>
                         </div>
-                    </div>
+                    </div>-->
                 </div>
 
                 <div class="form-group">
@@ -399,7 +460,7 @@
                         <label for="t11" class="col-sm-2 control-label">参加工作时学历及所学专业：</label>
                         <div class="col-sm-4">
                             <input type="text" class="form-control" id="t11" name="t11"
-                                   placeholder="请输入参加工作时学历及所学专业" th:value="${mt.t11}"/>
+                                   placeholder="输入多个学历以;符号分隔，如：学历1;学历2" th:value="${mt.t11}"/>
                         </div>
                     </div>
                 </div>
@@ -721,17 +782,17 @@
     </div>
 
 
-    <!--佐证材料管理-->
+    <!--附件材料管理-->
     <div id='5' class="col-md-12 jumbotron">
         <!--			<input type="hidden" id="hidden_btn5" value="0">-->
         <form action="" class="form-horizontal tab-content" id="uploadForm" method="post">
             <div class="form-group">
-                <label class="col-sm-2 control-label">佐证文档</label>
+                <label class="col-sm-2 control-label">附件材料</label>
                 <div class="col-md-10">
 		            	<span class="btn fileinput-button" style="width:100%">
 					        <i class="glyphicon glyphicon-plus"></i>
 <!--					        <span>添加佐证文档</span>-->
-                            <span style="color: red">添加佐证文档 （注意）：佐证材料必须上传</span>
+                            <span style="color: red">添加附件材料 （注意）：附件材料必须上传</span>
 					        <input type="file" id="file" multiple name="file"/>
 <!--					        <i class="fa fa-file-pdf-o text-danger"></i >-->
 					    </span>

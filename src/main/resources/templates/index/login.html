@@ -1,57 +1,71 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head>
-<meta charset="UTF-8" />
-<title>rbac模板</title>
-<link rel="stylesheet"  th:href="@{/js/plugin/bootstrap/dist/css/bootstrap.min.css}" />
-<link rel="icon"  th:href="@{/js/plugin/bootstrap/docs/favicon.ico}">
-<link rel="stylesheet"  th:href="@{/js/plugin/bootstrap/docs/assets/css/ie10-viewport-bug-workaround.css}" >				
-<link rel="stylesheet"  th:href="@{/js/plugin/bootstrap/docs/examples/signin/signin.css}">
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>登录页</title>
+<!--    <link rel="stylesheet"  th:href="@{/js/plugin/bootstrap/dist/css/bootstrap.min.css}" />-->
+<!--    <link rel="icon"  th:href="@{/js/plugin/bootstrap/docs/favicon.ico}">-->
+<!--    <link rel="stylesheet"  th:href="@{/js/plugin/bootstrap/docs/assets/css/ie10-viewport-bug-workaround.css}" >-->
+<!--    <link rel="stylesheet"  th:href="@{/js/plugin/bootstrap/docs/examples/signin/signin.css}">-->
+    <link rel="stylesheet"  th:href="@{/static/css/login.css}">
 </head>
 <body>
-	<div class="container">
-		<div class="starter-template">
-			<form class="form-signin" role="form" name="form" th:action="@{/admin/index.html}"  method="post">
-				<h2 class="form-signin-heading">rbac模板</h2>
-				<div class="form-group">
-					<label for="username">账号</label> 
-					<input type="text" class="form-control" name="username" value="" placeholder="账号" />
-				</div>
-				<div class="form-group">
-					<label for="password">密码</label> 
-					<input type="password" class="form-control" name="password" placeholder="密码" />
-				</div>
-				
-		        <div class="form-group">
-					<label for="password">图形验证码:</label> 
-					<input type="text" class="form-control" name="imageCode" value="" placeholder="验证码" />
-					<img id="image" th:src="@{/code/image?width=100}"  onclick="getImage(this)">
-				</div>
-				<button class="btn btn-lg btn-primary btn-block" type="submit">登录</button>
-				<div class="checkbox">
-		        	<label>
-		            	<input type="checkbox"  name="remember-me" id="remember-me"> 记住登录信息
-		          	</label>
-		        </div>
-				<p th:if="${param.logout}" class="bg-warning">已注销</p>
-				<p th:if="${param.error}" class="bg-danger">
-					<span th:text=" ${session['SPRING_SECURITY_LAST_EXCEPTION'].message}"></span>
-				</p>
-				
-			</form>
-		</div>
-	</div>
-	<script th:src="@{/js/plugin/jquery.js}"></script>
-	<script th:src="@{/js/plugin/bootstrap/docs/assets/js/ie10-viewport-bug-workaround.js}"></script>
-	<script th:src="@{/js/native/native.js}"></script>
-	<script>
-		if(window.parent != this.window){
-			parent.location=getRootPath()+"/admin/login.html";
-		}
-		
-		function getImage(object){
-			object.src=getRootPath() + "/code/image?width=100&date="+new Date();
-		}
-	</script>
+
+<div class="container">
+
+    <div class="banner">
+        <div class="title">
+            <img src="/static/images/login/title.png" style="width: 100%"/>
+        </div>
+        <div class="login_box">
+            <form class="form-signin" role="form" name="form" th:action="@{/admin/index.html}"  method="post">
+            <div class="user_box">
+                <img src="/static/images/login/user.png" style="width: 23px;height: 19px;margin-left: 25px;margin-top: 12px;float: left;">
+                <input id="username" class="user_text" type="text" name="username" value="" maxlength="64" placeholder="请输入用户名" style="float: left;width: 320px;height: 45px;padding-left:20px;font-size: 15px;outline:none;background-color: rgba(255,255,255,0.0)"/>
+            </div>
+            <div class="password_box">
+                <img src="/static/images/login/password.png" style="width: 23px;height: 19px;margin-left: 25px;margin-top: 12px;float: left;">
+                <input id="passwordname" class="user_text" type="password" name="password" value="" maxlength="64" placeholder="请输入密码" style="float: left;width: 320px;height: 45px;padding-left:20px;font-size: 15px;outline:none;background-color: rgba(255,255,255,0.0)"/>
+            </div>
+            <div class="login_text">
+                平台使用相关问题，请拨打咨询电话：13581793282
+            </div>
+            <div class="chose_box">
+                <input name="1" type="checkbox" value="" onclick="if (this.checked) {enable()} else {disable()}" style="width:15px;height: 15px;float:left;border-radius: 2px;border: 1px solid #aaa;margin-top: 2px;"/>
+                <div class="check_text">我校承诺对《吉林省高职“双高计划”遴选服务平台》所填写及上传附件的内容真实性和准确性负责,特此声明。</div>
+            </div>
+            <div href="javascript:;">
+                <input id="login_input" class="login_input" type="submit" disabled="true" value="登录">
+            </div>
+                <p th:if="${param.error}" class="bg-danger">
+                    <span th:text=" ${session['SPRING_SECURITY_LAST_EXCEPTION'].message}"></span>
+                </p>
+            </form>
+        </div>
+    </div>
+    <div class="footer_box">
+        Copyright ©2020  吉ICP备10011451号<br/>
+        技术支持：同方知网（北京）技术有限公司吉林省分公司
+    </div>
+
+</div>
+
+
+
+
+
 </body>
+<script th:src="@{/js/plugin/jquery.js}"></script>
+<!--<script th:src="@{/js/plugin/bootstrap/docs/assets/js/ie10-viewport-bug-workaround.js}"></script>-->
+<script th:src="@{/js/native/native.js}"></script>
+<script>
+    function disable()
+    {
+        document.getElementById("login_input").disabled=true
+    }
+    function enable()
+    {
+        document.getElementById("login_input").disabled=false
+    }
+</script>
 </html>

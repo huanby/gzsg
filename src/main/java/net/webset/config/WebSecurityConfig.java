@@ -75,15 +75,17 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
-		http.apply(validateCodeSecurityConfig).and().headers().frameOptions().sameOrigin()
+//		http.apply(validateCodeSecurityConfig).and().headers().frameOptions().sameOrigin()
+		http
 				// 权限控制
-				.and().authorizeRequests().antMatchers(sp.getBrowser().getStaticSources()).permitAll()
+				.authorizeRequests().antMatchers(sp.getBrowser().getStaticSources()).permitAll()
 				.and().authorizeRequests().antMatchers(getAllPrimission())
 				.access("@rbacService.hasPrimission(request,authentication)")
 				// 关闭跨站防护功能
 				.and().csrf().disable()
+				.headers().frameOptions().sameOrigin()
 				// 表单登录设置
-				.formLogin().loginPage(sp.getBrowser().getLoginPage())
+				.and().formLogin().loginPage(sp.getBrowser().getLoginPage())
 				.loginProcessingUrl(sp.getBrowser().getLoginProcess())
 				// 设置默认登录成功跳转页面
 				.defaultSuccessUrl(sp.getBrowser().getLoginProcess())

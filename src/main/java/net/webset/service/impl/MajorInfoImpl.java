@@ -3,10 +3,12 @@ package net.webset.service.impl;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.conditions.update.UpdateWrapper;
 import net.webset.entity.MajorNumber;
+import net.webset.entity.MajorScore;
 import net.webset.entity.MajorText;
 import net.webset.entity.User;
 import net.webset.service.IMajorInfoService;
 import net.webset.service.IMajorNumberService;
+import net.webset.service.IMajorScoreService;
 import net.webset.service.IMajorTextService;
 import net.webset.util.ResultInfo;
 import net.webset.util.UUIDUtils;
@@ -35,6 +37,11 @@ public class MajorInfoImpl implements IMajorInfoService {
 
     @Resource
     private IMajorTextService iMajorTextService;
+
+    @Resource
+    private IMajorScoreService iMajorScoreService;
+
+
 
     /**
      * 保存专业填报数据信息
@@ -95,12 +102,16 @@ public class MajorInfoImpl implements IMajorInfoService {
         //删除条件
         QueryWrapper<MajorText> majorTextQueryWrapper = new QueryWrapper<>();
         QueryWrapper<MajorNumber> majorNumberQueryWrapper = new QueryWrapper<>();
+//        QueryWrapper<MajorScore> majorScoreQueryWrapper = new QueryWrapper<>();
         //通过majorId删除数据
         majorTextQueryWrapper.eq("majorid",majorId);
         majorNumberQueryWrapper.eq("majorid",majorId);
+//        majorScoreQueryWrapper.eq("majorid",majorId);
         //判断是否删除成功
         boolean isDel1 = iMajorTextService.remove(majorTextQueryWrapper);
         boolean isDel2 = iMajorNumberService.remove(majorNumberQueryWrapper);
+//        boolean isDel3 = iMajorScoreService.remove(majorScoreQueryWrapper);
+
         //返回结果
         return (isDel1 && isDel2);
     }

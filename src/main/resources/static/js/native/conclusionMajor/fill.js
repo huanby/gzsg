@@ -30,7 +30,7 @@ function listener(){
 				$("div.col-md-12").siblings().hide();
 				$("#4").show();
 				break;
-			case "佐证材料管理":
+			case "附件材料管理":
 				$("div.col-md-12").siblings().hide();
 				$("#5").show();
 				break;

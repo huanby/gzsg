@@ -156,8 +156,9 @@ public class UserManager {
 	 * @return
 	 * @throws Exception
 	 */
-	@PostMapping("userDel.html")
-	public ModelAndView userDel(@Validated(Delete.class) User user, BindingResult result, 
+//	@PostMapping("userDel.html")
+	@GetMapping("userDel.html")
+	public ModelAndView userDel(@Validated(Delete.class) User user, BindingResult result,
 			ModelAndView mav) {		
 		boolean isDel = userService.removeUser(user.getId());
 		mav.addObject("info", isDel ? "删除成功" : "删除失败");

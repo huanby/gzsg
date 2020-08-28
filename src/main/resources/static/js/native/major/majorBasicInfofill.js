@@ -16,6 +16,8 @@ function listenerMajorBasicInfo(){
 		var flag = $("#majorEditForm_basicInfo").data("bootstrapValidator").isValid();
 		if(flag){
 			majorBasicInfoSave();
+		}else {
+			showInfo("数据填报有误，请检查");
 		}
 
 	})
@@ -48,7 +50,7 @@ function initMajorBasicInfo(){
 			.updateStatus('t5', 'NOT_VALIDATED',null)
 			.validateField('t5');
 	});
-	$("#t6").datepicker({
+	/*$("#t6").datepicker({
 		todayBtn : "linked",
 		autoclose : true,
 		todayHighlight : true,
@@ -59,7 +61,7 @@ function initMajorBasicInfo(){
 		$('#majorEditForm_basicInfo').data('bootstrapValidator')
 			.updateStatus('t6', 'NOT_VALIDATED',null)
 			.validateField('t6');
-	});
+	});*/
 	$("#t7").datepicker({
 		todayBtn : "linked",
 		autoclose : true,
@@ -99,7 +101,7 @@ function validMajorBasicInfoEditForm(){
 					stringLength: {
 						min: 2,
 						max: 100,
-						message: '学专业（群）名称不能超过100个字，不能少于2个字'
+						message: '专业（群）名称不能超过100个字，不能少于2个字'
 					}
 				}
 			},
@@ -148,12 +150,12 @@ function validMajorBasicInfoEditForm(){
 			t6 : {
 				validators : {
 					notEmpty : {
-						message : '国示或省重专业及批准时间不能为空'
-					},
-					date : {
-						format : 'YYYY-MM-DD',
-						message : '日期格式不正确'
+						message : '是否为国示或省重专业不能为空'
 					}
+					// date : {
+					// 	format : 'YYYY-MM-DD',
+					// 	message : '日期格式不正确'
+					// }
 				}
 			},
 			t7 : {
@@ -176,7 +178,26 @@ function validMajorBasicInfoEditForm(){
 						message : '字段必须是正整数'
 					}
 				}
-			}
+			},
+			t22 : {
+				validators : {
+					notEmpty : {
+						message : '申报学校不能为空'
+					},
+					stringLength: {
+						min: 2,
+						// max: 100,
+						message: '申报学校字段不能少于2个字'
+					}
+				}
+			},
+			t23 : {
+				validators : {
+					notEmpty : {
+						message : '申报类别不能为空'
+					}
+				}
+			},
 		}
 	});
 }

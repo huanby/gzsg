@@ -17,6 +17,8 @@ function listenerMajorAchievements(){
 		if(flag){
 			//保存数据
 			majorAchievementsSave();
+		}else {
+			showInfo("数据填报有误，请检查");
 		}
 	})
 

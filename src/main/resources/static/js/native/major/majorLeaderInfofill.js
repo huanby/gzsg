@@ -17,6 +17,8 @@ function listenerMajorLeaderInfo(){
 		if(flag){
 			//保存数据
 			majorLeaderInfoSave();
+		}else {
+			showInfo("数据填报有误，请检查");
 		}
 	})
 
@@ -95,9 +97,9 @@ function validMajorLeaderInfoEditForm(){
 						message : '参加工作时学历及所学专业不能为空'
 					},
 					stringLength: {
-						min: 2,
-						max: 50,
-						message: '参加工作时学历及所学专业不能超过50个字，不能少于2个字'
+						min: 1,
+						// max: 50,
+						message: '参加工作时学历及所学专业不能少于1个字,没有可以填无'
 					}
 				}
 			},
@@ -107,9 +109,9 @@ function validMajorLeaderInfoEditForm(){
 						message : '最后学历及所学专业不能为空'
 					},
 					stringLength: {
-						min: 2,
-						max: 50,
-						message: '最后学历及所学专业不能超过50个字，不能少于2个字'
+						min: 1,
+						// max: 50,
+						message: '最后学历及所学专业不能少于1个字,没有可以填无'
 					}
 				}
 			},
@@ -119,9 +121,9 @@ function validMajorLeaderInfoEditForm(){
 						message : '专业技术职称不能为空'
 					},
 					stringLength: {
-						min: 2,
-						max: 50,
-						message: '专业技术职称不能超过50个字，不能少于2个字'
+						min: 1,
+						// max: 50,
+						message: '专业技术职称不能少于1个字,没有可以填无'
 					}
 				}
 			},
@@ -131,9 +133,9 @@ function validMajorLeaderInfoEditForm(){
 						message : '证书擅长专业领域不能为空'
 					},
 					stringLength: {
-						min: 2,
-						max: 50,
-						message: '证书擅长专业领域不能超过50个字，不能少于2个字'
+						min: 1,
+						// max: 50,
+						message: '证书擅长专业领域不能少于1个字,没有可以填无'
 					}
 				}
 			},
@@ -143,9 +145,10 @@ function validMajorLeaderInfoEditForm(){
 						message : '职务不能为空'
 					},
 					stringLength: {
-						min: 2,
-						max: 50,
-						message: '职务不能超过50个字，不能少于2个字'
+						min: 1,
+						// max: 50,
+						message: '职务不能少于1个字,没有可以填无'
+						// message: '职务不能超过50个字，不能少于1个字'
 					}
 				}
 			},
@@ -155,9 +158,9 @@ function validMajorLeaderInfoEditForm(){
 						message : '职业资格（含行业企业认证）不能为空'
 					},
 					stringLength: {
-						min: 2,
-						max: 50,
-						message: '职业资格（含行业企业认证）不能超过50个字，不能少于2个字'
+						min: 1,
+						// max: 50,
+						message: '职业资格（含行业企业认证）不能少于1个字,没有可以填无'
 					}
 				}
 			},
@@ -167,9 +170,9 @@ function validMajorLeaderInfoEditForm(){
 						message : '主要社会兼职不能为空'
 					},
 					stringLength: {
-						min: 2,
-						max: 50,
-						message: '主要社会兼职不能超过50个字，不能少于2个字'
+						min: 1,
+						// max: 50,
+						message: '主要社会兼职不能少于1个字,没有可以填无'
 					}
 				}
 			},
@@ -179,9 +182,9 @@ function validMajorLeaderInfoEditForm(){
 						message : '主要业绩（含企业实践）及相关荣誉不能为空'
 					},
 					stringLength: {
-						min: 2,
-						max: 50,
-						message: '主要业绩（含企业实践）及相关荣誉不能超过50个字，不能少于2个字'
+						min: 1,
+						// max: 50,
+						message: '主要业绩（含企业实践）及相关荣誉不能少于1个字,没有可以填无'
 					}
 				}
 			},
