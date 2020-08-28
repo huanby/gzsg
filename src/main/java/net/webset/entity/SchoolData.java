@@ -13,9 +13,9 @@ import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
-import com.baomidou.mybatisplus.core.conditions.update.Update;
 
 import net.webset.util.options.Add;
+import net.webset.util.options.Update;
 
 /**
  * 学校基本信息实体

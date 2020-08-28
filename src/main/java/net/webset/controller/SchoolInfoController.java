@@ -150,7 +150,7 @@ public class SchoolInfoController {
 			sc.setCreateId(user.getId());
 			boolean isSuccess = iSchoolInfoService.save(sc);
 			return new ResultInfo<List<String>>(isSuccess ? 200 : 400,
-					isSuccess ? "保存成功" : "保存失败",null);
+					isSuccess ? "保存成功,"+sc.getId() : "保存失败",null);
 		} 
 	}
 	
@@ -190,7 +190,7 @@ public class SchoolInfoController {
 			sc.setCreateId(user.getId());
 			boolean isSuccess = iTsTrService.save(sc);
 			return new ResultInfo<List<String>>(isSuccess ? 200 : 400,
-					isSuccess ? "保存成功" : "保存失败",null);
+					isSuccess ? "保存成功,"+sc.getId() : "保存失败",null);
 		} 
 	}
 	
@@ -230,7 +230,7 @@ public class SchoolInfoController {
 			sc.setCreateId(user.getId());
 			boolean isSuccess = iSpRpSdMService.save(sc);
 			return new ResultInfo<List<String>>(isSuccess ? 200 : 400,
-					isSuccess ? "保存成功" : "保存失败",null);
+					isSuccess ? "保存成功,"+sc.getId() : "保存失败",null);
 		} 
 	}
 	
@@ -270,7 +270,7 @@ public class SchoolInfoController {
 			sc.setCreateId(user.getId());
 			boolean isSuccess = iIaIeSsSrService.save(sc);
 			return new ResultInfo<List<String>>(isSuccess ? 200 : 400,
-					isSuccess ? "保存成功" : "保存失败",null);
+					isSuccess ? "保存成功,"+sc.getId() : "保存失败",null);
 		} 
 	}
 	
@@ -310,7 +310,7 @@ public class SchoolInfoController {
 			sc.setCreateId(user.getId());
 			boolean isSuccess = iSrBmService.save(sc);
 			return new ResultInfo<List<String>>(isSuccess ? 200 : 400,
-					isSuccess ? "保存成功" : "保存失败",null);
+					isSuccess ? "保存成功,"+sc.getId() : "保存失败",null);
 		} 
 	}
 	
@@ -350,7 +350,7 @@ public class SchoolInfoController {
 			sc.setCreateId(user.getId());
 			boolean isSuccess = iLaonService.save(sc);
 			return new ResultInfo<List<String>>(isSuccess ? 200 : 400,
-					isSuccess ? "保存成功" : "保存失败",null);
+					isSuccess ? "保存成功,"+sc.getId() : "保存失败",null);
 		} 
 	}
 	

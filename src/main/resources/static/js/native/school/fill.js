@@ -176,6 +176,8 @@ function saveSCOREinfo(flat){
 				if(flat==1){
 					$("#saveSCORE").hide();
 					$("#updateSCORE").show();
+					var str = data.message.split(",");
+					$("#SCOREid").val(str[1]);
 				}
 			}else{
 				if(data.response != null){
@@ -204,6 +206,8 @@ function saveSchoolLAONInfo(flat){
 				if(flat==1){
 					$("#saveLAON").hide();
 					$("#updateLAON").show();
+					var str = data.message.split(",");
+					$("#LAONid").val(str[1]);
 				}
 			}else{
 				if(data.response != null){
@@ -232,6 +236,8 @@ function saveSchoolSBInfo(flat){
 				if(flat==1){
 					$("#saveSB").hide();
 					$("#updateSB").show();
+					var str = data.message.split(",");
+					$("#SBid").val(str[1]);
 				}
 			}else{
 				if(data.response != null){
@@ -260,6 +266,8 @@ function saveSchoolIISSInfo(flat){
 				if(flat==1){
 					$("#saveIISS").hide();
 					$("#updateIISS").show();
+					var str = data.message.split(",");
+					$("#IISSid").val(str[1]);
 				}
 			}else{
 				if(data.response != null){
@@ -288,6 +296,8 @@ function saveSchoolSRSMInfo(flat){
 				if(flat==1){
 					$("#saveSRSM").hide();
 					$("#updateSRSM").show();
+					var str = data.message.split(",");
+					$("#SRSMid").val(str[1]);
 				}
 			}else{
 				if(data.response != null){
@@ -316,6 +326,8 @@ function saveSchoolTTInfo(flat){
 				if(flat==1){
 					$("#saveTT").hide();
 					$("#updateTT").show();
+					var str = data.message.split(",");
+					$("#TTid").val(str[1]);
 				}
 			}else{
 				if(data.response != null){
@@ -347,6 +359,8 @@ function saveSchoolBaseInfo(flat){
 				if(flat==1){
 					$("#save").hide();
 					$("#update").show();
+					var str = data.message.split(",");
+					$("#id").val(str[1]);
 				}
 			}else{
 				if(data.response != null){
@@ -1652,7 +1666,19 @@ function validSchoolEditForm(){
 					stringLength: {
 	                    min: 2,
 	                    max: 255,
-	                    message: '联系人长度为2到255个字节。'
+	                    message: '法人姓名长度为2到255个字节。'
+	                }
+				}
+			},
+			lePost : {
+				validators : {
+					notEmpty : {
+						message : '法人职务不能为空'
+					},
+					stringLength: {
+	                    min: 2,
+	                    max: 255,
+	                    message: '法人职务长度为2到255个字节。'
 	                }
 				}
 			},
@@ -1668,8 +1694,18 @@ function validSchoolEditForm(){
 	                }
 				}
 			},
+			leFax : {
+				validators : {
+					notEmpty : {
+						message : '法人传真不能为空'
+					}
+				}
+			},
 			leEmail : {
 				validators : {
+					notEmpty : {
+						message : '法人email不能为空'
+					},
 					emailAddress : {
 						message : "请输入合法的email。"
 					}
@@ -1699,6 +1735,18 @@ function validSchoolEditForm(){
 	                }
 				}
 			},
+			conPost : {
+				validators : {
+					notEmpty : {
+						message : '联系人职务不能为空'
+					},
+					stringLength: {
+	                    min: 2,
+	                    max: 255,
+	                    message: '联系人职务长度为2到255个字节。'
+	                }
+				}
+			},
 			conOfficePhone : {
 				validators : {
 					notEmpty : {
@@ -1711,8 +1759,18 @@ function validSchoolEditForm(){
 	                }
 				}
 			},
+			conFax : {
+				validators : {
+					notEmpty : {
+						message : '联系人传真不能为空'
+					}
+				}
+			},
 			conEmail : {
 				validators : {
+					notEmpty : {
+						message : 'email不能为空'
+					},
 					emailAddress : {
 						message : "请输入合法的email。"
 					}
@@ -1721,7 +1779,7 @@ function validSchoolEditForm(){
 			conPhone : {
 				validators : {
 					notEmpty : {
-						message : '联系人办联系方式不能为空'
+						message : '联系人联系方式不能为空'
 					},
 					stringLength: {
 	                    min: 5,
