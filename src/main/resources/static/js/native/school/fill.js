@@ -459,6 +459,7 @@ function init(){
 		$("select").attr("disabled",true)
 		$("#7 input").attr("disabled",false)
 		$("#8 input").attr("disabled",false)
+		$("input[type='radio']").not("input:checked").parent().parent().hide();
 	}else{
 		$("#score").hide();
 	}

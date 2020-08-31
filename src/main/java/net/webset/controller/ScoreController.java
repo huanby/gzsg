@@ -226,7 +226,7 @@ public class ScoreController {
 			isSuccess = iLaonService.syncScoreAndLaOn(sc);
 			
 			return new ResultInfo<List<String>>(isSuccess ? 200 : 400,
-					isSuccess ? "保存成功" : "保存失败",null);
+					isSuccess ? "保存成功,"+sc.getId() : "保存失败",null);
 		} 
 	}
 	
