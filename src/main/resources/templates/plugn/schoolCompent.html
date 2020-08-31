@@ -30,7 +30,7 @@
 	    	<label for="buildDay" class="col-sm-2 control-label">建校日期：</label>
 	    	<div class="col-sm-4">
 	      		<input type="text" class="form-control" id="buildDay" name="buildDay" 
-	      			th:value="${#dates.format(d.buildDay, 'yyyy-MM-dd')}"  placeholder="院校独立设置具有举办高等职业教育资格的时间"/>
+	      			th:value="${#dates.format(d.buildDay, 'yyyy-MM-dd')}" autocomplete="off" placeholder="院校独立设置具有举办高等职业教育资格的时间"/>
 	    	</div>
 	    	</div>
 	    	<div class="rowGroup">

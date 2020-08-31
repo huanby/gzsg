@@ -27,14 +27,14 @@ function listenerMajorBasicInfo(){
 function initMajorBasicInfo(){
 
 
-	$('.t5').datepicker({
+	/*$('.t5').datepicker({
 		todayBtn : "linked",
 		autoclose : true,
 		todayHighlight : true,
 		endDate : new Date(),
 		format: 'yyyy-mm-dd',
 		language:'zh-CN'
-	});
+	});*/
 
 
 

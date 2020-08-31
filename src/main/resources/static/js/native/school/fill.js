@@ -16,35 +16,35 @@ function listener(){
 		$(".nav-tabs li").siblings().attr("class","");
 		$(this).attr("class","active");
 		switch($(this).find("a").html()){
-		case "学校基础信息":
+		case "1.学校基础信息":
 			$("div.col-md-12").siblings().hide();
 			$("#1").show();
 			break;
-		case "师资队伍*教学资源":
+		case "2.师资队伍*教学资源":
 			$("div.col-md-12").siblings().hide();
 			$("#2").show();
 			break;
-		case "支撑平台*科研项目*学生发展*专业":
+		case "3.支撑平台*科研项目*学生发展*专业":
 			$("div.col-md-12").siblings().hide();
 			$("#3").show();
 			break;
-		case "创新成果*国际交流*社会服务*办学声誉":
+		case "4.创新成果*国际交流*社会服务*办学声誉":
 			$("div.col-md-12").siblings().hide();
 			$("#4").show();
 			break;
-		case "办学经费*基本条件":
+		case "5.办学经费*基本条件":
 			$("div.col-md-12").siblings().hide();
 			$("#5").show();
 			break;
-		case "标志性成果*其它国家级成果":
+		case "6.标志性成果*其它国家级成果":
 			$("div.col-md-12").siblings().hide();
 			$("#6").show();
 			break;
-		case "附件材料管理":
+		case "7.附件材料管理":
 			$("div.col-md-12").siblings().hide();
 			$("#7").show();
 			break;
-		case "评分":
+		case "8.评分":
 			$("div.col-md-12").siblings().hide();
 			$("#8").show();
 			break;

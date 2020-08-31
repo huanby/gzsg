@@ -106,7 +106,7 @@
                     <div class="rowGroup">
                         <label for="t5" class="col-sm-2 control-label">专业批准设置时间：</label>
                         <div class="col-sm-4">
-                            <input type="text" class="form-control" id="t5" name="t5"
+                            <input type="text" class="form-control datepicker" id="t5" name="t5"  autocomplete="off"
                                    th:value="${#dates.format(mt.t5,'yyyy-MM-dd')}"
                                    placeholder="请填写专业批准设置时间"/>
                         </div>
@@ -150,8 +150,8 @@
                     <div class="rowGroup">
                         <label for="t7" class="col-sm-2 control-label">首届学生毕业时间：</label>
                         <div class="col-sm-4">
-                            <input type="text" class="form-control" id="t7" name="t7"
-                                   th:value="${#dates.format(mt.t7,'yyyy-MM-dd')}" placeholder="请填写首届学生毕业时间"/>
+                            <input type="text" class="form-control datepicker" id="t7" name="t7"
+                                   th:value="${#dates.format(mt.t7,'yyyy-MM-dd')}" autocomplete="off" placeholder="请填写首届学生毕业时间"/>
                         </div>
                     </div>
                     <div class="rowGroup">
@@ -452,7 +452,7 @@
                     <div class="rowGroup">
                         <label for="t10" class="col-sm-2 control-label">出生年月：</label>
                         <div class="col-sm-4">
-                            <input type="text" class="form-control" id="t10" name="t10" placeholder="请输入出生年月"
+                            <input type="text" class="form-control datepicker" id="t10" name="t10" autocomplete="off" placeholder="请输入出生年月"
                                    th:value="${#dates.format(mt.t10,'yyyy-MM-dd')}"/>
                         </div>
                     </div>
