@@ -40,7 +40,7 @@ function listener(){
 			$("div.col-md-12").siblings().hide();
 			$("#6").show();
 			break;
-		case "佐证材料管理":
+		case "附件材料管理":
 			$("div.col-md-12").siblings().hide();
 			$("#7").show();
 			break;
@@ -467,7 +467,8 @@ function init(){
 		$("#score").hide();
 	}
 	
-	initImages();
+	// initImages();
+	initImages(0);
 }
 
 function validScoreForm(){
@@ -1889,7 +1890,8 @@ function initFileUpload(){
         browseClass : "btn btn-primary", //按钮样式
         previewFileIcon : "<i class='glyphicon glyphicon-king'></i>"
     }).on("fileuploaded", function(e, data) {//文件上传成功的回调函数，还有其他的一些回调函数，比如上传之前...
-    	initImages();
+    	// initImages();
+    	initImages(1);
     });
 	if($("#isExamine").val() == "true" || $("#isView").val() == "true"){
 		$(".file-caption-main").hide();
@@ -1897,7 +1899,7 @@ function initFileUpload(){
 	
 }
 
-function initImages(){
+function initImages(flag){
 	var gurl = $("#isExamine").val() == "true" ? "/score/schoolFillgetImagesById.json?id="+$("#createId").val() : "/schooldata/schoolFillgetImagesById.json"
 	var surl = $("#isExamine").val() == "true" ? "/score/" : "/schooldata/";
 	$.post(
@@ -1918,6 +1920,11 @@ function initImages(){
 	    		
     		}
     		initFileUpload();
+
+    		//上传成功提示
+			if(flag == 1){
+				showInfo("您已完成当前附件上传，可继续上传或填报其他内容");
+			}
 		}
     );
 }

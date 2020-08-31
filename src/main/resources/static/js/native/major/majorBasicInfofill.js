@@ -17,7 +17,7 @@ function listenerMajorBasicInfo(){
 		if(flag){
 			majorBasicInfoSave();
 		}else {
-			showInfo("数据填报有误，请检查");
+			showInfo("本填报页存在格式错误或内容遗漏，请检查后提交，请检查");
 		}
 
 	})

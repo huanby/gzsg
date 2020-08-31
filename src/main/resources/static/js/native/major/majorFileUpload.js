@@ -103,7 +103,7 @@ function initImages(flag){
 					// $("#5 .fileinput-remove").attr("disabled",true);
 				}
 				if(flag == 1){
-					showInfo("上传成功");
+					showInfo("您已完成当前附件上传，可继续上传或填报其他内容");
 				}
 			}
 		);
