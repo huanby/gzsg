@@ -14,30 +14,30 @@ function listener(){
 		$(".nav-tabs li").siblings().attr("class","");
 		$(this).attr("class","active");
 		switch($(this).find("a").html()){
-			case "专业（群）基本情况-基础信息":
+			case "1.专业（群）基本情况-1":
 				$("div.col-md-12").siblings().hide();
 				$("#1").show();
 				break;
-			case "专业（群）基本情况-基础数据":
+			case "2.专业（群）基本情况-2":
 				$("div.col-md-12").siblings().hide();
 				$("#2").show();
 				break;
-			case "专业（群）带头人基本情况":
+			case "3.专业（群）带头人":
 				$("div.col-md-12").siblings().hide();
 				$("#3").show();
 				break;
-			case "专业（群）建设成果表":
+			case "4.专业（群）建设成果表":
 				$("div.col-md-12").siblings().hide();
 				$("#4").show();
 				break;
-			case "附件材料管理":
+			case "5.附件材料管理":
 				$("div.col-md-12").siblings().hide();
 				$("#5").show();
 				break;
-			case "评分":
+			/*case "6.评分":
 				$("div.col-md-12").siblings().hide();
 				$("#6").show();
-				break;
+				break;*/
 		}
 	})
 

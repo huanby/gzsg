@@ -459,7 +459,9 @@ function init(){
 		$("select").attr("disabled",true)
 		$("#7 input").attr("disabled",false)
 		$("#8 input").attr("disabled",false)
-		$("input[type='radio']").not("input:checked").parent().parent().hide();
+		// $("input[type='radio']").not("input:checked").parent().parent().hide();
+		$("input[type='radio']:checked").attr("disabled",false);
+		$("#tpis_span").hide();
 	}else{
 		$("#score").hide();
 	}
@@ -1921,6 +1923,10 @@ function initImages(flag){
 	    		
     		}
     		initFileUpload();
+
+			if($("#isExamine").val() == "true"){
+				$("#7 input").attr("disabled",true)
+			}
 
     		//上传成功提示
 			if(flag == 1){

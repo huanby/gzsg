@@ -13,14 +13,14 @@
 	    	<label for="schoolName" class="col-sm-2 control-label">学校名称：</label>
 	    	<div class="col-sm-4">
 	      		<input type="text" class="form-control" id="schoolName" name="schoolName" 
-	      			placeholder="请输入学校名称" th:value="${d.schoolName}" />
+	      			placeholder="院校名称须与教育部备案信息一致" th:value="${d.schoolName}" />
 	    	</div>
 	    	</div>
 	    	<div class="rowGroup">
 	    	<label for="address" class="col-sm-2 control-label">学校地址：</label>
 	    	<div class="col-sm-4">
 	      		<input type="text" class="form-control" id="address" name="address" 
-	      			placeholder="填写省事两级地理位置" th:value="${d.address}" />
+	      			placeholder="填写省、市两级，如xx省（市、自治区）xx市（区）" th:value="${d.address}" />
 	    	</div>
 	    	</div>
 	  	</div>
@@ -30,7 +30,7 @@
 	    	<label for="buildDay" class="col-sm-2 control-label">建校日期：</label>
 	    	<div class="col-sm-4">
 	      		<input type="text" class="form-control" id="buildDay" name="buildDay" 
-	      			th:value="${#dates.format(d.buildDay, 'yyyy-MM-dd')}"  placeholder="请填写建校日期"/>
+	      			th:value="${#dates.format(d.buildDay, 'yyyy-MM-dd')}"  placeholder="院校独立设置具有举办高等职业教育资格的时间"/>
 	    	</div>
 	    	</div>
 	    	<div class="rowGroup">
@@ -766,7 +766,7 @@
 		<div id='5' class="col-md-12 jumbotron">
 		<form class="form-horizontal"  method="post" id="schoolSBForm" name="schoolSBForm" style="width: clac(90%+2em)" >
 		<fieldset>
-		<legend>办学经费</legend>
+		<legend>办学经费<span style="font-size: 14px;">（数据来源于2017年、2018年、2019年“数据平台”）</span></legend>
 		<input type="hidden" name="id" id="SBid" th:value="${x.id}">
 		<div class="form-group">
 	  		<div class="rowGroup">
