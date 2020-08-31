@@ -41,6 +41,11 @@ public class LaOnServiceImpl extends ServiceImpl<LaOnMapper, LaOn> implements IL
 		LaOnWapper low = new LaOnWapper();
 		low.setCreateId(sc.getUserId());
 		LaOn la = laOnMapper.selectOne(low);
+		if(la == null) {
+			la = new LaOn();
+			la.setCreateId(sc.getUserId());
+			laOnMapper.insert(la);
+		}
 		la.setScoreEnd(sr.getScoreEnd());
 		Integer success = laOnMapper.updateById(la);
 		return success > 0 ;

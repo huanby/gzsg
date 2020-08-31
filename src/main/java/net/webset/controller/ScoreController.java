@@ -216,12 +216,12 @@ public class ScoreController {
 			User user = (User) session.getAttribute("user");
 			ScoreWapper wapper = new ScoreWapper();
 			wapper.setExamId(user.getId());
+			wapper.setUserId(sc.getUserId());
 			Optional<Score> d = Optional.ofNullable(iScoreService.getOne(wapper));
 			if(d.isPresent()) {
 				return new ResultInfo<List<String>>(400,"数据已存在。无法保存",null);
 			}
 			sc.setExamId(user.getId());
-			
 			boolean isSuccess = iScoreService.save(sc);
 			isSuccess = iLaonService.syncScoreAndLaOn(sc);
 			
