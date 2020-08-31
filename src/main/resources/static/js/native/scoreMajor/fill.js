@@ -101,6 +101,7 @@ function init(){
 	$("input[type='checkbox']:checked").attr("onclick","return false");
 	$("input[type='checkbox']").not("input:checked").attr("disabled",true);
 	$("select").attr("disabled",true);
+	$("#3 textarea").attr("disabled",true);
 
 
 	//初始化保存按钮

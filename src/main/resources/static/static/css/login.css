@@ -51,7 +51,7 @@ img { border:none;display: block;}
     height: 40px;
     /*color: rgb(230,230,230);*/
     line-height: 40px;
-    font-size: 15px;
+    font-size: 14px;
     float: left;
     margin-left: 60px;
     color: #333;
@@ -64,7 +64,8 @@ img { border:none;display: block;}
     margin-left: 56px;
 }
 .check_text{
-    width: 395px;
+    /*width: 395px;*/
+    width: 375px;
     height: 40px;
     font-size: 14px;
     color: #666;
@@ -149,7 +150,7 @@ img { border:none;display: block;}
         height: 40px;
         /*color: rgb(230,230,230);*/
         line-height: 40px;
-        font-size: 15px;
+        font-size: 14px;
         float: left;
         margin-left: 35px;
         color: #333;

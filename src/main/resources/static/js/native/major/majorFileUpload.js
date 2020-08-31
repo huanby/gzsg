@@ -68,6 +68,10 @@ function initFileUpload() {
 		initImages(1);
 	});
 
+	if($("#isExamine").val() == "true"){
+		$(".file-caption-main").hide();
+	}
+
 
 
 }
