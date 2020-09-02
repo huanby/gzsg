@@ -504,21 +504,29 @@
                                    th:value="${mt.t16}"/>
                         </div>
                     </div>
-                    <div class="rowGroup">
+                    <!--<div class="rowGroup">
                         <label for="t17" class="col-sm-2 control-label">主要社会兼职：</label>
                         <div class="col-sm-4">
                             <input type="text" class="form-control" id="t17" name="t17"
                                    placeholder="格式如:兼职1;兼职2" th:value="${mt.t17}"/>
+                        </div>
+                    </div>-->
+                </div>
+                <div class="form-group">
+                    <div class="rowGroup">
+                        <label for="t17" class="col-sm-2 control-label">主主要社会兼职：</label>
+                        <div class="col-sm-6">
+                            <textarea rows="6" class="form-control" id="t17" name="t17" placeholder="格式如:兼职1;兼职2" data-bv-field="t17" th:text="${mt.t17}"  style="resize: none;"></textarea>
                         </div>
                     </div>
                 </div>
                 <div class="form-group">
                     <div class="rowGroup">
                         <label for="t18" class="col-sm-2 control-label">主要业绩（含企业实践）及相关荣誉：</label>
-                        <div class="col-sm-4">
+                        <div class="col-sm-6">
                             <!--<input type="text" class="form-control" id="t18" name="t18"
                                    placeholder="格式如：业绩1；业绩2；荣誉1；荣誉2" th:value="${mt.t18}"/>-->
-                            <textarea class="form-control" id="t18" name="t18" placeholder="格式如：业绩1；业绩2；荣誉1；荣誉2" data-bv-field="t18" th:text="${mt.t18}" style="resize: none;"></textarea>
+                            <textarea rows="6" class="form-control" id="t18" name="t18" placeholder="格式如：业绩1；业绩2；荣誉1；荣誉2" data-bv-field="t18" th:text="${mt.t18}" style="resize: none;"></textarea>
                         </div>
                     </div>
                 </div>

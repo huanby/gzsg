@@ -1268,8 +1268,8 @@ function validSchoolSRSMForm(){
 						message : '师均科研经费（万元/人）不能为空'
 					},
 					regexp: {
-					      regexp: /^\d+(\.\d{0,2})?$/,
-					      message: '请输入大于0的正数'
+					      regexp: /^\d+(\.\d{0,5})?$/,
+					      message: '请输入大于0的正数,小数点后不能超过5位'
 					}
 				}
 			},
@@ -1279,8 +1279,8 @@ function validSchoolSRSMForm(){
 						message : '师均新增省部级科研项目数（个/人）不能为空'
 					},
 					regexp: {
-					      regexp: /^\d+(\.\d{0,2})?$/,
-					      message: '请输入大于0的正数'
+					      regexp: /^\d+(\.\d{0,5})?$/,
+					      message: '请输入大于0的正数,小数点后不能超过5位'
 					}
 				}
 			},
@@ -1290,8 +1290,8 @@ function validSchoolSRSMForm(){
 						message : '师均企事业委托项目数（个/人）不能为空'
 					},
 					regexp: {
-					      regexp: /^\d+(\.\d{0,2})?$/,
-					      message: '请输入大于0的正数'
+					      regexp: /^\d+(\.\d{0,5})?$/,
+					      message: '请输入大于0的正数,小数点后不能超过5位'
 					}
 				}
 			},
