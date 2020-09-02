@@ -979,8 +979,8 @@ function validSchoolIISSForm(){
 						message : '师均论文数（篇/人）不能为空'
 					},
 					regexp: {
-					      regexp: /^\d+(\.\d{0,2})?$/,
-					      message: '请输入大于0的正数'
+					      regexp: /^\d+(\.\d{0,5})?$/,
+					      message: '请输入大于0的正数,小数点后不能超过5位'
 					}
 				}
 			},
@@ -1109,41 +1109,41 @@ function validSchoolIISSForm(){
 			s53 : {
 				validators : {
 					notEmpty : {
-						message : '国家级示范校、骨干校荣誉数（个）不能为空'
-					},
-					digits: {
-						message : '国家级示范校、骨干校荣誉数（个）只能是正整数'
+						message : '请选择国家级示范校、骨干校荣誉【是-否】'
 					}
+					/*digits: {
+						message : '国家级示范校、骨干校荣誉数（个）只能是正整数'
+					}*/
 				}
 			},
 			s54 : {
 				validators : {
 					notEmpty : {
-						message : '国家级特色高水平院校荣誉数（个）不能为空'
-					},
-					digits: {
-						message : '国家级特色高水平院校荣誉数（个）只能是正整数'
+						message : '请选择国家级特色高水平院校【是-否】'
 					}
+					/*digits: {
+						message : '国家级特色高水平院校荣誉数（个）只能是正整数'
+					}*/
 				}
 			},
 			s55 : {
 				validators : {
 					notEmpty : {
-						message : '国家级优质校荣誉数（个）不能为空'
-					},
-					digits: {
-						message : '国家级优质校荣誉数（个）只能是正整数'
+						message : '请选择国家级优质校【是-否】'
 					}
+					/*digits: {
+						message : '国家级优质校荣誉数（个）只能是正整数'
+					}*/
 				}
 			},
 			s56 : {
 				validators : {
 					notEmpty : {
-						message : '省级示范校、骨干校、优质校荣誉数（个）不能为空'
-					},
-					digits: {
-						message : '省级示范校、骨干校、优质校荣誉数（个）只能是正整数'
+						message : '请选择省级示范校、骨干校、优质校【是-否】'
 					}
+					/*digits: {
+						message : '省级示范校、骨干校、优质校荣誉数（个）只能是正整数'
+					}*/
 				}
 			},
 			s57 : {
@@ -1159,11 +1159,11 @@ function validSchoolIISSForm(){
 			s58 : {
 				validators : {
 					notEmpty : {
-						message : '承办过全国职业院校技能大赛个数（个）不能为空'
-					},
-					digits: {
-						message : '承办过全国职业院校技能大赛个数（个）只能是正整数'
+						message : '请选择承办过全国职业院校技能大赛【是-否】'
 					}
+					/*digits: {
+						message : '承办过全国职业院校技能大赛个数（个）只能是正整数'
+					}*/
 				}
 			},
 			s59 : {
@@ -1425,8 +1425,8 @@ function validSchoolTTForm(){
 						message : '生师比（X:1）不能为空'
 					},
 					regexp: {
-					      regexp: /^\d+(\.\d{0,2})?$/,
-					      message: '请输入大于0的正数'
+					      regexp: /^\d+(\.\d{0,5})?$/,
+					      message: '请输入大于0的正数,小数点后不能超过5位'
 					}
 				}
 			},
@@ -1486,6 +1486,32 @@ function validSchoolTTForm(){
 					}
 				}
 			},
+			s6 : {
+				validators : {
+					notEmpty : {
+						message : '教师获国家级奖励数（项）不能为空'
+					},
+					digits: {
+						message : '教师获国家级奖励数（项）只能是正整数'
+					}
+				}
+			},
+			s7 : {
+				validators : {
+					notEmpty : {
+						message : '硕士及以上学位专任教师占比（%）不能为空'
+					},
+					regexp: {
+						regexp: /^\d+(\.\d{0,2})?$/,
+						message: '请输入大于0的正数'
+					},
+					between : {
+						min : 0,
+						max : 100,
+						message : "输入百分比为0-100之间"
+					}
+				}
+			},
 			s9 : {
 				validators : {
 					notEmpty : {
@@ -1524,8 +1550,8 @@ function validSchoolTTForm(){
 						message : '专业教师人均企业实践时间（天/人）不能为空'
 					},
 					regexp: {
-					      regexp: /^\d+(\.\d{0,2})?$/,
-					      message: '请输入大于0的正数'
+					      regexp: /^\d+(\.\d{0,5})?$/,
+					      message: '请输入大于0的正数,小数点后不能超过5位'
 					}
 				}
 			},
@@ -1588,11 +1614,22 @@ function validSchoolTTForm(){
 			s17 : {
 				validators : {
 					notEmpty : {
-						message : '生均图书流通量、生均电子资源访问量（次/人）不能为空'
+						message : '生均图书流通量（次/人）不能为空'
 					},
 					regexp: {
-					      regexp: /^\d+(\.\d{0,2})?$/,
-					      message: '请输入大于0的正数'
+					      regexp: /^\d+(\.\d{0,5})?$/,
+					      message: '请输入大于0的正数,小数点后不能超过5位'
+					}
+				}
+			},
+			s60 : {
+				validators : {
+					notEmpty : {
+						message : '生均电子资源访问量（次/人）不能为空'
+					},
+					regexp: {
+						regexp: /^\d+(\.\d{0,5})?$/,
+						message: '请输入大于0的正数,小数点后不能超过5位'
 					}
 				}
 			},

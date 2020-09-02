@@ -206,13 +206,17 @@
 		<legend>师资队伍</legend>
 		<input type="hidden" name="id" id="TTid" th:value="${t.id}">
 		<div class="form-group">
-	  		<div class="rowGroup">
-	  		<label for="s1" class="col-sm-2 control-label">生师比（X:1）：</label>
-	    	<div class="col-sm-4">
-	      		<input type="text" class="form-control" id="s1" name="s1" 
-	      			th:value="${t.s1}"  placeholder="请填写生师比（X:1）"/>
-	    	</div>
-	    	</div>
+			<div class="rowGroup">
+				<label for="s1" class="col-sm-2 control-label">生师比（X:1）：</label>
+				<div class="col-sm-2" style="padding-right: 0px;">
+					<input type="text" class="form-control" id="s1" name="s1"
+						   th:value="${t.s1}" placeholder="请填写生师比（X）"/>
+				</div>
+				<div class="col-sm-2" style="padding: 0px;">
+					<span class="form-control"
+						  style="background-color: transparent;border: 0px;box-shadow:none;-webkit-box-shadow:none;font-size: 16px;font-weight: bold;">：1</span>
+				</div>
+			</div>
 	    	<div class="rowGroup">
 	    	<label for="s2" class="col-sm-2 control-label">国家级高层次人才数（人）：</label>
 	    	<div class="col-sm-4">
@@ -255,6 +259,25 @@
 	    	</div>
 	    	</div>
 	  	</div>
+
+		<div class="form-group">
+	  		<div class="rowGroup">
+	  		<label for="s6" class="col-sm-2 control-label">教师获国家级奖励数（项）：</label>
+	    	<div class="col-sm-4">
+	      		<input type="text" class="form-control" id="s6" name="s6"
+	      			th:value="${t.s6}"  placeholder="请填写教师获国家级奖励数（项）"/>
+	    	</div>
+	    	</div>
+	    	<div class="rowGroup">
+	    	<label for="s7" class="col-sm-2 control-label">硕士及以上学位专任教师占比（%）：</label>
+	    	<div class="col-sm-4">
+	      		<input type="text" class="form-control" id="s7" name="s7"
+	      			th:value="${t.s7}"  placeholder="请填写硕士及以上学位专任教师占比（%）"/>
+	    	</div>
+	    	</div>
+	  	</div>
+
+
 		
 		<div class="form-group">
 	  		<div class="rowGroup">
@@ -323,35 +346,49 @@
 	  		<div class="rowGroup">
 	  		<label for="s16" class="col-sm-2 control-label">省部级教学资源库开发数量（个）：</label>
 	    	<div class="col-sm-4">
-	      		<input type="text" class="form-control" id="s16" name="s16" 
+	      		<input type="text" class="form-control" id="s16" name="s16"
 	      			th:value="${t.s16}"  placeholder="请填写省部级教学资源库开发数量（个）"/>
 	    	</div>
 	    	</div>
 	    	<div class="rowGroup">
-	    	<label for="s17" class="col-sm-2 control-label">生均图书流通量、生均电子资源访问量（次/人）：</label>
+	    	<label for="s17" class="col-sm-2 control-label">生均图书流通量（次/人）：</label>
 	    	<div class="col-sm-4">
-	      		<input type="text" class="form-control" id="s17" name="s17" 
-	      			th:value="${t.s17}" placeholder="请填写生均图书流通量、生均电子资源访问量（次/人）"/>
+	      		<input type="text" class="form-control" id="s17" name="s17"
+	      			th:value="${t.s17}" placeholder="请填写生均图书流通量（次/人）"/>
 	    	</div>
 	    	</div>
 	  	</div>
 	  	
 	  	<div class="form-group">
+			<div class="rowGroup">
+				<label for="s60" class="col-sm-2 control-label">生均电子资源访问量（次/人）：</label>
+				<div class="col-sm-4">
+					<input type="text" class="form-control" id="s60" name="s60"
+						   th:value="${t.s60}" placeholder="请填写生均电子资源访问量（次/人）"/>
+				</div>
+			</div>
+
 	  		<div class="rowGroup">
 	  		<label for="s18" class="col-sm-2 control-label">省级以上实习实训基地数（个）：</label>
 	    	<div class="col-sm-4">
-	      		<input type="text" class="form-control" id="s18" name="s18" 
+	      		<input type="text" class="form-control" id="s18" name="s18"
 	      			th:value="${t.s18}"  placeholder="请填写省级以上实习实训基地数（个）"/>
 	    	</div>
 	    	</div>
+	  	</div>
+
+		<div class="form-group">
 	    	<div class="rowGroup">
 	    	<label for="s19" class="col-sm-2 control-label">产学研合作项目（基地）数（个）：</label>
 	    	<div class="col-sm-4">
-	      		<input type="text" class="form-control" id="s19" name="s19" 
+	      		<input type="text" class="form-control" id="s19" name="s19"
 	      			th:value="${t.s19}"  placeholder="请填写产学研合作项目（基地）数（个）"/>
 	    	</div>
 	    	</div>
 	  	</div>
+
+
+
 		</fieldset>
 		
 		<div class="form-group text-center">
@@ -694,64 +731,115 @@
 	      			th:value="${f.s52}"  placeholder="请填写社会捐赠收入占比（%）"/>
 	    	</div>
 	    	</div>
-	    	<div class="rowGroup">
-	    	<label for="s53" class="col-sm-2 control-label">国家级示范校、骨干校荣誉数（个）：</label>
-	    	<div class="col-sm-4">
-	      		<input type="text" class="form-control" id="s53" name="s53" 
-	      			th:value="${f.s53}"  placeholder="请填写国家级示范校、骨干校荣誉数（个）"/>
-	    	</div>
-	    	</div>
+			<div class="rowGroup">
+				<label for="s57" class="col-sm-2 control-label">产教融合规划项目（个）：</label>
+				<div class="col-sm-4">
+					<input type="text" class="form-control" id="s57" name="s57"
+						   th:value="${f.s57}"  placeholder="请填写产教融合规划项目（个）"/>
+				</div>
+			</div>
+
 	  	</div>
 	  	
 	  	<div class="form-group">
 	  		<div class="rowGroup">
-	  		<label for="s54" class="col-sm-2 control-label">国家级特色高水平院校荣誉数（个）：</label>
+	  		<label for="s54" class="col-sm-2 control-label">国家级特色高水平院校：</label>
 	    	<div class="col-sm-4">
-	      		<input type="text" class="form-control" id="s54" name="s54" 
-	      			th:value="${f.s54}"  placeholder="请填写国家级特色高水平院校荣誉数（个）"/>
+				<div class="radio">
+					<label>
+						<input type="radio" name="s54" value="true" th:field="${f.s54}"/>是
+					</label>
+				</div>
+				<div class="radio">
+					<label>
+						<input type="radio" name="s54" value="false" th:field="${f.s54}"/>否
+					</label>
+				</div>
+	      		<!--<input type="text" class="form-control" id="s54" name="s54"
+	      			th:value="${f.s54}"  placeholder="请填写国家级特色高水平院校荣誉数（个）"/>-->
 	    	</div>
 	    	</div>
-	    	<div class="rowGroup">
-	    	<label for="s55" class="col-sm-2 control-label">国家级优质校荣誉数（个）：</label>
-	    	<div class="col-sm-4">
-	      		<input type="text" class="form-control" id="s55" name="s55" 
-	      			th:value="${f.s55}"  placeholder="请填写国家级优质校荣誉数（个）"/>
-	    	</div>
-	    	</div>
+			<div class="rowGroup">
+				<label for="s59" class="col-sm-2 control-label">发布《高等职业院校质量年度报告》个数（个）：</label>
+				<div class="col-sm-4">
+					<input type="text" class="form-control" id="s59" name="s59"
+						   th:value="${f.s59}"  placeholder="请填写发布《高等职业院校质量年度报告》个数（个）"/>
+				</div>
+			</div>
 	  	</div>
 	  	
 	  	<div class="form-group">
 	  		<div class="rowGroup">
-	  		<label for="s56" class="col-sm-2 control-label">省级示范校、骨干校、优质校荣誉数（个）：</label>
+	  		<label for="s56" class="col-sm-2 control-label">省级示范校、骨干校、优质校：</label>
 	    	<div class="col-sm-4">
-	      		<input type="text" class="form-control" id="s56" name="s56" 
-	      			th:value="${f.s56}"  placeholder="请填写省级示范校、骨干校、优质校荣誉数（个）"/>
+				<div class="radio">
+					<label>
+						<input type="radio" name="s56" value="true" th:field="${f.s56}"/>是
+					</label>
+				</div>
+				<div class="radio">
+					<label>
+						<input type="radio" name="s56" value="false" th:field="${f.s56}"/>否
+					</label>
+				</div>
+	      		<!--<input type="text" class="form-control" id="s56" name="s56"
+	      			th:value="${f.s56}"  placeholder="请填写省级示范校、骨干校、优质校荣誉数（个）"/>-->
 	    	</div>
 	    	</div>
-	    	<div class="rowGroup">
-	    	<label for="s57" class="col-sm-2 control-label">产教融合规划项目（个）：</label>
-	    	<div class="col-sm-4">
-	      		<input type="text" class="form-control" id="s57" name="s57" 
-	      			th:value="${f.s57}"  placeholder="请填写产教融合规划项目（个）"/>
-	    	</div>
-	    	</div>
+			<div class="rowGroup">
+				<label for="s53" class="col-sm-2 control-label">国家级示范校、骨干校：</label>
+				<div class="col-sm-4">
+					<div class="radio">
+						<label>
+							<input type="radio" name="s53" value="true" th:field="${f.s53}"/>是
+						</label>
+					</div>
+					<div class="radio">
+						<label>
+							<input type="radio" name="s53" value="false" th:field="${f.s53}"/>否
+						</label>
+					</div>
+					<!--	      		<input type="text" class="form-control" id="s53" name="s53" th:value="${f.s53}"  placeholder="请填写国家级示范校、骨干校荣誉数（个）"/>-->
+				</div>
+			</div>
+
 	  	</div>
 	  	
 	  	<div class="form-group">
 	  		<div class="rowGroup">
-	  		<label for="s58" class="col-sm-2 control-label">承办过全国职业院校技能大赛个数（个）：</label>
+	  		<label for="s58" class="col-sm-2 control-label">承办过全国职业院校技能大赛：</label>
 	    	<div class="col-sm-4">
-	      		<input type="text" class="form-control" id="s58" name="s58" 
-	      			th:value="${f.s58}"  placeholder="请填写承办过全国职业院校技能大赛个数（个）"/>
+				<div class="radio">
+					<label>
+						<input type="radio" name="s58" value="true" th:field="${f.s58}"/>是
+					</label>
+				</div>
+				<div class="radio">
+					<label>
+						<input type="radio" name="s58" value="false" th:field="${f.s58}"/>否
+					</label>
+				</div>
+	      		<!--<input type="text" class="form-control" id="s58" name="s58"
+	      			th:value="${f.s58}"  placeholder="请填写承办过全国职业院校技能大赛个数（个）"/>-->
 	    	</div>
 	    	</div>
-	    	<div class="rowGroup">
-	    	<label for="s59" class="col-sm-2 control-label">发布《高等职业院校质量年度报告》个数（个）：</label>
-	    	<div class="col-sm-4">
-	      		<input type="text" class="form-control" id="s59" name="s59" 
-	      			th:value="${f.s59}"  placeholder="请填写发布《高等职业院校质量年度报告》个数（个）"/>
-	    	</div>
-	    	</div>
+			<div class="rowGroup">
+				<label for="s55" class="col-sm-2 control-label">国家级优质校：</label>
+				<div class="col-sm-4">
+					<div class="radio">
+						<label>
+							<input type="radio" name="s55" value="true" th:field="${f.s55}"/>是
+						</label>
+					</div>
+					<div class="radio">
+						<label>
+							<input type="radio" name="s55" value="false" th:field="${f.s55}"/>否
+						</label>
+					</div>
+					<!--<input type="text" class="form-control" id="s55" name="s55"
+                        th:value="${f.s55}"  placeholder="请填写国家级优质校荣誉数（个）"/>-->
+				</div>
+			</div>
 	  	</div>
 		</fieldset>
 		

@@ -155,29 +155,29 @@ public class IaIeSsSr extends Model<IaIeSsSr> {
      * S53.国家级示范校、骨干校荣誉数（个）
      */
     @TableField("s53")
-    @NotNull(message = "国家级示范校、骨干校荣誉数（个）不能为空",groups = {Add.class})
-    private Integer s53;
+    @NotNull(message = "请选择国家级示范校、骨干校【是-否】",groups = {Add.class})
+    private Boolean s53;
 
     /**
      * S54.国家级特色高水平院校荣誉数（个）
      */
     @TableField("s54")
-    @NotNull(message = "国家级特色高水平院校荣誉数（个）不能为空",groups = {Add.class})
-    private Integer s54;
+    @NotNull(message = "请选择国家级特色高水平院校【是-否】",groups = {Add.class})
+    private Boolean s54;
 
     /**
      * S55.国家级优质校荣誉数（个）
      */
     @TableField("s55")
-    @NotNull(message = "国家级优质校荣誉数（个）不能为空",groups = {Add.class})
-    private Integer s55;
+    @NotNull(message = "请选择国家级优质校【是-否】",groups = {Add.class})
+    private Boolean s55;
 
     /**
      * S56.省级示范校、骨干校、优质校荣誉数（个）
      */
     @TableField("s56")
-    @NotNull(message = "省级示范校、骨干校、优质校荣誉数（个）不能为空",groups = {Add.class})
-    private Integer s56;
+    @NotNull(message = "请选择省级示范校、骨干校、优质校【是-否】",groups = {Add.class})
+    private Boolean s56;
 
     /**
      * S57.产教融合规划项目（个）
@@ -190,8 +190,8 @@ public class IaIeSsSr extends Model<IaIeSsSr> {
      * S58.承办过全国职业院校技能大赛个数（个）
      */
     @TableField("s58")
-    @NotNull(message = "承办过全国职业院校技能大赛个数（个）不能为空",groups = {Add.class})
-    private Integer s58;
+    @NotNull(message = "请选择承办过全国职业院校技能大赛【是-否】",groups = {Add.class})
+    private Boolean s58;
 
     /**
      * S59.发布《高等职业院校质量年度报告》个数（个）
@@ -319,32 +319,32 @@ public class IaIeSsSr extends Model<IaIeSsSr> {
     public void setS52(BigDecimal s52) {
         this.s52 = s52;
     }
-    public Integer getS53() {
+    public Boolean getS53() {
         return s53;
     }
 
-    public void setS53(Integer s53) {
+    public void setS53(Boolean s53) {
         this.s53 = s53;
     }
-    public Integer getS54() {
+    public Boolean getS54() {
         return s54;
     }
 
-    public void setS54(Integer s54) {
+    public void setS54(Boolean s54) {
         this.s54 = s54;
     }
-    public Integer getS55() {
+    public Boolean getS55() {
         return s55;
     }
 
-    public void setS55(Integer s55) {
+    public void setS55(Boolean s55) {
         this.s55 = s55;
     }
-    public Integer getS56() {
+    public Boolean getS56() {
         return s56;
     }
 
-    public void setS56(Integer s56) {
+    public void setS56(Boolean s56) {
         this.s56 = s56;
     }
     public Integer getS57() {
@@ -354,11 +354,11 @@ public class IaIeSsSr extends Model<IaIeSsSr> {
     public void setS57(Integer s57) {
         this.s57 = s57;
     }
-    public Integer getS58() {
+    public Boolean getS58() {
         return s58;
     }
 
-    public void setS58(Integer s58) {
+    public void setS58(Boolean s58) {
         this.s58 = s58;
     }
     public Integer getS59() {

@@ -88,6 +88,22 @@ public class TsTr extends Model<TsTr> {
     @NotNull(message = "S5.省级教学、研究团队数（个）不能为空",groups = {Add.class})
     private Integer s5;
 
+
+
+    /**
+     * S6.省级教学、研究团队数（个）
+     */
+    @TableField("s6")
+    @NotNull(message = "S6.教师获国家级奖励数（项）不能为空",groups = {Add.class})
+    private Integer s6;
+
+    /**
+     * S8.具有国（境）外学习工作经历的专任教师占比（%）
+     */
+    @TableField("s7")
+    @NotNull(message = "硕士及以上学位专任教师占比（%）不能为空",groups = {Add.class})
+    private BigDecimal s7;
+
     /**
      * S8.具有国（境）外学习工作经历的专任教师占比（%）
      */
@@ -152,11 +168,18 @@ public class TsTr extends Model<TsTr> {
     private Integer s16;
 
     /**
-     * S17.生均图书流通量、生均电子资源访问量（次/人）
+     * S17.生均图书流通量（次/人）
      */
     @TableField("s17")
     @NotNull(message = "生均图书流通量、生均电子资源访问量（次/人）不能为空",groups = {Add.class})
     private BigDecimal s17;
+
+    /**
+     * S60.生均电子资源访问量（次/人）
+     */
+    @TableField("s60")
+    @NotNull(message = "生均电子资源访问量（次/人）不能为空",groups = {Add.class})
+    private BigDecimal s60;
 
     /**
      * S18.省级以上实习实训基地数（个）
@@ -313,6 +336,30 @@ public class TsTr extends Model<TsTr> {
         this.s19 = s19;
     }
 
+    public BigDecimal getS60() {
+        return s60;
+    }
+
+    public void setS60(BigDecimal s60) {
+        this.s60 = s60;
+    }
+
+    public Integer getS6() {
+        return s6;
+    }
+
+    public void setS6(Integer s6) {
+        this.s6 = s6;
+    }
+
+    public BigDecimal getS7() {
+        return s7;
+    }
+
+    public void setS7(BigDecimal s7) {
+        this.s7 = s7;
+    }
+
     public static final String ID = "id";
 
     public static final String CREATEID = "create_id";
@@ -352,6 +399,12 @@ public class TsTr extends Model<TsTr> {
     public static final String S18 = "s18";
 
     public static final String S19 = "s19";
+
+    public static final String S60 = "s60";
+
+    public static final String S6 = "s6";
+
+    public static final String S7 = "s7";
 
     @Override
     protected Serializable pkVal() {

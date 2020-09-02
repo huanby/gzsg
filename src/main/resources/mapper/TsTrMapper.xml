@@ -24,11 +24,14 @@
         <result column="s17" property="s17" />
         <result column="s18" property="s18" />
         <result column="s19" property="s19" />
+        <result column="s60" property="s60" />
+        <result column="s6" property="s6" />
+        <result column="s7" property="s7" />
     </resultMap>
 
     <!-- 通用查询结果列 -->
     <sql id="Base_Column_List">
-        id, create_id, create_time, s1, s2, s3, s4, s5, s8, s9, s10, s11, s12, s13, s14, s15, s16, s17, s18, s19
+        id, create_id, create_time, s1, s2, s3, s4, s5, s8, s9, s10, s11, s12, s13, s14, s15, s16, s17, s18, s19, s60, s6, s7
     </sql>
 
 </mapper>
