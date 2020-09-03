@@ -263,8 +263,8 @@ function validMajorBasicDataEditForm(){
 						message : '校内实训基地生均设备值不能为空'
 					},
 					regexp: { //正则表达式
-						regexp: /^\d+(\.\d{0,2})?$/,
-						message: '字段只能为整数或两位小数'
+						regexp: /^\d+(\.\d{0,4})?$/,
+						message: '字段只能为整数或四位小数'
 					}
 				}
 			},
@@ -274,8 +274,8 @@ function validMajorBasicDataEditForm(){
 						message : '2018-2019学年校内实训基地使用频率不能为空'
 					},
 					regexp: { //正则表达式
-						regexp: /^\d+(\.\d{0,2})?$/,
-						message: '字段只能为整数或两位小数'
+						regexp: /^\d+(\.\d{0,1})?$/,
+						message: '字段只能为整数或一位小数'
 					}
 				}
 			},
@@ -355,8 +355,8 @@ function validMajorBasicDataEditForm(){
 						message : '合作企业对本专业准捐赠设备总值不能为空'
 					},
 					regexp: { //正则表达式
-						regexp: /^\d+(\.\d{0,2})?$/,
-						message: '字段只能为整数或两位小数'
+						regexp: /^\d+(\.\d{0,4})?$/,
+						message: '字段只能为整数或四位小数'
 					}
 				}
 			},
@@ -366,8 +366,8 @@ function validMajorBasicDataEditForm(){
 						message : '合作企业对本专业捐赠设备总值不能为空'
 					},
 					regexp: { //正则表达式
-						regexp: /^\d+(\.\d{0,2})?$/,
-						message: '字段只能为整数或两位小数'
+						regexp: /^\d+(\.\d{0,4})?$/,
+						message: '字段只能为整数或四位小数'
 					}
 				}
 			},
@@ -377,8 +377,8 @@ function validMajorBasicDataEditForm(){
 						message : '本专业为企业培训员工总数不能为空'
 					},
 					regexp: { //正则表达式
-						regexp: /^\d+(\.\d{0,2})?$/,
-						message: '字段只能为整数或两位小数'
+						regexp: /^\d+(\.\d{0,1})?$/,
+						message: '字段只能为整数或一位小数'
 					}
 				}
 			},

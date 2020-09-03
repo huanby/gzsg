@@ -215,8 +215,8 @@ function validMajorAchievementsEditForm(){
 						message : '专业群建设各级专项资金投入不能为空'
 					},
 					regexp: { //正则表达式
-						regexp: /^\d+(\.\d{0,2})?$/,
-						message: '字段只能为整数或两位小数'
+						regexp: /^\d+(\.\d{0,4})?$/,
+						message: '字段只能为整数或四位小数'
 					},
 				}
 			},

@@ -593,180 +593,180 @@ function validSchoolLAONForm(){
 				validators : {
 					notEmpty : {
 						message : '省级财政支持的实训基地数（个）不能为空'
+					},
+					digits: {
+						message : '省级财政支持的实训基地数（个）只能是正整数'
 					}
-				},
-				digits: {
-					message : '省级财政支持的实训基地数（个）只能是正整数'
 				}
 			},
 			g9 : {
 				validators : {
 					notEmpty : {
 						message : '国家职业教育教学资源库数（个）不能为空'
+					},
+					digits: {
+						message : '国家职业教育教学资源库数（个）只能是正整数'
 					}
-				},
-				digits: {
-					message : '国家职业教育教学资源库数（个）只能是正整数'
 				}
 			},
 			g10 : {
 				validators : {
 					notEmpty : {
 						message : '填报近五年全国毕业生就业典型经验高校、创新创业典型经验高校、创新创业教育改革示范高校，国家“双创”基地、国家创新创业教育改革示范高校、国家大学科技园、国家级科技企业孵化器等'
+					},
+					digits: {
+						message : '全国就业创业典型数（个）只能是正整数'
 					}
-				},
-				digits: {
-					message : '全国就业创业典型数（个）只能是正整数'
 				}
 			},
 			g11 : {
 				validators : {
 					notEmpty : {
 						message : '填报近五年全国、吉林省毕业生就业典型经验高校、创新创业典型经验高校、创新创业教育改革示范高校，国家“双创”基地、国家创新创业教育改革示范高校、国家大学科技园、国家级科技企业孵化器等'
+					},
+					digits: {
+						message : '吉林省就业创业典型数（个）只能是正整数'
 					}
-				},
-				digits: {
-					message : '吉林省就业创业典型数（个）只能是正整数'
 				}
 			},
 			g12 : {
 				validators : {
 					notEmpty : {
 						message : '教师国家级荣誉数（个）不能为空'
+					},
+					digits: {
+						message : '教师国家级荣誉数（个）只能是正整数'
 					}
-				},
-				digits: {
-					message : '教师国家级荣誉数（个）只能是正整数'
 				}
 			},
 			g13 : {
 				validators : {
 					notEmpty : {
 						message : '教师省级荣誉数（个）不能为空'
+					},
+					digits: {
+						message : '教师省级荣誉数（个）只能是正整数'
 					}
-				},
-				digits: {
-					message : '教师省级荣誉数（个）只能是正整数'
 				}
 			},
 			g14 : {
 				validators : {
 					notEmpty : {
 						message : '仅填报近五年学校承办过的全国职业院校技能大赛'
+					},
+					digits: {
+						message : '承办全国职业院校技能大赛数（个）只能是正整数'
 					}
-				},
-				digits: {
-					message : '承办全国职业院校技能大赛数（个）只能是正整数'
 				}
 			},
 			g15 : {
 				validators : {
 					notEmpty : {
 						message : '仅填报近五年学校承办过的吉林职业院校技能大赛'
+					},
+					digits: {
+						message : '承办吉林省职业院校技能大赛数（个）只能是正整数'
 					}
-				},
-				digits: {
-					message : '承办吉林省职业院校技能大赛数（个）只能是正整数'
 				}
 			},
 			g16 : {
 				validators : {
 					notEmpty : {
 						message : '学校须为第一完成单位'
+					},
+					digits: {
+						message : '国家级教学成果奖励数（个）只能是正整数'
 					}
-				},
-				digits: {
-					message : '国家级教学成果奖励数（个）只能是正整数'
 				}
 			},
 			g17 : {
 				validators : {
 					notEmpty : {
 						message : '学校须为第一完成单位'
+					},
+					digits: {
+						message : '吉林省教学成果奖励数（个）只能是正整数'
 					}
-				},
-				digits: {
-					message : '吉林省教学成果奖励数（个）只能是正整数'
 				}
 			},
 			g18 : {
 				validators : {
 					notEmpty : {
 						message : '教师全国职业院校教学能力比赛获奖（含职业院校信息化教学大赛）数（个）不能为空'
+					},
+					digits: {
+						message : '教师全国职业院校教学能力比赛获奖（含职业院校信息化教学大赛）数（个）只能是正整数'
 					}
-				},
-				digits: {
-					message : '教师全国职业院校教学能力比赛获奖（含职业院校信息化教学大赛）数（个）只能是正整数'
 				}
 			},
 			g19 : {
 				validators : {
 					notEmpty : {
 						message : '教师吉林省职业院校教学能力比赛获奖（含职业院校信息化教学大赛）数（个）不能为空'
+					},
+					digits: {
+						message : '教师吉林省职业院校教学能力比赛获奖（含职业院校信息化教学大赛）数（个）只能是正整数'
 					}
-				},
-				digits: {
-					message : '教师吉林省职业院校教学能力比赛获奖（含职业院校信息化教学大赛）数（个）只能是正整数'
 				}
 			},
 			g20 : {
 				validators : {
 					notEmpty : {
 						message : '学生全国职业院校技能大赛获奖数（个）近五年不能为空'
+					},
+					digits: {
+						message : '学生全国职业院校技能大赛获奖数（个）近五年只能是正整数'
 					}
-				},
-				digits: {
-					message : '学生全国职业院校技能大赛获奖数（个）近五年只能是正整数'
 				}
 			},
 			g21 : {
 				validators : {
 					notEmpty : {
 						message : '学生吉林省职业院校技能大赛获奖数（个）近五年不能为空'
+					},
+					digits: {
+						message : '学生吉林省职业院校技能大赛获奖数（个）近五年只能是正整数'
 					}
-				},
-				digits: {
-					message : '学生吉林省职业院校技能大赛获奖数（个）近五年只能是正整数'
 				}
 			},
 			g22 : {
 				validators : {
 					notEmpty : {
 						message : '学生中国“互联网+”大学生创新创业大赛获奖数（个）近五年不能为空'
+					},
+					digits: {
+						message : '学生中国“互联网+”大学生创新创业大赛获奖数（个）近五年只能是正整数'
 					}
-				},
-				digits: {
-					message : '学生中国“互联网+”大学生创新创业大赛获奖数（个）近五年只能是正整数'
 				}
 			},
 			g23 : {
 				validators : {
 					notEmpty : {
 						message : '学生吉林省“互联网+”大学生创新创业大赛获奖数（个）近五年不能为空'
+					},
+					digits: {
+						message : '学生吉林省“互联网+”大学生创新创业大赛获奖数（个）近五年只能是正整数'
 					}
-				},
-				digits: {
-					message : '学生吉林省“互联网+”大学生创新创业大赛获奖数（个）近五年只能是正整数'
 				}
 			},
 			g24 : {
 				validators : {
 					notEmpty : {
 						message : '学生“挑战杯”全国大学生课外学术科技作品竞赛和中国大学生创业计划竞赛获奖数（个）近五年不能为空'
+					},
+					digits: {
+						message : '学生“挑战杯”全国大学生课外学术科技作品竞赛和中国大学生创业计划竞赛获奖数（个）近五年只能是正整数'
 					}
-				},
-				digits: {
-					message : '学生“挑战杯”全国大学生课外学术科技作品竞赛和中国大学生创业计划竞赛获奖数（个）近五年只能是正整数'
 				}
 			},
 			g25 : {
 				validators : {
 					notEmpty : {
 						message : '其它国家级成果数，学校须为主持单位（个）不能为空'
+					},
+					digits: {
+						message : '其它国家级成果数，学校须为主持单位（个）只能是正整数'
 					}
-				},
-				digits: {
-					message : '其它国家级成果数，学校须为主持单位（个）只能是正整数'
 				}
 			}
 		}
@@ -790,8 +790,8 @@ function validSchoolSBForm(){
 						message : '本学校年生均财政拨款水平（万元）不能为空'
 					},
 					regexp: {
-					      regexp: /^\d+(\.\d{0,2})?$/,
-					      message: '请输入大于0的正数'
+					      regexp: /^\d+(\.\d{0,4})?$/,
+					      message: '请输入大于0的正数,小数点后不能超过4位'
 					}
 				}
 			},
@@ -801,8 +801,8 @@ function validSchoolSBForm(){
 						message : '2017年学校总收入（万元）不能为空'
 					},
 					regexp: {
-					      regexp: /^\d+(\.\d{0,2})?$/,
-					      message: '请输入大于0的正数'
+					      regexp: /^\d+(\.\d{0,4})?$/,
+					      message: '请输入大于0的正数,小数点后不能超过4位'
 					}
 				}
 			},
@@ -812,8 +812,8 @@ function validSchoolSBForm(){
 						message : '2017年学校总支出（万元）不能为空'
 					},
 					regexp: {
-					      regexp: /^\d+(\.\d{0,2})?$/,
-					      message: '请输入大于0的正数'
+					      regexp: /^\d+(\.\d{0,4})?$/,
+					      message: '请输入大于0的正数,小数点后不能超过4位'
 					}
 				}
 			},
@@ -823,8 +823,8 @@ function validSchoolSBForm(){
 						message : '2018年学校总收入（万元）不能为空'
 					},
 					regexp: {
-					      regexp: /^\d+(\.\d{0,2})?$/,
-					      message: '请输入大于0的正数'
+					      regexp: /^\d+(\.\d{0,4})?$/,
+					      message: '请输入大于0的正数,小数点后不能超过4位'
 					}
 				}
 			},
@@ -834,8 +834,8 @@ function validSchoolSBForm(){
 						message : '2018年学校总支出（万元）不能为空'
 					},
 					regexp: {
-					      regexp: /^\d+(\.\d{0,2})?$/,
-					      message: '请输入大于0的正数'
+					      regexp: /^\d+(\.\d{0,4})?$/,
+					      message: '请输入大于0的正数,小数点后不能超过4位'
 					}
 				}
 			},
@@ -845,8 +845,8 @@ function validSchoolSBForm(){
 						message : '2019年学校总收入（万元）不能为空'
 					},
 					regexp: {
-					      regexp: /^\d+(\.\d{0,2})?$/,
-					      message: '请输入大于0的正数'
+					      regexp: /^\d+(\.\d{0,4})?$/,
+					      message: '请输入大于0的正数,小数点后不能超过4位'
 					}
 				}
 			},
@@ -856,8 +856,8 @@ function validSchoolSBForm(){
 						message : '2019年学校总支出（万元）不能为空'
 					},
 					regexp: {
-					      regexp: /^\d+(\.\d{0,2})?$/,
-					      message: '请输入大于0的正数'
+					      regexp: /^\d+(\.\d{0,4})?$/,
+					      message: '请输入大于0的正数,小数点后不能超过4位'
 					}
 				}
 			},
@@ -991,7 +991,7 @@ function validSchoolIISSForm(){
 					},
 					regexp: {
 					      regexp: /^\d+(\.\d{0,2})?$/,
-					      message: '请输入大于0的正数'
+					      message: '请输入大于0的正数,小数点后不能超过2位'
 					},
 					between : {
 						min : 0,
@@ -1007,7 +1007,7 @@ function validSchoolIISSForm(){
 					},
 					regexp: {
 					      regexp: /^\d+(\.\d{0,2})?$/,
-					      message: '请输入大于0的正数'
+					      message: '请输入大于0的正数,小数点后不能超过2位'
 					},
 					between : {
 						min : 0,
@@ -1032,8 +1032,8 @@ function validSchoolIISSForm(){
 						message : '技术转让当年实际收入（万元）不能为空'
 					},
 					regexp: {
-					      regexp: /^\d+(\.\d{0,2})?$/,
-					      message: '请输入大于0的正数'
+					      regexp: /^\d+(\.\d{0,4})?$/,
+					      message: '请输入大于0的正数,小数点后不能超过4位'
 					}
 				}
 			},
@@ -1052,10 +1052,13 @@ function validSchoolIISSForm(){
 					notEmpty : {
 						message : '社会培训人时数（人天）不能为空'
 					},
-					regexp: {
+					digits: {
+						message : '社会培训人时数（人天）只能是正整数'
+					}
+					/*regexp: {
 					      regexp: /^\d+(\.\d{0,2})?$/,
 					      message: '请输入大于0的正数'
-					}
+					}*/
 				}
 			},
 			s50 : {
@@ -1065,7 +1068,7 @@ function validSchoolIISSForm(){
 					},
 					regexp: {
 					      regexp: /^\d+(\.\d{0,2})?$/,
-					      message: '请输入大于0的正数'
+					      message: '请输入大于0的正数,小数点后不能超过2位'
 					},
 					between : {
 						min : 0,
@@ -1081,7 +1084,7 @@ function validSchoolIISSForm(){
 					},
 					regexp: {
 					      regexp: /^\d+(\.\d{0,2})?$/,
-					      message: '请输入大于0的正数'
+					      message: '请输入大于0的正数,小数点后不能超过2位'
 					},
 					between : {
 						min : 0,
@@ -1097,7 +1100,7 @@ function validSchoolIISSForm(){
 					},
 					regexp: {
 					      regexp: /^\d+(\.\d{0,2})?$/,
-					      message: '请输入大于0的正数'
+					      message: '请输入大于0的正数,小数点后不能超过2位'
 					},
 					between : {
 						min : 0,
@@ -1302,7 +1305,7 @@ function validSchoolSRSMForm(){
 					},
 					regexp: {
 					      regexp: /^\d+(\.\d{0,2})?$/,
-					      message: '请输入大于0的正数'
+					      message: '请输入大于0的正数,小数点后不能超过2位'
 					},
 					between : {
 						min : 0,
@@ -1338,7 +1341,7 @@ function validSchoolSRSMForm(){
 					},
 					regexp: {
 					      regexp: /^\d+(\.\d{0,2})?$/,
-					      message: '请输入大于0的正数'
+					      message: '请输入大于0的正数,小数点后不能超过2位'
 					},
 					between : {
 						min : 0,
@@ -1354,7 +1357,7 @@ function validSchoolSRSMForm(){
 					},
 					regexp: {
 					      regexp: /^\d+(\.\d{0,2})?$/,
-					      message: '请输入大于0的正数'
+					      message: '请输入大于0的正数,小数点后不能超过2位'
 					},
 					between : {
 						min : 0,
@@ -1477,7 +1480,7 @@ function validSchoolTTForm(){
 					},
 					regexp: {
 					      regexp: /^\d+(\.\d{0,2})?$/,
-					      message: '请输入大于0的正数'
+					      message: '请输入大于0的正数,小数点后不能超过2位'
 					},
 					between : {
 						min : 0,
@@ -1503,7 +1506,7 @@ function validSchoolTTForm(){
 					},
 					regexp: {
 						regexp: /^\d+(\.\d{0,2})?$/,
-						message: '请输入大于0的正数'
+						message: '请输入大于0的正数,小数点后不能超过2位'
 					},
 					between : {
 						min : 0,
@@ -1519,7 +1522,7 @@ function validSchoolTTForm(){
 					},
 					regexp: {
 					      regexp: /^\d+(\.\d{0,2})?$/,
-					      message: '请输入大于0的正数'
+					      message: '请输入大于0的正数,小数点后不能超过2位'
 					},
 					between : {
 						min : 0,
@@ -1535,7 +1538,7 @@ function validSchoolTTForm(){
 					},
 					regexp: {
 					      regexp: /^\d+(\.\d{0,2})?$/,
-					      message: '请输入大于0的正数'
+					      message: '请输入大于0的正数,小数点后不能超过2位'
 					},
 					between : {
 						min : 0,
@@ -1562,7 +1565,7 @@ function validSchoolTTForm(){
 					},
 					regexp: {
 					      regexp: /^\d+(\.\d{0,2})?$/,
-					      message: '请输入大于0的正数'
+					      message: '请输入大于0的正数,小数点后不能超过2位'
 					},
 					between : {
 						min : 0,
@@ -1721,15 +1724,15 @@ function validSchoolEditForm(){
 				validators : {
 					notEmpty : {
 						message : '网址不能为空'
-					},
-					stringLength: {
+					}
+					/*stringLength: {
 	                    min: 5,
 	                    max: 100,
 	                    message: '网址长度为5到100个字节。'
-	                },
-	                uri : {
+	                },*/
+	                /*uri : {
 	                	message : "请输入合法网址。"
-	                }
+	                }*/
 				}
 			},
 			postalAddress : {

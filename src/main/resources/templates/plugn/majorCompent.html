@@ -499,18 +499,12 @@
                 <div class="form-group">
                     <div class="rowGroup">
                         <label for="t16" class="col-sm-2 control-label">职业资格（含行业企业认证）：</label>
-                        <div class="col-sm-4">
-                            <input type="text" class="form-control" id="t16" name="t16" placeholder="格式如:职业资格1;职业资格2"
-                                   th:value="${mt.t16}"/>
+                        <div class="col-sm-6">
+                            <!--<input type="text" class="form-control" id="t16" name="t16" placeholder="格式如:职业资格1;职业资格2"
+                                   th:value="${mt.t16}"/>-->
+                            <textarea rows="6" class="form-control" id="t16" name="t16" placeholder="格式如:职业资格1;职业资格2" data-bv-field="t16" th:text="${mt.t16}"  style="resize: none;"></textarea>
                         </div>
                     </div>
-                    <!--<div class="rowGroup">
-                        <label for="t17" class="col-sm-2 control-label">主要社会兼职：</label>
-                        <div class="col-sm-4">
-                            <input type="text" class="form-control" id="t17" name="t17"
-                                   placeholder="格式如:兼职1;兼职2" th:value="${mt.t17}"/>
-                        </div>
-                    </div>-->
                 </div>
                 <div class="form-group">
                     <div class="rowGroup">
