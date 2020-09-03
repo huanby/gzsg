@@ -22,6 +22,25 @@ function listenerMajorAchievements(){
 		}
 	})
 
+
+	$("input[name='t20']").on("click",function () {
+		var obj = $(this).val();
+		var flag = $(this).is(":checked");
+		if(obj == 0){
+			if(flag){
+				$("input[name='t20']").not(this).prop("checked", false);
+				$("input[name='t20']").not("input:checked").attr("disabled",true);
+			}else {
+				$("input[name='t20']").not("input:checked").attr("disabled",false);
+			}
+		}
+	})
+
+
+
+
+
+
 }
 
 function initMajorAchievements(){
@@ -49,6 +68,18 @@ function validMajorAchievementsEditForm(){
 					notEmpty : {
 						message : '是否入选“吉林省普通高等学校高水平专业（群）建设计划不能为空'
 					},
+					/*callback : {
+						message: '日期格式不正确',
+						callback: function(value, validator) {
+							//这里可以自定义value的判断规则
+							if(value.match(/^((?:19|20)\d\d)-(0[1-9]|1[012])$/)) {
+								return true;
+							} else {
+								return false;
+							}
+						}
+
+					}*/
 					// stringLength: {
 					// 	min: 2,
 					// 	max: 50,

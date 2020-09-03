@@ -29,6 +29,9 @@
             <if test="majorTextWapper.t2 != null and majorTextWapper.t2 != ''">and t2 like
                 concat('%',#{majorTextWapper.t2},'%')
             </if>
+            <if test="majorTextWapper.t23 != null and majorTextWapper.t23 != ''">and t23 like
+                concat('%',#{majorTextWapper.t23},'%')
+            </if>
         </where>
         ORDER BY bmt.`updatetime` DESC
     </select>

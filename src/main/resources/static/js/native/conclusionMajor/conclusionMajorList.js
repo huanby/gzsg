@@ -43,7 +43,8 @@ function initTables(){
 				sort: params.sort, // 要排序的字段 
 				sortOrder: params.order,
 				t1: $("#t1").val(),
-				t2: $("#t2").val()
+				t2: $("#t2").val(),
+				t23: $("#t23").val()
 			} 
 		},
 		sidePagination : "server", // 分页方式：client客户端分页，server服务端分页（*）

@@ -57,21 +57,24 @@ public class MajorText {
 
     private String t4;
 
-    @DateTimeFormat(pattern = "yyyy-MM-dd")
+//    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    @DateTimeFormat(pattern = "yyyy-MM")
     private Date t5;
 
 //    @DateTimeFormat(pattern = "yyyy-MM-dd")
 //    private Date t6;
     private String t6;
 
-    @DateTimeFormat(pattern = "yyyy-MM-dd")
+//    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    @DateTimeFormat(pattern = "yyyy-MM")
     private Date t7;
 
     private String t8;
 
     private String t9;
 
-    @DateTimeFormat(pattern = "yyyy-MM-dd")
+//    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    @DateTimeFormat(pattern = "yyyy-MM")
     private Date t10;
 
     private String t11;

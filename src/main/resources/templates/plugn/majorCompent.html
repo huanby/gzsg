@@ -107,7 +107,7 @@
                         <label for="t5" class="col-sm-2 control-label">专业批准设置时间：</label>
                         <div class="col-sm-4">
                             <input type="text" class="form-control datepicker" id="t5" name="t5"  autocomplete="off"
-                                   th:value="${#dates.format(mt.t5,'yyyy-MM-dd')}"
+                                   th:value="${#dates.format(mt.t5,'yyyy-MM')}"
                                    placeholder="请填写专业批准设置时间"/>
                         </div>
                     </div>
@@ -151,7 +151,7 @@
                         <label for="t7" class="col-sm-2 control-label">首届学生毕业时间：</label>
                         <div class="col-sm-4">
                             <input type="text" class="form-control datepicker" id="t7" name="t7"
-                                   th:value="${#dates.format(mt.t7,'yyyy-MM-dd')}" autocomplete="off" placeholder="请填写首届学生毕业时间"/>
+                                   th:value="${#dates.format(mt.t7,'yyyy-MM')}" autocomplete="off" placeholder="请填写首届学生毕业时间"/>
                         </div>
                     </div>
                     <div class="rowGroup">
@@ -453,7 +453,7 @@
                         <label for="t10" class="col-sm-2 control-label">出生年月：</label>
                         <div class="col-sm-4">
                             <input type="text" class="form-control datepicker" id="t10" name="t10" autocomplete="off" placeholder="请输入出生年月"
-                                   th:value="${#dates.format(mt.t10,'yyyy-MM-dd')}"/>
+                                   th:value="${#dates.format(mt.t10,'yyyy-MM')}"/>
                         </div>
                     </div>
                     <div class="rowGroup">
@@ -541,7 +541,33 @@
                     <div class="rowGroup">
                         <label class="col-sm-2 control-label">是否入选“吉林省普通高等学校高水平专业（群）建设计划：</label>
                         <div class="col-sm-4">
-                            <div class="" th:if="${mt.t19} ne null">
+                            <div class="radio-list" th:if="${mt.t19} eq null">
+                                <label>
+                                    <input type="radio" id="t19-1" name="t19" value="A类" data-title="A类"
+                                           checked="checked"/>A类
+                                </label>
+                                <label>
+                                    <input type="radio" id="t19-2" name="t19" value="B类" data-title="B类"/>B类
+                                </label>
+                                <label>
+                                    <input type="radio" id="t19-3" name="t19" value="否" data-title="否"/>否
+                                </label>
+                            </div>
+                            <div class="radio-list" th:if="${mt.t19} ne null">
+                                <label>
+                                    <input type="radio" id="t19-1" name="t19" value="A类" th:field="${mt.t19}"
+                                           data-title="A类"/>A类
+                                </label>
+                                <label>
+                                    <input type="radio" id="t19-2" name="t19" value="B类" th:field="${mt.t19}"
+                                           data-title="B类"/>B类
+                                </label>
+                                <label>
+                                    <input type="radio" id="t19-3" name="t19" value="否" th:field="${mt.t19}"
+                                           data-title="否"/>否
+                                </label>
+                            </div>
+                            <!--<div class="" th:if="${mt.t19} ne null">
                                 <label class="control-label">
                                     <input type="checkbox" th:checked="${#strings.contains(mt.t19,'1')}" name="t19"
                                            value="1">A类</label>
@@ -565,7 +591,7 @@
                                 <label class="control-label">
                                     <input type="checkbox" name="t19" value="0">否</label>
                                 </label>
-                            </div>
+                            </div>-->
                         </div>
                     </div>
                     <div class="rowGroup">
@@ -795,7 +821,7 @@
 		            	<span class="btn fileinput-button" style="width:100%">
 					        <i class="glyphicon glyphicon-plus"></i>
 <!--					        <span>添加佐证文档</span>-->
-                            <span style="color: red">请务必上传附件材料，包含：项目申报书、项目建设方案（提纲）、专业人才培养方案、<br>成果与贡献佐证材料、专业发展详细规划、经费证明材料、使用预算和资金监督管理办法等</span>
+                            <span style="color: red">请务必上传附件材料，包含：项目申报书、项目建设方案（提纲）、专业人才培养方案、<br>成果与贡献佐证材料、专业发展详细规划、经费证明材料、使用预算和资金监督管理办法等（仅支持PDF文件）</span>
 					        <input type="file" id="file" multiple name="file"/>
 <!--					        <i class="fa fa-file-pdf-o text-danger"></i >-->
 					    </span>

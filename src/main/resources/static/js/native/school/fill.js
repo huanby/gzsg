@@ -395,7 +395,10 @@ function init(){
         autoclose : true,
         todayHighlight : true,
         endDate : new Date(),
-        format: 'yyyy-mm-dd',
+		startView : 1,
+		minViewMode : 1,
+        // format: 'yyyy-mm-dd',
+        format: 'yyyy-mm',
         language:'zh-CN'
     }).on('hide',function(e) {
         $('#schoolEditForm').data('bootstrapValidator')
@@ -1676,10 +1679,22 @@ function validSchoolEditForm(){
 					notEmpty : {
 						message : '建校日不能为空'
 					},
-					date : {
-						format : 'YYYY-MM-DD',
-						message : '日期格式不正确'
+					callback: {
+						message: '日期格式不正确',
+						callback: function(value, validator) {
+							//这里可以自定义value的判断规则
+							if(value.match(/^((?:19|20)\d\d)-(0[1-9]|1[012])$/)) {
+								return true;
+							} else {
+								return false;
+							}
+						}
 					}
+					/*date : {
+						// format : 'YYYY-MM-DD',
+						format : 'YYYY-MM',
+						message : '日期格式不正确'
+					}*/
 				}
 			},
 			schoolName : {
@@ -1921,6 +1936,10 @@ function initFileUpload(){
 			'mp3': '<i class="fa fa-file-audio-o text-warning"></i>'
 		},
         initialPreview:pathList,
+		dropZoneTitle:"点击此处选择PDF文件，或将PDF文件拖拽至此",
+		dropZoneClickTitle:"<br>PDF选择完毕后，可进行多文件同时上传<br>需点击下方上传按钮（PDF选择完毕后出现）",
+		browseLabel:"选择",
+		filePlural:"文件",
         initialPreviewAsData: true, 
         initialPreviewConfig:initPreviewConfig,
         maxFileCount: 10,//最大上传数量

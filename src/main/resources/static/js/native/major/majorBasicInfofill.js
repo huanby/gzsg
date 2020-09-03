@@ -43,7 +43,9 @@ function initMajorBasicInfo(){
         autoclose : true,
         todayHighlight : true,
         endDate : new Date(),
-        format: 'yyyy-mm-dd',
+		startView : 1,
+		minViewMode : 1,
+        format: 'yyyy-mm',
         language:'zh-CN'
     }).on('hide',function(e) {
 		$('#majorEditForm_basicInfo').data('bootstrapValidator')
@@ -67,7 +69,9 @@ function initMajorBasicInfo(){
 		autoclose : true,
 		todayHighlight : true,
 		endDate : new Date(),
-		format: 'yyyy-mm-dd',
+		startView : 1,
+		minViewMode : 1,
+		format: 'yyyy-mm',
 		language:'zh-CN'
 	}).on('hide',function(e) {
 		$('#majorEditForm_basicInfo').data('bootstrapValidator')
@@ -141,10 +145,21 @@ function validMajorBasicInfoEditForm(){
 					notEmpty : {
 						message : '专业批准设置时间不能为空'
 					},
-					date : {
+					callback: {
+						message: '日期格式不正确',
+						callback: function(value, validator) {
+							//这里可以自定义value的判断规则
+							if(value.match(/^((?:19|20)\d\d)-(0[1-9]|1[012])$/)) {
+								return true;
+							} else {
+								return false;
+							}
+						}
+					}
+					/*date : {
 						format : 'YYYY-MM-DD',
 						message : '日期格式不正确'
-					}
+					}*/
 				}
 			},
 			t6 : {
@@ -163,10 +178,21 @@ function validMajorBasicInfoEditForm(){
 					notEmpty : {
 						message : '首届学生毕业时间不能为空'
 					},
-					date : {
+					callback: {
+						message: '日期格式不正确',
+						callback: function(value, validator) {
+							//这里可以自定义value的判断规则
+							if(value.match(/^((?:19|20)\d\d)-(0[1-9]|1[012])$/)) {
+								return true;
+							} else {
+								return false;
+							}
+						}
+					}
+					/*date : {
 						format : 'YYYY-MM-DD',
 						message : '日期格式不正确'
-					}
+					}*/
 				}
 			},
 			n1 : {

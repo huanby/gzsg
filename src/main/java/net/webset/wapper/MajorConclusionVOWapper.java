@@ -28,6 +28,8 @@ public class MajorConclusionVOWapper extends QueryWrapper<MajorConclusionVO>  {
 
 	private String t2;
 
+	private String t23;
+
 	public Integer getCreateId() {
 		return createId;
 	}
@@ -87,5 +89,13 @@ public class MajorConclusionVOWapper extends QueryWrapper<MajorConclusionVO>  {
 
 	public void setT2(String t2) {
 		this.t2 = t2;
+	}
+
+	public String getT23() {
+		return t23;
+	}
+
+	public void setT23(String t23) {
+		this.t23 = t23;
 	}
 }

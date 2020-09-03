@@ -49,8 +49,8 @@ function initFileUpload() {
 			'mp3': '<i class="fa fa-file-audio-o text-warning"></i>'
 		},
 		initialPreview:pathList,
-		dropZoneTitle:"点击此处进行PDF文件上传",
-		dropZoneClickTitle:"<br>支持多文件同时上传（需点击下方上传按钮）",
+		dropZoneTitle:"点击此处选择PDF文件，或将PDF文件拖拽至此",
+		dropZoneClickTitle:"<br>PDF选择完毕后，可进行多文件同时上传<br>需点击下方上传按钮（PDF选择完毕后出现）",
 		browseLabel:"选择",
 		filePlural:"文件",
 		initialPreviewAsData: true,

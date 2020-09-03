@@ -38,6 +38,8 @@ public class MajorConclusionVO extends MajorNumber implements Serializable {
 
     private String t22;
 
+    private String t23;
+
     public Double getScore() {
         return score;
     }
@@ -92,5 +94,13 @@ public class MajorConclusionVO extends MajorNumber implements Serializable {
 
     public void setT22(String t22) {
         this.t22 = t22;
+    }
+
+    public String getT23() {
+        return t23;
+    }
+
+    public void setT23(String t23) {
+        this.t23 = t23;
     }
 }

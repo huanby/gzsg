@@ -40,7 +40,8 @@ public class SchoolData {
 	
 	@TableField(BUILDDAY)
 	@NotNull(message="建校日不能为空",groups= {Add.class})
-	@DateTimeFormat(pattern = "yyyy-MM-dd")
+	@DateTimeFormat(pattern = "yyyy-MM")
+//	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private Date buildDay;
 	
 	@TableField(NATURE)
