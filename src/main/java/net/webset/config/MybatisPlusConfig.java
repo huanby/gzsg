@@ -16,10 +16,11 @@ public class MybatisPlusConfig {
      * 分页插件
      * @return 分页bean
      */
-    @Bean
-    public PaginationInterceptor paginationInterceptor() {
-        return new PaginationInterceptor();
-    }
+	@Bean 
+	public PaginationInterceptor paginationInterceptor() { 
+		return new PaginationInterceptor(); 
+	}
+	 
     
     /**
      * 逻辑删除操作

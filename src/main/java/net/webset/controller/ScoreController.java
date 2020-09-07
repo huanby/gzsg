@@ -37,6 +37,7 @@ import net.webset.entity.SpRpSdM;
 import net.webset.entity.SrBm;
 import net.webset.entity.TsTr;
 import net.webset.entity.User;
+import net.webset.service.IExpertSchoolService;
 import net.webset.service.IIaIeSsSrService;
 import net.webset.service.IImagesService;
 import net.webset.service.ILaOnService;
@@ -48,6 +49,8 @@ import net.webset.service.ITsTrService;
 import net.webset.util.ResultInfo;
 import net.webset.util.options.Add;
 import net.webset.util.options.Update;
+import net.webset.view.ExpertSchool;
+import net.webset.wapper.ExpertSchoolWapper;
 import net.webset.wapper.IaIeSsSrWapper;
 import net.webset.wapper.ImagesWapper;
 import net.webset.wapper.LaOnWapper;
@@ -92,6 +95,9 @@ public class ScoreController {
 	
 	@Autowired
 	private IScoreService iScoreService;
+	
+	@Autowired
+	private IExpertSchoolService iExpertSchoolService;
 
 	@GetMapping("scoreSchool.html")
 	public ModelAndView scoreSchool(ModelAndView mav) {
@@ -100,26 +106,32 @@ public class ScoreController {
 	}
 
 	@GetMapping("scoreSchoolList.json")
-	public PageUtilResult<SchoolData> scoreSchoolList(SchoolDataWapper data,PageUtilWapper pwapper){
-		IPage<SchoolData> page = iSchoolDataService.page(
-				new Page<SchoolData>(pwapper.getOffset(), pwapper.getLimit()), data);
+	public PageUtilResult<ExpertSchool> scoreSchoolList(ExpertSchoolWapper data,PageUtilWapper pwapper){
 		
+		/*
+		 * IPage<SchoolData> page = iSchoolDataService.page( new
+		 * Page<SchoolData>(pwapper.getOffset(), pwapper.getLimit()), data);
+		 * 
+		 * 
+		 * if(!page.getRecords().isEmpty()) { User user = (User)
+		 * session.getAttribute("user"); List<SchoolData> sds = page.getRecords();
+		 * for(int i=0;i<sds.size();i++) { ScoreWapper wap = new ScoreWapper();
+		 * wap.setUserId(sds.get(i).getCreateId()); wap.setExamId(user.getId());
+		 * sds.get(i).setScore(iScoreService.getOne(wap)); } page.setRecords(sds); }
+		 * PageUtilResult<SchoolData> result = new PageUtilResult<>();
+		 * result.setTotal(page.getTotal()); result.setRows(page.getRecords()); return
+		 * result;
+		 */
+		User user = (User) session.getAttribute("user");
+		data.setExamId(user.getId());
+		IPage<ExpertSchool> page = iExpertSchoolService.
+				page(new Page<ExpertSchool>(pwapper.getOffset(),pwapper.getLimit()),data);
 		
-		if(!page.getRecords().isEmpty()) {
-			User user = (User) session.getAttribute("user");
-			List<SchoolData> sds = page.getRecords();
-			for(int i=0;i<sds.size();i++) {
-				ScoreWapper wap = new ScoreWapper();
-				wap.setUserId(sds.get(i).getCreateId());
-				wap.setExamId(user.getId());
-				sds.get(i).setScore(iScoreService.getOne(wap));
-			}
-			page.setRecords(sds);
-		}
-		PageUtilResult<SchoolData> result = new PageUtilResult<>();
+		PageUtilResult<ExpertSchool> result = new PageUtilResult<ExpertSchool>();
 		result.setTotal(page.getTotal());
 		result.setRows(page.getRecords());
 		return result;
+		
 	}
 	
 	@GetMapping("scoreSchoolShow.html")

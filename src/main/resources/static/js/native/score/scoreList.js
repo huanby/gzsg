@@ -69,7 +69,7 @@ function initTables(){
 			{field : 'leName',title : '法人姓名',sortable: true}, 
 			{field : 'leOfficePhone',title : '法人办公电话',sortable: true}, 
 			{field : 'lePhone',title : '法人联系方式',sortable: true}, 
-			{field : 'score.score',title : '分数'}, 
+			{field : 'score',title : '分数',sortable: true}, 
 			{field : 'examine',title : '评分',formatter: toExamine}
 		]
 	});

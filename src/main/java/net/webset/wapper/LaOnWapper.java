@@ -1,11 +1,13 @@
 package net.webset.wapper;
 
+import java.lang.reflect.Field;
+
 import org.apache.commons.lang3.StringUtils;
 
+import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 
 import net.webset.entity.LaOn;
-import net.webset.util.Utils;
 
 public class LaOnWapper extends QueryWrapper<LaOn> {
 	
@@ -51,15 +53,13 @@ public class LaOnWapper extends QueryWrapper<LaOn> {
 	
 	//升降序操作。
 	public void initOrder() {
-		if(StringUtils.isNoneBlank(this.sort) && StringUtils.isNoneBlank(this.sortOrder)) {
-			Object clumn = "";
-			String[] fild = Utils.getFiledName(new LaOn());
-			for(String f : fild) {
-				if(f.equals(this.sort.toUpperCase())) {
-					clumn = Utils.getFieldValueByName(f,LaOn.class);
+		if(StringUtils.isNoneBlank(this.sort) && StringUtils.isNoneBlank(this.sortOrder)) {			
+			Field[] fields = LaOn.class.getDeclaredFields();
+			for(Field f : fields) {
+				if(f.getName().equals(this.sort)) {
+					this.orderBy(true, "asc".equals(this.sortOrder),f.getAnnotation(TableField.class).value());
 				}
 			}
-			this.orderBy(true, "asc".equals(this.sortOrder), new String[] {clumn.toString()});
 		}
 		
 	}
