@@ -73,7 +73,7 @@ function initTables(){
 			{field : 't2',title : '专业所属大类',valign: 'middle',align: 'center'},
 			// {field : 't3',title : '龙头专业代码',valign: 'middle',align: 'center'},
 			{field : 't4',title : '所在院（系）',valign: 'middle',align: 'center'},
-			{field : 'scoreEnd',title : '得分',valign: 'middle',align: 'center',
+			{field : 'scoreEnd',title : '得分',valign: 'middle',align: 'center',sortable: true,
 				formatter : function (value, row, index) {
 					if(value != null){
 						return value;

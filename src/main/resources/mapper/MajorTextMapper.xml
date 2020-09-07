@@ -33,7 +33,16 @@
                 concat('%',#{majorTextWapper.t23},'%')
             </if>
         </where>
-        ORDER BY bmt.`updatetime` DESC
+        <choose>
+            <when test="majorTextWapper.sort != null and majorTextWapper.sort != '' ">
+                ORDER BY  ${majorTextWapper.sort} ${majorTextWapper.sortOrder},bmt.`updatetime` DESC
+            </when>
+            <otherwise>
+                ORDER BY bmt.`updatetime` DESC
+            </otherwise>
+
+        </choose>
+        <!--ORDER BY bmt.`updatetime` DESC-->
     </select>
 
 

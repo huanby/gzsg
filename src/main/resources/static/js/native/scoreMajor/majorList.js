@@ -45,7 +45,7 @@ function initTables(){
 		striped: true, 										// 是否显示行间隔色
 		cache: false, 										// 是否使用缓存，默认为true，所以一般情况下需要设置一下这个属性（*）
 		pagination: true, 									// 是否显示分页（*）
-		sortable: false, 									// 是否启用排序
+		sortable: true, 									// 是否启用排序
 		sortOrder: "asc", 									// 排序方式
 		singleSelect : true,
 		queryParams: function (params) { 					// 请求服务器数据时发送的参数，可以在这里添加额外的查询参数，返回false则终止请求
@@ -76,12 +76,12 @@ function initTables(){
 		detailView : false, // 是否显示父子表
 		columns : [
 			{checkbox : true},
-			{field : 't22',title : '申报学校'},
-			{field : 't1',title : '专业（群）名称'},
-			{field : 't2',title : '专业所属大类'},
+			{field : 't22',title : '申报学校',sortable: true},
+			{field : 't1',title : '专业（群）名称',sortable: true},
+			{field : 't2',title : '专业所属大类',sortable: true},
 			// {field : 't3',title : '龙头专业代码'},
-			{field : 't4',title : '所在院（系）'},
-			{field : 'score',title : '得分',
+			{field : 't4',title : '所在院（系）',sortable: true},
+			{field : 'score',title : '得分',sortable: true,
 				formatter : function (value, row, index) {
 				if(value != null){
 					return value;

@@ -2,7 +2,9 @@ package net.webset.wapper;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import net.webset.entity.MajorText;
+import net.webset.entity.SchoolData;
 import net.webset.entity.User;
+import net.webset.util.Utils;
 import org.apache.commons.lang3.StringUtils;
 
 /**
@@ -25,8 +27,12 @@ public class MajorTextWapper extends QueryWrapper<MajorText>  {
 
 	private Integer createId;
 
-
 	private String majorTextName;
+
+	private String sort;
+
+	private String sortOrder;
+
 
 	public String getMajorTextName() {
 		return majorTextName;
@@ -85,7 +91,39 @@ public class MajorTextWapper extends QueryWrapper<MajorText>  {
 	}
 
 
+	public String getSort() {
+		return sort;
+	}
 
-	
-	
+	public void setSort(String sort) {
+		this.sort = sort;
+		this.initOrder();
+	}
+
+	public String getSortOrder() {
+		return sortOrder;
+	}
+
+	public void setSortOrder(String sortOrder) {
+		this.sortOrder = sortOrder;
+		this.initOrder();
+	}
+
+	//升降序操作。
+	public void initOrder() {
+		if(StringUtils.isNoneBlank(this.sort) && StringUtils.isNoneBlank(this.sortOrder)) {
+			Object clumn = "";
+			String[] fild = Utils.getFiledName(new MajorText());
+			for(String f : fild) {
+				if(f.equals(this.sort.toUpperCase())) {
+					clumn = Utils.getFieldValueByName(f,MajorText.class);
+				}
+			}
+			this.orderBy(true, "asc".equals(this.sortOrder), new String[] {clumn.toString()});
+		}
+
+	}
+
+
+
 }

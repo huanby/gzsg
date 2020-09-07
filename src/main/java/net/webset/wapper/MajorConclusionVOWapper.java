@@ -48,7 +48,19 @@ public class MajorConclusionVOWapper extends QueryWrapper<MajorConclusionVO>  {
 
 	public void setSort(String sort) {
 		this.sort = sort;
-		this.initOrder();
+		if(StringUtils.isNoneBlank(this.sort)) {
+			Object clumn = "";
+			String[] fild = Utils.getFiledName(new MajorNumber());
+			for(String f : fild) {
+				if(f.equals(this.sort.toUpperCase())) {
+					clumn = Utils.getFieldValueByName(f,MajorNumber.class);
+				}
+			}
+//			this.orderBy(true, "asc".equals(this.sortOrder), new String[] {clumn.toString()});
+			this.sort = (String) clumn;
+		}else {
+			this.initOrder();
+		}
 	}
 
 	public String getSortOrder() {
