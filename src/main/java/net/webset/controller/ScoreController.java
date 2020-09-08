@@ -123,9 +123,8 @@ public class ScoreController {
 		 * result;
 		 */
 		User user = (User) session.getAttribute("user");
-		data.setExamId(user.getId());
-		IPage<ExpertSchool> page = iExpertSchoolService.
-				page(new Page<ExpertSchool>(pwapper.getOffset(),pwapper.getLimit()),data);
+		IPage<ExpertSchool> page = iExpertSchoolService.expertSchool
+				(new Page<ExpertSchool>(pwapper.getOffset(),pwapper.getLimit()),data,user.getId());
 		
 		PageUtilResult<ExpertSchool> result = new PageUtilResult<ExpertSchool>();
 		result.setTotal(page.getTotal());

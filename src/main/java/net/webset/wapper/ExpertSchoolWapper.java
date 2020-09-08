@@ -22,8 +22,6 @@ public class ExpertSchoolWapper extends QueryWrapper<ExpertSchool> {
 	
 	private Integer score;
 	
-	private Integer examId;
-	
 	private String sort;
 	
 	private String sortOrder;
@@ -69,17 +67,6 @@ public class ExpertSchoolWapper extends QueryWrapper<ExpertSchool> {
 		this.score = score;
 		if (this.score != null) {
 			this.eq(ExpertSchool.SCORE, this.score);
-		}
-	}
-
-	public Integer getExamId() {
-		return examId;
-	}
-
-	public void setExamId(Integer examId) {
-		this.examId = examId;
-		if (this.examId != null) {
-			this.eq(ExpertSchool.EXAMID, this.examId);
 		}
 	}
 

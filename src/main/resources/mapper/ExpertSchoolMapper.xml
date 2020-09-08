@@ -6,4 +6,9 @@
         <id column="id" property="id" />  
     </resultMap>
 
+	<select id="pageExpertSchool" resultType="net.webset.view.ExpertSchool">
+	    SELECT si.*,s.score,s.exam_id FROM b_school_info si 
+		LEFT JOIN b_score s ON si.create_id = s.user_id AND exam_id = #{examId}
+		${ew.customSqlSegment}
+	</select>
 </mapper>
