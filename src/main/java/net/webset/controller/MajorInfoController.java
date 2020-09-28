@@ -260,7 +260,7 @@ public class MajorInfoController {
 		if (!file.isEmpty() && sessionMajorId != null) {
 			try { // 转存文件
 				// 文件原名称包括后缀名 file.getOriginalFilename();
-				String end = file.getOriginalFilename().split("\\.")[file.getName().split("\\.").length];
+				String end = file.getOriginalFilename().split("\\.")[file.getOriginalFilename().split("\\.").length-1];
 				String fileName = UUID.randomUUID().toString().replaceAll("-", "") + "." + end;
 				File nf = new File(securityProperties.getOther().getPath() + fileName);
 				//如果文件不存在
