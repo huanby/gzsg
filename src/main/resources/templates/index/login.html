@@ -77,4 +77,11 @@
         document.getElementById("login_input").disabled=false
     }
 </script>
+<script>
+    //如果当前的窗体不是最外层窗体
+    if (window != top){
+        //那么就将最外层窗体的的地址赋给当前窗体
+        top.location.href = window.location.href;
+    }
+</script>
 </html>

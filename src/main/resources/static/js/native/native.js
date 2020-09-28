@@ -45,3 +45,13 @@ function showChooseInfo(titleInfo){
         backdrop:'static'
     });
 }
+
+$(document).ready(function () {
+    if(window.location != parent.location){     //判断是否有父窗口，当不相等时，表示有父窗口
+        return;
+    }else if(window.location.href.indexOf("/index.html") != -1 || window.location.href.indexOf("/login.html") != -1){
+        return;
+    }else {
+        window.location.href=getRootPath()+"/admin/index.html";
+    }
+});
