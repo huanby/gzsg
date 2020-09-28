@@ -49,7 +49,8 @@ function listener(){
 
 function primary(){
 	var select = $('#tb_roles').bootstrapTable('getSelections');
-	window.location.href = getRootPath() + '/userManager/authDel.html?id=' + select[0].id;
+	// window.location.href = getRootPath() + '/userManager/authDel.html?id=' + select[0].id;
+	window.location.href = getRootPath() + '/authManager/authDel.html?id=' + select[0].id;
 }
 
 function initTables(){

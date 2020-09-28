@@ -29,4 +29,10 @@ public interface IRoleService extends IService<Role> {
 	 */
 	Boolean updateRole(Role role, Integer[] menus);
 
+	/**
+	 * 删除角色信息
+	 * @param id
+	 * @return
+	 */
+	Boolean deleteRole(Integer id);
 }

@@ -2,6 +2,7 @@ package net.webset.controller;
 
 import java.util.List;
 
+import net.webset.util.options.Delete;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -107,4 +108,21 @@ public class AuthController {
     	mav.setViewName("roles/rolesList.html");
         return mav;
 	}
+
+	@GetMapping("authDel.html")
+	public ModelAndView authDel(@Validated(Delete.class) Role role, BindingResult result, ModelAndView mav) {
+		if (result.hasErrors()) {
+			// 现在表示执行的验证出现错误
+			mav.setViewName("roles/rolesList.html");
+			return mav;
+		}
+		Integer id = role.getId();
+		roleService.deleteRole(id);
+
+		mav.setViewName("roles/rolesList.html");
+		return mav;
+
+	}
+
+
 }

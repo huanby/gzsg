@@ -4,6 +4,10 @@ import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Set;
 
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import net.webset.entity.UserRole;
+import net.webset.service.IRoleMenuService;
+import net.webset.service.IUserRoleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -16,6 +20,8 @@ import net.webset.mapper.RoleMapper;
 import net.webset.mapper.RoleMenuMapper;
 import net.webset.service.ICacheService;
 import net.webset.service.IRoleService;
+
+import javax.annotation.Resource;
 
 /**
  * <p>
@@ -36,6 +42,13 @@ public class RoleServiceImpl extends ServiceImpl<RoleMapper, Role> implements IR
 	
 	@Autowired
 	private ICacheService cacheService;
+
+	@Resource
+	private IUserRoleService iUserRoleService;
+
+	@Resource
+	private IRoleMenuService iRoleMenuService;
+
 	
 	@Transactional
 	public Boolean saveRole(Role role, Integer[] menus) {
@@ -109,6 +122,25 @@ public class RoleServiceImpl extends ServiceImpl<RoleMapper, Role> implements IR
 		}
 		cacheService.updateRolePrimission(role);
 		}
+		return true;
+	}
+
+	/**
+	 * 删除角色信息
+	 * @param id
+	 * @return
+	 */
+	@Override
+	@Transactional(rollbackFor = {RuntimeException.class, Error.class})
+	public Boolean deleteRole(Integer id) {
+		QueryWrapper<RoleMenu> roleMenuQueryWrapper = new QueryWrapper<RoleMenu>();
+		roleMenuQueryWrapper.eq("roleid",id);
+		iRoleMenuService.remove(roleMenuQueryWrapper);
+
+		QueryWrapper<UserRole> userRoleQueryWrapper = new QueryWrapper<UserRole>();
+		userRoleQueryWrapper.eq("roleid",id);
+		iUserRoleService.remove(userRoleQueryWrapper);
+		this.removeById(id);
 		return true;
 	}
 
