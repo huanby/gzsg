@@ -860,7 +860,13 @@
             </div>
         </form>
     </div>
-
+    <script>
+        document.onkeydown=function(e){
+            if(e.keyCode == 13) {
+                return false;
+            }
+        };
+    </script>
 </div>
 </body>
 </html>
