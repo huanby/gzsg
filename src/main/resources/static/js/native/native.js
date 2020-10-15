@@ -51,6 +51,8 @@ $(document).ready(function () {
         return;
     }else if(window.location.href.indexOf("/index.html") != -1 || window.location.href.indexOf("/login.html") != -1){
         return;
+    }else if(window.location.pathname == "/" || window.location.pathname == "" || window.location.pathname == "/index"){
+        return;
     }else {
         window.location.href=getRootPath()+"/admin/index.html";
     }
