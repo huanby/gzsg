@@ -79,6 +79,8 @@ public class AdminController {
 			mav.addObject("msg","登录信息失效，请重新登录");
 			mav.setViewName("error/500.html");
 		}else {
+			//返回用户信息到个人中心用于修改密码
+			mav.addObject("user",user);
 			mav.setViewName("index/main.html");
 			Msg msg = new Msg("测试标题","测试内容","额外信息,只对管理员显示");
 			mav.addObject("msg",msg);

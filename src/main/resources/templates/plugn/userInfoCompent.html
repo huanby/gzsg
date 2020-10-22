@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+<body>
+<!--修改密码模态框-->
+<div th:fragment="changePassword" class="modal fade" id="changePassword" tabindex="-1" style="z-index: 1041;"
+     role="dialog"
+     aria-labelledby="modelInfo" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="modelInfoChangePassword">修改密码</h4>
+            </div>
+            <div class="modal-body" id="chooseInfoChangePassword">
+                <form class="form-horizontal" method="post" id="userInfoChangePassword" th:object="${user}"
+                      style="width: 90%">
+                    <!--用户名-->
+                    <!--<div class="form-group">
+                        <label for="username1" class="col-sm-2 control-label">用户名：</label>
+                        <input type="text" class="form-control" style="width: 50%" name="username" id="username1"
+                               th:value="*{username}" placeholder="请输入登录名" th:field="*{username}" readonly="true"/>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label"></label>
+                        <div class="alert alert-danger" style="width: 50%;float: left;"
+                             th:if="${#fields.hasErrors('username')}">
+                            <a class="close" data-dismiss="alert">×</a>
+                            <strong>错误信息!</strong>
+                            <p th:errors="*{username}">This is a fatal error.</p>
+                        </div>
+                    </div>-->
+                    <!--姓名-->
+                    <!--<div class="form-group">
+                        <label for="name1"
+                               class="col-sm-2 control-label">姓&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;名：</label>
+                        <input type="text" class="form-control" name="name" style="width: 50%" id="name1"
+                               value="" th:value="*{name}" placeholder="请输入姓名" readonly="true"/>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label"></label>
+                        <div class="alert alert-danger" style="width: 50%;float: left;"
+                             th:if="${#fields.hasErrors('name')}">
+                            <a class="close" data-dismiss="alert">×</a>
+                            <strong>错误信息!</strong>
+                            <p th:errors="*{name}">This is a fatal error.</p>
+                        </div>
+                    </div>-->
+                    <!--密码-->
+                    <div class="form-group">
+                        <label for="oldpassword" class="col-sm-2 control-label">旧密码</label>
+                        <input type="password" class="form-control" name="oldPassword" style="width: 50%"
+                               id="oldPassword"
+                               value="" placeholder="请输入密码"/>
+                    </div>
+                    <div class="form-group">
+                        <label for="newpassword" class="col-sm-2 control-label">新密码</label>
+                        <input type="password" class="form-control" name="password" style="width: 50%" id="newPassword"
+                               value="" placeholder="请输入密码"/>
+                    </div>
+                    <div class="form-group">
+                        <label for="repassword" class="col-sm-2 control-label">确认密码</label>
+                        <input type="password" class="form-control" name="rePassword" style="width: 50%" id="rePassword"
+                               value="" placeholder="请输入密码"/>
+                    </div>
+                    <!--                    <div class="form-group">
+                                            <label class="col-sm-2 control-label"></label>
+                                            <div class="alert alert-danger" style="width: 50%;float: left;"
+                                                 th:if="${#fields.hasErrors('password')}">
+                                                <a class="close" data-dismiss="alert">×</a>
+                                                <strong>错误信息!</strong>
+                                                <p th:errors="*{password}">This is a fatal error.</p>
+                                            </div>
+                                        </div>-->
+                    <!--保存按钮-->
+                    <div class="form-group">
+                        <div class="col-sm-offset-2 col-sm-10">
+                            <button type="button" class="btn btn-success" id="submitChangePassword">保存</button>
+                            <!--                            <button type="button" class="btn btn-primary"  id="cancelChangePassword">取消</button>-->
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                <!--	                <button type="button" class="btn btn-primary" data-dismiss="modal" onclick="primary()">确认</button>-->
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal -->
+</div>
+
+<!--修改密码提示信息-->
+<div th:fragment="tipsPassModal" class="modal fade" id="tipsPass" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="myModalLabel">提示信息</h4>
+            </div>
+            <div class="modal-body" id="tipsPassInfo"></div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal -->
+</div>
+
+
+<!--提示信息-->
+<div th:fragment="choosePassModal" class="modal fade" id="choosePass" tabindex="-1" role="dialog" aria-labelledby="modelInfo" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="modelInfo">提示信息</h4>
+            </div>
+            <div class="modal-body" id="choosePassInfo" ></div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                <button type="button" class="btn btn-primary" data-dismiss="modal" onclick="primaryChang()">确认</button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal -->
+</div>
+</body>
+</html>
